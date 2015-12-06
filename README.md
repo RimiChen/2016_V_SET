@@ -27,3 +27,7 @@ Note:
 
 Reference:
 ------
+
+Related projects:
+-----
+[CharaMake](https://github.com/RimiChen/CharaMake): This tool let users to create their own characters, and exprot the characters into png files.
