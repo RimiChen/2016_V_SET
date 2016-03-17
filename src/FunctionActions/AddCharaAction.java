@@ -4,12 +4,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import CharaMake.CustomCharacter;
-import Screen.CharacterButton;
-import Screen.FunctionButton;
-import Screen.G_Chara;
-import Screen.G_Components;
-import Screen.MainFrame;
+import MainScreen.CharacterButton;
+import MainScreen.FunctionButton;
+import CharacterScreen.G_Chara;
+import MainScreen.G_Components;
+import MainScreen.MainFrame;
 import Variables.GlobalV;
+import Variables.LookUp;
 
 public class AddCharaAction implements ActionListener{
 	public CustomCharacter tempChara;
@@ -22,10 +23,13 @@ public class AddCharaAction implements ActionListener{
 		
 
 		if(GlobalV.isEditting == false){
+			
 			// Add new character
 			GlobalV.CharaNumber = GlobalV.CharaNumber+1;
-			tempChara = new CustomCharacter(GlobalV.CharaNumber);
-			GlobalV.CharaMap.put(GlobalV.CharaNumber, tempChara);
+			//initialize
+			tempChara = new CustomCharacter(GlobalV.CharaNumber, G_Chara.Man.initCharaImageSet);
+			LookUp.CharaMap.put(GlobalV.CharaNumber, tempChara);
+			LookUp.CharaNameMap.put(tempChara.name, GlobalV.CharaNumber);
 			// create Character button
 			tempCharaButton = new CharacterButton(
 					G_Chara.charaButtonPanel.getWidth()*(tempChara.index-1)/ GlobalV.CharaNumber,
@@ -45,15 +49,15 @@ public class AddCharaAction implements ActionListener{
 			G_Chara.charaButtonPanel.removeAll();
 			G_Chara.charaButtonPanel.addThings();
 			G_Chara.charaButtonPanel.repaint();
-			//printAllChara();
+			printAllChara();
 		}
 		
 		
 	}
 	public void printAllChara(){
-		for(int key : GlobalV.CharaMap.keySet())
+		for(int key : LookUp.CharaMap.keySet())
 		{
-		     System.out.println(key + " : " +GlobalV.CharaMap.get(key).name);
+		     System.out.println(key + " : " +LookUp.CharaMap.get(key).name);
 		}
 	}
 	public void updateButtonSize(){

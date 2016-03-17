@@ -5,7 +5,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 import FunctionActions.MainFrameActions;
-import Screen.*;
+import MainScreen.*;
 import Variables.GlobalV;
 
 public class OutFrame extends MainFrame{

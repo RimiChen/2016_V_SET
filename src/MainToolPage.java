@@ -59,8 +59,11 @@ import javax.swing.*;
 import FunctionActions.AddCharaAction;
 import FunctionActions.MainFrameActions;
 import Main.OutFrame;
-import Screen.*;
+import MainScreen.*;
+import CharacterScreen.*;
+import Variables.G_Fun;
 import Variables.GlobalV;
+import Variables.LookUp;
 
 public class MainToolPage{
 /*
@@ -69,6 +72,8 @@ public class MainToolPage{
 	public static GlobalV global;
 	public static G_Components globalC;
 	public static G_Chara globalChara;
+	public static G_Fun globalFun;
+	public static LookUp globalLook;
 	
 	public static MainFrameActions test = new MainFrameActions();
 	
@@ -77,8 +82,12 @@ public class MainToolPage{
 	public static void initialSetting(){
 		//initialize
 		global = new GlobalV();
+		globalLook = new LookUp();
+		globalFun = new G_Fun();
 		globalC = new G_Components();
 		globalChara = new G_Chara();
+
+
 	}
 	//This is the start point of the tool
 	@SuppressWarnings("deprecation")

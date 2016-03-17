@@ -23,12 +23,14 @@ public class GlobalV {
 	public static int NumberOfFunctions;
 	
 	public static int CharaNumber;
-	public static Map<Integer, CustomCharacter> CharaMap;
+
 	public static int CharaPropotion;
 	public static String CurrentEditingChara;
 	
 	public static boolean isEditting;
 	
+	public static int NumberFeatures;
+
 
 	
 	public GlobalV(){
@@ -41,8 +43,9 @@ public class GlobalV {
 		UsableHeight = WindowHeight *UsablePropotion /100;	
 		
 		isEditting = false;
-		
+		NumberFeatures = 13;
 
+		
 		ClockDelay = 100;
 		
 		MenuPropotion = 5;
@@ -51,9 +54,14 @@ public class GlobalV {
 		CurrentFun = 0;
 		
 		CharaNumber = 0;
-		CharaMap = new TreeMap<Integer, CustomCharacter>();
+
 		CharaPropotion = 10;
 		CurrentEditingChara = "";
 		
+		
+		
+		
 	}
+	
+
 }

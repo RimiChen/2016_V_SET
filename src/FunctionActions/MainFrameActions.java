@@ -3,7 +3,7 @@ package FunctionActions;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import Screen.G_Components;
+import MainScreen.G_Components;
 import Variables.GlobalV;
 
 public class MainFrameActions implements ActionListener{
