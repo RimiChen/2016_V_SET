@@ -11,14 +11,14 @@ import Variables.GlobalV;
 public class OutFrame extends MainFrame{
 
 	public MainFrameActions mainAct;
-	public  Timer clock;
+	//public  Timer clock;
 	public OutFrame(int WindowX, int WindowY, int WindowWidth, int WindowHeight){
 		super(0);
 		mainAct = new MainFrameActions();
-		clock = new Timer(GlobalV.ClockDelay, mainAct);
+		//clock = new Timer(GlobalV.ClockDelay, mainAct);
 		setLocation(WindowX, WindowY);
 		setSize( WindowWidth, WindowHeight);	
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		clock.start();
+		//clock.start();
 	}	
 }

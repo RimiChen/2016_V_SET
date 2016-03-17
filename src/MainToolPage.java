@@ -61,6 +61,7 @@ import FunctionActions.MainFrameActions;
 import Main.OutFrame;
 import MainScreen.*;
 import CharacterScreen.*;
+import Events.G_Event;
 import Variables.G_Fun;
 import Variables.GlobalV;
 import Variables.LookUp;
@@ -74,6 +75,7 @@ public class MainToolPage{
 	public static G_Chara globalChara;
 	public static G_Fun globalFun;
 	public static LookUp globalLook;
+	public static G_Event globalEvent;
 	
 	public static MainFrameActions test = new MainFrameActions();
 	
@@ -86,7 +88,7 @@ public class MainToolPage{
 		globalFun = new G_Fun();
 		globalC = new G_Components();
 		globalChara = new G_Chara();
-
+		globalEvent = new G_Event();
 
 	}
 	//This is the start point of the tool
@@ -137,7 +139,11 @@ public class MainToolPage{
 		/*
 		 * current Contents
 		 */
-		G_Components.currentContent.addToMap(G_Chara.charaButtonPanel.getDepth(), G_Chara.charaButtonPanel);
+		G_Components.mainScreen.addToMap(G_Chara.charaButtonPanel.getDepth(), G_Chara.charaButtonPanel);
+		G_Components.mainScreen.addToMap(G_Event.StorylinePanel.getDepth(), G_Event.StorylinePanel);
+		G_Components.mainScreen.addThings();
+		
+		G_Components.currentContent.addToMap(G_Components.mainScreen.getDepth(), G_Components.mainScreen);
 		G_Components.currentContent.addThings();
 
 

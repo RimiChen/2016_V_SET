@@ -20,11 +20,11 @@ public class CharaYesAction implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
-		System.out.println("save current charcter change");
+		//System.out.println("save current charcter change");
 		
 		// TODO: save character information
 		
-		System.out.println("current name "+ GlobalV.CurrentEditingChara);
+		//System.out.println("current name "+ GlobalV.CurrentEditingChara);
 		
 		GlobalV.isEditting = false;
 		
@@ -70,10 +70,12 @@ public class CharaYesAction implements ActionListener{
 	
 		G_Components.currentContent.map.clear();
 		G_Components.currentContent.removeAll();
-		G_Components.currentContent.addToMap(G_Chara.charaButtonPanel.getDepth(), G_Chara.charaButtonPanel);
+		//G_Components.currentContent.addToMap(G_Chara.charaButtonPanel.getDepth(), G_Chara.charaButtonPanel);
+		G_Components.currentContent.addToMap(G_Components.mainScreen.getDepth(), G_Components.mainScreen);
 		G_Components.currentContent.addThings();
 		G_Components.currentContent.repaint();
 	
+		System.out.println("System: "+"Chara " +nowChara.name+ " info saved.");
 	}
 
 }

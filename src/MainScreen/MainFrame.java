@@ -8,7 +8,7 @@ import java.util.Set;
 import java.util.TreeMap;
 
 import javax.swing.*;
-public class MainFrame extends JPanel implements ActionListener{
+public class MainFrame extends JPanel{
 	private int depth;
 	Map<Integer, Component> map;
 	
@@ -29,12 +29,5 @@ public class MainFrame extends JPanel implements ActionListener{
 	public void addToMap(int Depth, Component obj){
 		map.put(Depth, obj);
 	}
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	
 
 }

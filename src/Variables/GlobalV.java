@@ -30,6 +30,12 @@ public class GlobalV {
 	public static boolean isEditting;
 	
 	public static int NumberFeatures;
+	
+	public static int NumberEventPage;
+	public static int CurrentEdittingPage;
+	
+	public static int NumberEvent;
+	public static String CurrentEditingEvent;
 
 
 	
@@ -58,8 +64,13 @@ public class GlobalV {
 		CharaPropotion = 10;
 		CurrentEditingChara = "";
 		
+		//initial is 1
+		NumberEventPage = 1;
+		CurrentEdittingPage = 1;
 		
-		
+		// initial is 0
+		NumberEvent = 0;
+		CurrentEditingEvent = "";
 		
 	}
 	

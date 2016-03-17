@@ -10,6 +10,7 @@ import java.util.TreeMap;
 import javax.swing.*;
 
 import FunctionActions.AddCharaAction;
+import FunctionActions.AddEventAction;
 import Main.OutFrame;
 import Variables.GlobalV;
 
@@ -21,6 +22,8 @@ public class G_Components {
 	// left and right panel
 	public static GroupFrame menuList;
 	public static GroupFrame currentContent;
+	
+	public static GroupFrame mainScreen;
 	
 	// function menu
 	public static Map<String, FunctionButton> FunctionButtonManager;
@@ -44,9 +47,14 @@ public class G_Components {
 		mainFrame.setVisible(true);
 		
 		
+		
+		
 		// left and right panel
 		initialMenu(0);
 		initialCurrentContent(1);
+		
+		mainScreen = new GroupFrame(0, 0, currentContent.getWidth(), currentContent.getHeight(), 0);
+
 		
 		//function button
 		FunctionButtonManager = new TreeMap<String, FunctionButton>();
@@ -99,6 +107,8 @@ public class G_Components {
 		addEvent =
 		new FunctionButton(0, 4 * GlobalV.UsableHeight/ GlobalV.NumberOfFunctions, buttonSizeX, buttonSizeY, depth+4);
 		addEvent.setText("Add Event");
+		AddEventAction addEventAct = new AddEventAction();
+		addEvent.addActionListener(addEventAct);
 
 		deleteEvent = 
 		new FunctionButton(0, 5 * GlobalV.UsableHeight/ GlobalV.NumberOfFunctions, buttonSizeX, buttonSizeY, depth+5);

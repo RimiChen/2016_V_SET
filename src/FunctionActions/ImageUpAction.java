@@ -20,7 +20,7 @@ public class ImageUpAction implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
-		System.out.println(index + " change last");
+		System.out.println("System: "+ LookUp.FeatureName.get(index) + " changed to last ");
 		nowChara = LookUp.CharaMap.get(LookUp.CharaNameMap.get(GlobalV.CurrentEditingChara ));
 		nowChara = G_Chara.getLastPic(index, nowChara);
 		

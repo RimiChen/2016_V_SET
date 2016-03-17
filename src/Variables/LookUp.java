@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import CharaMake.CustomCharacter;
+import Events.StoryEvent;
 
 public class LookUp {
 	public static Map<Integer, String> FeatureName;
@@ -15,6 +16,9 @@ public class LookUp {
 	public static Map<Integer, CustomCharacter> CharaMap;
 	public static Map<String, Integer> CharaNameMap;
 	
+	public static Map<Integer, StoryEvent> EventMap;
+	public static Map<String, Integer> EventNameMap;
+
 	
 	public LookUp(){
 		FeatureName = new TreeMap<Integer, String>();
@@ -27,6 +31,7 @@ public class LookUp {
 		
 		CharaMap = new TreeMap<Integer, CustomCharacter>();	
 		CharaNameMap = new TreeMap<String, Integer>();
+		
 		
 	}
 	public void addFeatureInfo(){

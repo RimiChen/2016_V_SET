@@ -19,7 +19,7 @@ public class ImageDownAction implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
-		System.out.println(index + " change next ");
+		System.out.println("System: "+ LookUp.FeatureName.get(index) + " changed to next ");
 		nowChara = LookUp.CharaMap.get(LookUp.CharaNameMap.get(GlobalV.CurrentEditingChara ));
 		nowChara = G_Chara.getNextPic(index, nowChara);
 		

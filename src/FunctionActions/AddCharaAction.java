@@ -7,6 +7,7 @@ import CharaMake.CustomCharacter;
 import MainScreen.CharacterButton;
 import MainScreen.FunctionButton;
 import CharacterScreen.G_Chara;
+import Events.G_Event;
 import MainScreen.G_Components;
 import MainScreen.MainFrame;
 import Variables.GlobalV;
@@ -20,7 +21,6 @@ public class AddCharaAction implements ActionListener{
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 		//String test = arg0.getActionCommand();
-		
 
 		if(GlobalV.isEditting == false){
 			
@@ -49,7 +49,7 @@ public class AddCharaAction implements ActionListener{
 			G_Chara.charaButtonPanel.removeAll();
 			G_Chara.charaButtonPanel.addThings();
 			G_Chara.charaButtonPanel.repaint();
-			printAllChara();
+			//printAllChara();
 		}
 		
 		

@@ -15,7 +15,7 @@ public class CharaButtonAction implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
-		System.out.println("show this " +arg0.getActionCommand().toString());
+		System.out.println("System: "+ "Now editing Character " +arg0.getActionCommand().toString());
 		
 		// set editing = true
 		GlobalV.isEditting = true;
@@ -31,7 +31,7 @@ public class CharaButtonAction implements ActionListener{
 		//printMap();
 		//printMap2();
 		nowChara = LookUp.CharaMap.get(LookUp.CharaNameMap.get(GlobalV.CurrentEditingChara ));
-		System.out.println("now edit "+nowChara.name);
+		//System.out.println("now edit "+nowChara.name);
 		G_Chara.nameField.setText(nowChara.name);
 		//initial character editting panel
 		G_Chara.updateCharaPanel(nowChara);
