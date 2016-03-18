@@ -24,11 +24,33 @@ public class G_Event {
 	
 	public static DragArea region;
 	
+	//event editting
+	public static GroupFrame EventEditingPanel;
 	
-	//public static Map<String, EventButton> EventButtonMap;
-	//public static Map<String, EventLabel> EventLabelMap;
-	//public static AnimateFrame dragPanel;
+	//Event editing panel
+	// event name
+	public static GroupFrame EventNamePanel;
+	public static EventNameField EventName;
+	// function button
+	public static GroupFrame EventFunPanel;
+	public EventYesButton EventYes;
+	public EventNoButton EventNo;
 	
+	//Place panel
+	public static GroupFrame EventPlacePanel;
+	public static SubLabel PlaceImageLabel;
+	public static SubLabel PlaceTextLabel;
+	public static GivenMenu PlaceMenu;
+	
+	//Dialogue function panel
+	public static GroupFrame DialogueFunctionPanel;
+	
+	//Dialogue panel
+	public static GroupFrame DialoguePanel;
+	
+	
+	
+
 	
 
 	//public
@@ -72,6 +94,62 @@ public class G_Event {
 		StorylinePanel.addThings();
 		
 		
+		/*
+		 * Event editing panel
+		 */
+		EventEditingPanel = new GroupFrame(0,0, G_Components.currentContent.getWidth(), G_Components.currentContent.getHeight(), 0);
+		EventEditingPanel.setBackground(new Color(255, 255, 0, 125));
+		
+		//event name
+		EventNamePanel = new GroupFrame(0, 0, 100, 30, 0);
+		EventNamePanel.setBackground(new Color(255, 0, 0));
+		EventName = new EventNameField(EventNamePanel.getX(), EventNamePanel.getY(), EventNamePanel.getWidth(), EventNamePanel.getHeight(), 0);
+		EventNamePanel.addToMap(EventName.getDepth(), EventName);
+		EventNamePanel.addThings();
+
+		EventEditingPanel.addToMap(EventNamePanel.getDepth(), EventNamePanel);
+		
+		// function button
+		EventFunPanel = new GroupFrame(0, EventNamePanel.getHeight()+5, 200, 30, 1);
+		EventFunPanel.setBackground(new Color(255, 0, 0));
+		EventYes = new EventYesButton(0, 0, 100, EventFunPanel.getHeight(), 0);
+		EventYes.setText("Save");
+		EventFunPanel.addToMap(EventYes.getDepth(), EventYes);
+		EventNo = new EventNoButton(100, 0, 100, EventFunPanel.getHeight(), 1);
+		EventNo.setText("Cancel");
+		EventFunPanel.addToMap(EventNo.getDepth(), EventNo);
+		EventFunPanel.addThings();
+
+		EventEditingPanel.addToMap(EventFunPanel.getDepth(), EventFunPanel);
+		
+		//Place panel
+		EventPlacePanel = new GroupFrame(EventEditingPanel.getWidth()*2/4, 10 , EventEditingPanel.getWidth()*2/4, EventEditingPanel.getHeight()/4, 2);
+		EventPlacePanel.setBackground(new Color(255, 0, 0));
+		//public SubLabel(int LocationX, int LocationY, int SizeX, int SizeY, int Depth, String text, Color color, boolean opaque)
+		PlaceTextLabel = new SubLabel(0, 0, 100, 30, 0, "Place", new Color(0, 255, 255, 255), true);
+		EventPlacePanel.addToMap(PlaceTextLabel.getDepth(), PlaceTextLabel);
+		PlaceImageLabel = new SubLabel(PlaceTextLabel.getWidth(), 0, EventPlacePanel.getWidth() - PlaceTextLabel.getWidth(), EventPlacePanel.getHeight(), 1, "This is image", new Color(255, 255,0, 255), true);
+		EventPlacePanel.addToMap(PlaceImageLabel.getDepth(), PlaceImageLabel);
+		//public static GivenMenu PlaceMenu;		
+		
+		EventPlacePanel.addThings();
+		
+		EventEditingPanel.addToMap(EventPlacePanel.getDepth(), EventPlacePanel);
+		
+		//Dialogue panel
+		DialoguePanel = new GroupFrame(0, EventEditingPanel.getHeight()/4+30 , EventEditingPanel.getWidth(), EventEditingPanel.getHeight()*3/4 - 30, 3);
+		DialoguePanel.setBackground(new Color(255, 0, 0));
+		EventEditingPanel.addToMap(DialoguePanel.getDepth(), DialoguePanel);
+
+		//Dialogue function panel
+		DialogueFunctionPanel = new GroupFrame(0, EventEditingPanel.getHeight()/4+30-30 , 100, 30, 4);
+		DialogueFunctionPanel.setBackground(new Color(255, 0, 0));
+		EventEditingPanel.addToMap(DialogueFunctionPanel.getDepth(), DialogueFunctionPanel);
+		
+		EventEditingPanel.addThings();
+
+	
+		
 
 		
 	}
@@ -100,7 +178,7 @@ public class G_Event {
 		paintEventButton();
 		
 		//printEventMap();
-		printEventTime();
+		//printEventTime();
 	}
 	public static void paintEventButton(){
 		EventPageMap.get(GlobalV.CurrentEdittingPage).removeAll();

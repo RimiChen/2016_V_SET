@@ -7,21 +7,26 @@ import CharaMake.CustomCharacter;
 import Events.StoryEvent;
 
 public class LookUp {
+	//Body features
 	public static Map<Integer, String> FeatureName;
 	public static Map<String, Integer> FeatureIndex;
 	
+	//Image group
 	public static Map<Integer, String> MaterialTypeName;
 	public static Map<String, Integer> MaterialTypeIndex;
 	
+	//Character 
 	public static Map<Integer, CustomCharacter> CharaMap;
 	public static Map<String, Integer> CharaNameMap;
 	
+	//Event
 	public static Map<Integer, StoryEvent> EventMap;
 	public static Map<String, Integer> EventNameMap;
 	public static Map<String, Integer> EventPageMap;
 	public static Map<String, Integer> EventPositionMap;
 	public static Map<Integer, String> EventTimeMap; 
 	
+	//Place material
 	public static Map<Integer, String> PlaceMap;
 	public static Map<String, Integer> PlaceNameMap;
 

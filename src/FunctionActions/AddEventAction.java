@@ -17,10 +17,10 @@ public class AddEventAction implements ActionListener{
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 		//System.out.println("System: "+ "Now adding event " +arg0.getActionCommand().toString());
-		System.out.println("System: "+ "Now adding event " + GlobalV.CurrentEditingEvent);
 		
 
 		if(GlobalV.isEditting == false){
+			System.out.println("System: "+ "Now adding event " + GlobalV.CurrentEditingEvent);
 			GlobalV.isEditting = true;
 			
 			G_Event.paintEventLabel();
