@@ -10,11 +10,12 @@ import java.util.TreeMap;
 import javax.swing.*;
 public class MainFrame extends JPanel{
 	private int depth;
-	Map<Integer, Component> map;
+	public  Map<Integer, Component> map;
 	
 	public MainFrame(int Depth){
 		//super(title);
 		map = new TreeMap<Integer, Component>();
+		setLayout(null);
 		this.depth = Depth;
 		//setDefaultCloseOperation(JFrame.JFrame.EXIT_ON_CLOSE);		
 	}

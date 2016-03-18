@@ -17,6 +17,7 @@ public class CharaName extends JTextField{
 		this.sizeY = SizeY;
 		this.depth = Depth;
 		
+		setLayout(null);
 		setLocation(locationX, locationY);
 		setSize(sizeX, sizeY);		
 	}

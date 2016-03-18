@@ -16,6 +16,7 @@ public class OutFrame extends MainFrame{
 		super(0);
 		mainAct = new MainFrameActions();
 		//clock = new Timer(GlobalV.ClockDelay, mainAct);
+		setLayout(null);
 		setLocation(WindowX, WindowY);
 		setSize( WindowWidth, WindowHeight);	
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

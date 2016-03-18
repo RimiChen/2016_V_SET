@@ -18,6 +18,12 @@ public class LookUp {
 	
 	public static Map<Integer, StoryEvent> EventMap;
 	public static Map<String, Integer> EventNameMap;
+	public static Map<String, Integer> EventPageMap;
+	public static Map<String, Integer> EventPositionMap;
+	public static Map<Integer, String> EventTimeMap; 
+	
+	public static Map<Integer, String> PlaceMap;
+	public static Map<String, Integer> PlaceNameMap;
 
 	
 	public LookUp(){
@@ -31,6 +37,18 @@ public class LookUp {
 		
 		CharaMap = new TreeMap<Integer, CustomCharacter>();	
 		CharaNameMap = new TreeMap<String, Integer>();
+		
+		//Place
+		PlaceMap = new TreeMap<Integer, String>();	
+		PlaceNameMap = new TreeMap<String, Integer>();
+		addPlaceInfo();
+
+		//initial event maps
+		EventMap = new TreeMap<Integer, StoryEvent>() ;
+		EventNameMap = new TreeMap<String, Integer>() ;
+		EventPageMap = new TreeMap<String, Integer>();
+		EventPositionMap = new TreeMap<String, Integer>();
+		EventTimeMap = new TreeMap< Integer, String>();
 		
 		
 	}
@@ -69,5 +87,15 @@ public class LookUp {
 		
 		MaterialTypeIndex.put("Man", 0);
 		MaterialTypeIndex.put("Woman", 1);
+	}
+	public void addPlaceInfo(){
+		PlaceMap.put(0, "Forest");
+		PlaceMap.put(1, "Street");
+		PlaceMap.put(2, "Room");
+		
+		PlaceNameMap.put("Forest", 0);
+		PlaceNameMap.put("Street", 1);
+		PlaceNameMap.put("Room", 2);
+		
 	}
 }

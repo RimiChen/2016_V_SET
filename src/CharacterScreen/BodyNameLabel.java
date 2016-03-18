@@ -24,7 +24,7 @@ public class BodyNameLabel extends JLabel{
 		this.name = name;
 		act = new CharaNoAction();
 		
-		
+		setLayout(null);
 		setLocation(locationX, locationY);
 		setSize(sizeX, sizeY);
 		setText(name);

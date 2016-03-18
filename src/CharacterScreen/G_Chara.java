@@ -177,11 +177,21 @@ public class G_Chara {
 	public void initialCharacterButtonPanel(int depth){
 		charaButtonPanel = new GroupFrame(
 				0,
+				0,
+				G_Components.currentContent.getWidth(),
+				G_Components.menuList.getHeight() * GlobalV.UsablePropotion/100 /GlobalV.CharaPropotion,
+				depth
+		);
+
+/*
+		charaButtonPanel = new GroupFrame(
+				0,
 				G_Components.menuList.getHeight()* GlobalV.UsablePropotion/100 *(GlobalV.CharaPropotion-1)/GlobalV.CharaPropotion,
 				G_Components.currentContent.getWidth(),
 				G_Components.menuList.getHeight() * GlobalV.UsablePropotion/100 /GlobalV.CharaPropotion,
 				depth
 		);
+*/		
 		charaButtonPanel.setBackground(new Color(255, 255, 255));
 		charaButtonPanel.setLayout(null);
 		charaButtonPanel.setVisible(true);			

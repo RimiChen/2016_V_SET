@@ -25,6 +25,7 @@ public class CharaPartPanel extends JLabel{
 		this.depth = Depth;
 		map = new TreeMap<Integer, Component>();
 		
+		setLayout(null);
 		setLocation(locationX, locationY);
 		setSize(sizeX, sizeY);		
 	}

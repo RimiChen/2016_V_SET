@@ -23,6 +23,8 @@ public class AddEventAction implements ActionListener{
 		if(GlobalV.isEditting == false){
 			GlobalV.isEditting = true;
 			
+			G_Event.paintEventLabel();
+			
 			G_Event.StorylinePanel.addToMap(G_Event.DragPanel.getDepth(), G_Event.DragPanel);
 			G_Event.StorylinePanel.removeAll();
 			G_Event.StorylinePanel.addThings();

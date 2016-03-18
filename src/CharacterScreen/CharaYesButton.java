@@ -22,6 +22,7 @@ public class CharaYesButton extends JButton{
 		this.depth = Depth;
 		act = new CharaYesAction();
 		
+		setLayout(null);
 		setLocation(locationX, locationY);
 		setSize(sizeX, sizeY);
 		setVisible(true);

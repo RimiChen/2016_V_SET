@@ -19,6 +19,9 @@ public class EventPageFrame extends JPanel{
 	
 	public Map<Integer, Component> map;
 	
+	public static Map<String, EventButton> EventButtonMap;
+	public static Map<String, EventLabel> EventLabelMap;
+	
 	public EventPageFrame(int LocationX, int LocationY, int SizeX, int SizeY, int Depth, int index){
 		this.locationX = LocationX;
 		this.locationY = LocationY;
@@ -40,6 +43,10 @@ public class EventPageFrame extends JPanel{
 		pageLabel.setSize(50, 20);
 		addToMap(-1, pageLabel);
 		addThings();
+		
+		//each event have a event object, and a label, a button for display
+		EventButtonMap = new TreeMap<String, EventButton>();
+		EventLabelMap = new TreeMap<String, EventLabel>();		
 		
 	}
 	

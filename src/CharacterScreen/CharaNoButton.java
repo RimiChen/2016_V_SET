@@ -23,7 +23,7 @@ public class CharaNoButton extends JButton{
 		this.depth = Depth;
 		act = new CharaNoAction();
 		
-		
+		setLayout(null);
 		setLocation(locationX, locationY);
 		setSize(sizeX, sizeY);	
 		setVisible(true);
