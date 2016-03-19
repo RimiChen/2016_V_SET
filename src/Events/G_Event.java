@@ -1,12 +1,17 @@
 package Events;
 
 import java.awt.Color;
+import java.awt.Image;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import javax.swing.ImageIcon;
+
 import CharacterScreen.G_Chara;
 import FunctionActions.DragPanelMouseAction;
+import FunctionActions.PlaceMenuAction;
+import ImageMaterial.G_Material;
 import MainScreen.G_Components;
 import MainScreen.GroupFrame;
 import Variables.GlobalV;
@@ -44,6 +49,7 @@ public class G_Event {
 	
 	//Dialogue function panel
 	public static GroupFrame DialogueFunctionPanel;
+	public static DialogueAddButton DialogueAdd;
 	
 	//Dialogue panel
 	public static GroupFrame DialoguePanel;
@@ -129,9 +135,15 @@ public class G_Event {
 		PlaceTextLabel = new SubLabel(0, 0, 100, 30, 0, "Place", new Color(0, 255, 255, 255), true);
 		EventPlacePanel.addToMap(PlaceTextLabel.getDepth(), PlaceTextLabel);
 		PlaceImageLabel = new SubLabel(PlaceTextLabel.getWidth(), 0, EventPlacePanel.getWidth() - PlaceTextLabel.getWidth(), EventPlacePanel.getHeight(), 1, "This is image", new Color(255, 255,0, 255), true);
+		setPlacePreview(GlobalV.CurrentChosenPlace);
 		EventPlacePanel.addToMap(PlaceImageLabel.getDepth(), PlaceImageLabel);
-		//public static GivenMenu PlaceMenu;		
 		
+		//Should be used in this order
+		PlaceMenu = new GivenMenu(0, PlaceTextLabel.getHeight(), PlaceTextLabel.getWidth(), EventPlacePanel.getHeight() - PlaceTextLabel.getHeight(), 2, "Place", LookUp.PlaceNameMap);		
+		PlaceMenuAction placeAct = new PlaceMenuAction(PlaceMenu);
+		PlaceMenu.setAction(placeAct);
+		EventPlacePanel.addToMap(PlaceMenu.getDepth(), PlaceMenu);
+
 		EventPlacePanel.addThings();
 		
 		EventEditingPanel.addToMap(EventPlacePanel.getDepth(), EventPlacePanel);
@@ -144,14 +156,15 @@ public class G_Event {
 		//Dialogue function panel
 		DialogueFunctionPanel = new GroupFrame(0, EventEditingPanel.getHeight()/4+30-30 , 100, 30, 4);
 		DialogueFunctionPanel.setBackground(new Color(255, 0, 0));
+		DialogueAdd = new DialogueAddButton(0, 0, DialogueFunctionPanel.getWidth(), DialogueFunctionPanel.getHeight(), 0, GlobalV.CurrentEdittingPage); 
+		DialogueAdd.setText("Add Dialogue");
+		DialogueFunctionPanel.addToMap(DialogueAdd.getDepth(), DialogueAdd);
+		DialogueFunctionPanel.addThings();
+		
 		EventEditingPanel.addToMap(DialogueFunctionPanel.getDepth(), DialogueFunctionPanel);
 		
 		EventEditingPanel.addThings();
 
-	
-		
-
-		
 	}
 	public static void createNewEvent(int startX, int startY, int width, int height){
 		GlobalV.NumberEvent++;
@@ -226,7 +239,18 @@ public class G_Event {
 		     System.out.println(key + " : " +LookUp.EventMap.get(key));
 		}		
 	}
-	
+	public static void setPlacePreview(String placeName){
+    	//resize image
+    	int imageIndex = LookUp.PlaceNameMap.get(placeName);
+    	ImageIcon img = G_Material.Place.materialImage.get(imageIndex);
+    	Image tempImg = img.getImage();
+    	tempImg = tempImg.getScaledInstance(PlaceImageLabel.getWidth(), PlaceImageLabel.getHeight(), Image.SCALE_DEFAULT);
+    	img = new ImageIcon(tempImg);	
+    	
+       	//Show place preview
+    	PlaceImageLabel.setIcon(img);
+    	
+	}
 	
 	
 }

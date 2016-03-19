@@ -15,7 +15,7 @@ import CharaMake.CharaModel;
 import CharaMake.CharaModelList;
 import CharaMake.CustomCharacter;
 import CharaMake.ManGroup;
-import CharaMake.PathNameNumber;
+import ImageMaterial.PathNameNumber;
 import CharaMake.WomanGroup;
 import MainScreen.CharacterButton;
 import MainScreen.G_Components;

@@ -1,18 +1,14 @@
 package Events;
 
-import java.awt.Dimension;
 import java.util.Map;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
-import javax.swing.JMenuBar;
-import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 
 import FunctionActions.GivanMenuAction;
-import Variables.LookUp;
 
-public class GivenMenu extends JList{
+public class DialogueMenu extends GivenMenu{
 	int locationX;
 	int locationY;
 	int sizeX;
@@ -21,20 +17,23 @@ public class GivenMenu extends JList{
 	int depth;
 	
 	String menuName;
+	int dialogueID;
+	
 	
 	GivanMenuAction act;
 
 	DefaultListModel defaultListModel = new DefaultListModel();  
 	
-	public GivenMenu(){
+	public  DialogueMenu(int LocationX, int LocationY, int SizeX, int SizeY, int Depth, String MenuName, int DialogueID, Map<String, Integer> Map){
+		super();
 		
-	}
-	public GivenMenu(int LocationX, int LocationY, int SizeX, int SizeY, int Depth, String MenuName, Map<String, Integer> Map){
 		this.locationX = LocationX;
 		this.locationY = LocationY;
 		this.sizeX = SizeX;
 		this.sizeY = SizeY;
 		this.depth = Depth;
+		
+		this.dialogueID = DialogueID;
 		
 		setLayout(null);
 		setLocation(locationX, locationY);

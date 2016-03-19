@@ -19,7 +19,7 @@ public class AddEventAction implements ActionListener{
 		//System.out.println("System: "+ "Now adding event " +arg0.getActionCommand().toString());
 		
 
-		if(GlobalV.isEditting == false){
+		if(GlobalV.isEditting == false && LookUp.CharaMap.size()>0){
 			System.out.println("System: "+ "Now adding event " + GlobalV.CurrentEditingEvent);
 			GlobalV.isEditting = true;
 			

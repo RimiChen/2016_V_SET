@@ -1,4 +1,4 @@
-package CharaMake;
+package ImageMaterial;
 
 public class PathNameNumber {
 	public String Path;

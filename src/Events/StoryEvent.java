@@ -10,6 +10,7 @@ public class StoryEvent {
 	public String eventName;
 	
 	//place
+	public String tempPlace;
 	public String place;
 	//dialogue
 	public List<StoryDialogue> dialogueQueue;
@@ -21,6 +22,7 @@ public class StoryEvent {
 		
 		//initial
 		this.place = LookUp.PlaceMap.get(0);
+		this.tempPlace = LookUp.PlaceMap.get(0);
 		dialogueQueue = new ArrayList<StoryDialogue>();
 		
 	}

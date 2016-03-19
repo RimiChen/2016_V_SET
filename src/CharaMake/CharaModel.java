@@ -2,6 +2,8 @@ package CharaMake;
 
 import java.util.List;
 
+import ImageMaterial.PathNameNumber;
+
 public class CharaModel {
 	//0
 	public BodyPartQueue BackHairDeco;

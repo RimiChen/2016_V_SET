@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import CharaMake.ImageGroup;
-import CharaMake.PathNameNumber;
+import ImageMaterial.PathNameNumber;
 
 public class PlaceGroup implements ImageGroup{
 
@@ -17,9 +17,16 @@ public class PlaceGroup implements ImageGroup{
 		tempList = new ArrayList<PathNameNumber>();
 		//0
 		//public BodyPartQueue BackHairDeco;
-		//temp = new PathNameNumber(".\\CharaMaterials\\Man\\", "BackHairDeco", 0);
-		//tempList.add(temp);
+		temp = new PathNameNumber(".\\PlaceMaterials\\", "Forest", 1);
+		tempList.add(temp);
+		//1 Street
+		temp = new PathNameNumber(".\\PlaceMaterials\\", "Street", 1);
+		tempList.add(temp);
 
+		//1 Street
+		temp = new PathNameNumber(".\\PlaceMaterials\\", "Room", 1);
+		tempList.add(temp);
+		
 		return tempList;
 	}
 

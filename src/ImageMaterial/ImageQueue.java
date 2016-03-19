@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import CharaMake.BodyPartQueue;
-import CharaMake.PathNameNumber;
+import ImageMaterial.PathNameNumber;
 import Variables.GlobalV;
 
 import javax.imageio.ImageIO;

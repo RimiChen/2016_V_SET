@@ -3,6 +3,7 @@ package CharaMake;
 import java.util.ArrayList;
 import java.util.List;
 
+import ImageMaterial.PathNameNumber;
 import Variables.GlobalV;
 
 public class CharaModelList {

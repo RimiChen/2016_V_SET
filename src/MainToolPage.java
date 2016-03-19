@@ -58,6 +58,7 @@ import javax.swing.*;
 
 import FunctionActions.AddCharaAction;
 import FunctionActions.MainFrameActions;
+import ImageMaterial.G_Material;
 import Main.OutFrame;
 import MainScreen.*;
 import CharacterScreen.*;
@@ -76,6 +77,7 @@ public class MainToolPage{
 	public static G_Fun globalFun;
 	public static LookUp globalLook;
 	public static G_Event globalEvent;
+	public static G_Material globalMaterial;
 	
 	public static MainFrameActions test = new MainFrameActions();
 	
@@ -83,10 +85,11 @@ public class MainToolPage{
 	
 	public static void initialSetting(){
 		//initialize
-		global = new GlobalV();
 		globalLook = new LookUp();
 		globalFun = new G_Fun();
+		global = new GlobalV();
 		globalC = new G_Components();
+		globalMaterial = new G_Material();
 		globalChara = new G_Chara();
 		globalEvent = new G_Event();
 

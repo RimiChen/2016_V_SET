@@ -3,6 +3,8 @@ package CharaMake;
 import java.util.ArrayList;
 import java.util.List;
 
+import ImageMaterial.PathNameNumber;
+
 public class WomanGroup implements ImageGroup{
 
 	@Override
