@@ -5,13 +5,13 @@ import java.awt.Rectangle;
 
 import javax.swing.Timer;
 
-import FunctionActions.MainFrameActions;
+import FunctionActions.BackgroundTimerFrameActions;
 import MainScreen.MainFrame;
 import Variables.GlobalV;
 
 public class DragFrame extends MainFrame{
 
-	public MainFrameActions mainAct;
+	public BackgroundTimerFrameActions mainAct;
 	public int depth;
 	public boolean isClock;
 
@@ -31,7 +31,7 @@ public class DragFrame extends MainFrame{
 		setSize( WindowWidth, WindowHeight);	
 		
 		
-		mainAct = new MainFrameActions();
+		mainAct = new BackgroundTimerFrameActions();
 		clock = new Timer(GlobalV.ClockDelay, mainAct);
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		if(isClock == true){

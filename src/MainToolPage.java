@@ -57,7 +57,7 @@ import java.util.TreeMap;
 import javax.swing.*;
 
 import FunctionActions.AddCharaAction;
-import FunctionActions.MainFrameActions;
+import FunctionActions.BackgroundTimerFrameActions;
 import ImageMaterial.G_Material;
 import Main.OutFrame;
 import MainScreen.*;
@@ -81,7 +81,7 @@ public class MainToolPage{
 	public static G_Material globalMaterial;
 	public static G_Display globalDisplay;
 	
-	public static MainFrameActions test = new MainFrameActions();
+	public static BackgroundTimerFrameActions test = new BackgroundTimerFrameActions();
 	
 	private static JFrame OutFrame;
 	

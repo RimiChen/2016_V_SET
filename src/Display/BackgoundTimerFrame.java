@@ -8,7 +8,7 @@ import java.util.TreeMap;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import FunctionActions.MainFrameActions;
+import FunctionActions.BackgroundTimerFrameActions;
 import MainScreen.MainFrame;
 import Variables.GlobalV;
 
@@ -20,7 +20,7 @@ public class BackgoundTimerFrame extends JPanel{
 	int depth;
 	public Map<Integer, Component> map;
 
-	public MainFrameActions mainAct;
+	public BackgroundTimerFrameActions mainAct;
 	public  Timer clock;
 	
 	public boolean isTimer;
@@ -33,7 +33,7 @@ public class BackgoundTimerFrame extends JPanel{
 		this.depth = Depth;
 		map = new TreeMap<Integer, Component>();
 
-		mainAct = new MainFrameActions();
+		mainAct = new BackgroundTimerFrameActions();
 		clock = new Timer(GlobalV.ClockDelay, mainAct);
 		
 		this.isTimer = isTimer;

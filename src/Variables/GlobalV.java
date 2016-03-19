@@ -42,6 +42,11 @@ public class GlobalV {
 	public static List<StoryDialogue> BufferedDialogue;
 	
 	public static String CurrentChosenPlace;
+	
+	public static int DisplayEventCount;
+	public static int DisplayEventNumber;
+	public static int DisplayDialogueCount;
+	public static int DisplayDialogueNumber;
 
 
 	
@@ -84,7 +89,12 @@ public class GlobalV {
 		//System.out.println("initial place = " + LookUp.PlaceMap.get(0));
 		
 		
+		// parameter for display
+		DisplayEventCount = 0;
+		DisplayDialogueCount = 0;
 		
+		DisplayEventNumber = 0;
+		DisplayDialogueNumber = 0;
 		
 	}
 	

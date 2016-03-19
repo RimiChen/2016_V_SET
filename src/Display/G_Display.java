@@ -46,6 +46,7 @@ public class G_Display {
 	public static SubLabel DialogueLabelImage;
 	public static SubLabel DialogueLabelText;
 
+	public static ProgressButton DialogueProgress;
 	
 	public G_Display(){
 		DisplayQueue = new ArrayList<StoryEvent>();
@@ -68,7 +69,7 @@ public class G_Display {
 		
 		//Character name
 		CharacterNamePanel = new GroupFrame(50, StoryFrame.getHeight()-250, 150, 50, 0);
-		CharacterNamePanel.setBackground(new Color(255, 255, 255));
+		CharacterNamePanel.setBackground(new Color(0, 0, 0));
 
 		CharacterNameLabelImage = new SubLabel(0, 0, CharacterNamePanel.getWidth(), CharacterNamePanel.getHeight(), 1, "", new Color(0, 0, 0), false);
 		CharacterNameLabelImage.setIcon(G_Material.resizeImage(G_Material.NameCard.materialImage.get(0), CharacterNameLabelImage.getWidth(), CharacterNameLabelImage.getHeight()));
@@ -94,6 +95,11 @@ public class G_Display {
 		DialogueLabelText.setFont(new Font("Arial", Font.BOLD, 20));
 		DialogueLabelText.setForeground(new Color(141, 54, 0));
 		
+		//DialogueProgress = new ProgressButton(50, 100, 100, 30, -1);
+		//DialogueProgress.setToolTipText("Progress");
+		
+		
+		//DialoguePanel.addToMap(DialogueProgress.getDepth(), DialogueProgress);
 		DialoguePanel.addToMap(DialogueLabelImage.getDepth(), DialogueLabelImage);
 		DialoguePanel.addToMap(DialogueLabelText.getDepth(), DialogueLabelText);
 		DialoguePanel.addThings();		
@@ -116,7 +122,7 @@ public class G_Display {
 	
 		//Background
 		BackgroundPanel = new BackgoundTimerFrame(0, 0, BasicFrame.getWidth(), BasicFrame.getHeight(), 3, false);
-		BackgroundPanel.setBackground(new Color(255, 255, 0));
+		BackgroundPanel.setBackground(new Color(0, 0, 0));
 		BackgroundImageLabel = new SubLabel(0, 0, BackgroundPanel.getWidth(), BackgroundPanel.getHeight(), 0, "", new Color(0, 0, 0), false) ;
 
 		BackgroundPanel.addToMap(BackgroundImageLabel.getDepth(), BackgroundImageLabel);
@@ -125,18 +131,26 @@ public class G_Display {
 		BasicFrame.addToMap(BackgroundPanel.getDepth(), BackgroundPanel);
 
 		BasicFrame.addThings();
-		StoryFrame.add(BasicFrame);
+		BasicFrame.setVisible(false);
 		
 	}
 	public static void compileStory(){
 
 		GlobalV.isEditting = true;
+		BasicFrame.setVisible(false);
 		StoryFrame.setVisible(true);
 
 		loadStoryInQueue();
-		displayEventInQueue();
+		//displayEventInQueue();
 		
-		GlobalV.isEditting = false;
+		GlobalV.DisplayEventNumber = DisplayQueue.size();
+		GlobalV.DisplayEventCount = 0;
+		GlobalV.DisplayDialogueCount =0;
+		
+		BackgroundPanel.enableTimer();
+		
+		StoryFrame.add(BasicFrame);
+		StoryFrame.repaint();
 	}
 	public static void loadStoryInQueue(){
 		// In first version start from page 1
@@ -216,9 +230,87 @@ public class G_Display {
 			}
 		} 
 	}
-	public static void displayEventInQueueWithTimer(){
+	public static void displayEventInQueueWithTimer( int dialogueCount, int eventCount){
+	
 	}
-	public static void displayEventInQueueWithButton(){
+	public static void displayEventInQueueWithButton(int eventCount, int dialogueCount){
+		int iconIndex;
+		String iconString;
+		
+		int i = dialogueCount;
+		int k = eventCount;
+		
+		if(DisplayTimeMap.size() == 0){
+			System.out.println("System: Story Queue is empty");
+		}
+		
+		//int k =GlobalV.DisplayEventCount;
+		if(k <DisplayQueue.size()){
+		//for(int k = 0; k <DisplayQueue.size(); k++ ){
+			System.out.println("System: In time "+LookUp.EventPositionMap.get(DisplayQueue.get(k).eventName)
+					+" Display "+DisplayQueue.get(k).eventName
+					+" Happen in " + DisplayQueue.get(k).place);	
+			iconString = DisplayQueue.get(k).place;
+			iconIndex = LookUp.PlaceNameMap.get(iconString);
+			
+			//for(int i = 0; i <DisplayQueue.get(k).dialogueQueue.size(); i++){
+			//int i = GlobalV.DisplayDialogueCount;
+			
+			if(i <DisplayQueue.get(k).dialogueQueue.size()){
+				System.out.println("--Sub: Dialogue " + DisplayQueue.get(k).dialogueQueue.get(i).dialogueIndex
+						+ " Character: "+LookUp.CharaMap.get(DisplayQueue.get(k).dialogueQueue.get(i).charaIndex).name
+						+ " Content: "+DisplayQueue.get(k).dialogueQueue.get(i).content
+				);	
+				
+				String charaName;
+				int charaID;
+				CustomCharacter tempChara;
+				String charaType;
+				
+				//print character parts
+				for(int j = 0; j < GlobalV.NumberFeatures; j++){
+					charaName = LookUp.CharaMap.get(DisplayQueue.get(k).dialogueQueue.get(i).charaIndex).name;
+					charaID = LookUp.CharaNameMap.get(charaName);
+					tempChara = LookUp.CharaMap.get(charaID);
+					
+					if(LookUp.MaterialTypeIndex.get(tempChara.type) == 0){
+						if(tempChara.imageIndex.get(j)<0){
+							CharacterBodyParts[j].setIcon(null);
+						}
+						else{
+							CharacterBodyParts[j].setIcon(G_Chara.Man.bodyImage.get(j).materialQueue.get(tempChara.imageIndex.get(j)));
+							
+						}
+						//System.out.println(tempChara.imageIndex.get(j));
+
+					}
+					else if(LookUp.MaterialTypeIndex.get(tempChara.type) == 1){
+						if(tempChara.imageIndex.get(j)<0){
+							CharacterBodyParts[j].setIcon(null);
+						}
+						else{
+							CharacterBodyParts[j].setIcon(G_Chara.Woman.bodyImage.get(j).materialQueue.get(tempChara.imageIndex.get(j)));
+							
+						}
+					}
+				}
+				CharacterPanel.repaint();
+			}// if end
+			
+			BackgroundImageLabel.setIcon(G_Material.resizeImage(G_Material.Place.materialImage.get(iconIndex), BackgroundImageLabel.getWidth(), BackgroundImageLabel.getHeight()));
+			BackgroundPanel.repaint();
+
+			
+			CharacterNameLabelText.setText(LookUp.CharaMap.get(DisplayQueue.get(k).dialogueQueue.get(i).charaIndex).name);
+			CharacterNamePanel.repaint();
+			DialogueLabelText.setText(DisplayQueue.get(k).dialogueQueue.get(i).content);
+			DialoguePanel.repaint();	
+			
+			BasicFrame.repaint();
+		}
+			
+
+		
 	}
 
 }
