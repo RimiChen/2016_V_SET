@@ -62,6 +62,7 @@ import ImageMaterial.G_Material;
 import Main.OutFrame;
 import MainScreen.*;
 import CharacterScreen.*;
+import Display.G_Display;
 import Events.G_Event;
 import Variables.G_Fun;
 import Variables.GlobalV;
@@ -78,6 +79,7 @@ public class MainToolPage{
 	public static LookUp globalLook;
 	public static G_Event globalEvent;
 	public static G_Material globalMaterial;
+	public static G_Display globalDisplay;
 	
 	public static MainFrameActions test = new MainFrameActions();
 	
@@ -92,6 +94,7 @@ public class MainToolPage{
 		globalMaterial = new G_Material();
 		globalChara = new G_Chara();
 		globalEvent = new G_Event();
+		globalDisplay = new G_Display();
 
 	}
 	//This is the start point of the tool

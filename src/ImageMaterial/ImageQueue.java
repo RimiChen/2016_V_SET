@@ -15,7 +15,7 @@ import javax.swing.*;
 
 public class ImageQueue {
 	public Map<Integer, ImageIcon> materialImage;
-	public ImageQueue(List<PathNameNumber> ImageSet){
+	public ImageQueue(List<PathNameNumber> ImageSet, String fileFormat){
 		
 		String tempPath;
 		BufferedImage tempPic;
@@ -24,7 +24,7 @@ public class ImageQueue {
 		materialImage = new TreeMap<Integer, ImageIcon>();
 		
 		for(int i = 0; i < ImageSet.size(); i++){
-			tempPath = ImageSet.get(i).Path + ImageSet.get(i).Name+".jpg";
+			tempPath = ImageSet.get(i).Path + ImageSet.get(i).Name+"."+fileFormat;
 			//System.out.println(tempPath);
 			tempImage = new ImageIcon(tempPath);
 			materialImage.put(i, tempImage);

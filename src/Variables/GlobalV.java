@@ -58,7 +58,7 @@ public class GlobalV {
 		NumberFeatures = 13;
 
 		
-		ClockDelay = 100;
+		ClockDelay = 500;
 		
 		MenuPropotion = 5;
 		NumberOfFunctions = 8;

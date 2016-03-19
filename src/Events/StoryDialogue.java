@@ -52,7 +52,7 @@ public class StoryDialogue extends JPanel{
 		//initial content
 		content = "";
 		charaIndex =LookUp.CharaMap.get(1).index;
-		tempCharaIndex = 0;
+		tempCharaIndex = LookUp.CharaMap.get(1).index;
 		
 		contentBox = new DialogueContentField(10, 10, this.getWidth()-130, this.getHeight()-20, 0);
 		charaMenuLabel = new SubLabel(contentBox.getWidth()+20, 0, 100, 30, 1, "Character", new Color(0, 255, 255), true);

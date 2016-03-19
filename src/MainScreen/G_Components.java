@@ -11,6 +11,7 @@ import javax.swing.*;
 
 import FunctionActions.AddCharaAction;
 import FunctionActions.AddEventAction;
+import FunctionActions.CompileAction;
 import Main.OutFrame;
 import Variables.GlobalV;
 
@@ -121,6 +122,8 @@ public class G_Components {
 		compileStory =
 		new FunctionButton(0, 7 * GlobalV.UsableHeight/ GlobalV.NumberOfFunctions, buttonSizeX, buttonSizeY, depth+7);
 		compileStory.setText("Compile Story");		
+		CompileAction compileStoryAct = new CompileAction();
+		compileStory.addActionListener(compileStoryAct);
 		
 		FunctionButtonManager.put("Add Character", addChara);
 		FunctionButtonManager.put("Delete Character", deleteChara);
