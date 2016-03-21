@@ -36,6 +36,9 @@ public class CharaButtonAction implements ActionListener{
 			G_Chara.nameField.setText(nowChara.name);
 			//initial character editting panel
 			G_Chara.updateCharaPanel(nowChara);
+			
+			GlobalV.CurrentEditingType =nowChara.type;
+			
 		}
 
 		

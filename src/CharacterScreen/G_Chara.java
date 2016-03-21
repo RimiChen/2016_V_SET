@@ -33,6 +33,7 @@ public class G_Chara {
 	public static GroupFrame charaNamePanel;
 	public static GroupFrame decisionPanel;
 	public static GroupFrame charaPanel;
+	public static GroupFrame typePanel;
 	
 	
 	//the panels for character setting
@@ -67,6 +68,9 @@ public class G_Chara {
 	//CharaPanel
 	public static CharaPartPanel[] Chara;
 	
+	//Type panel
+	public static TypeButton ManType;
+	public static TypeButton WomanType;
 	
 	public G_Chara(){
 		CharacterButtonMap = new TreeMap<String, CharacterButton>();
@@ -77,6 +81,7 @@ public class G_Chara {
 		initialCharaNamePanel(1);
 		initialDecisionPanel(2);
 		initialCharaPanel(3);
+		initialTypePanel(4);
 		
 		
 		
@@ -84,6 +89,7 @@ public class G_Chara {
 		charaEdittingPanel.addToMap(charaNamePanel.getDepth(), charaNamePanel);
 		charaEdittingPanel.addToMap(decisionPanel.getDepth(), decisionPanel);
 		charaEdittingPanel.addToMap(charaPanel.getDepth(), charaPanel);
+		charaEdittingPanel.addToMap(typePanel.getDepth(), typePanel);
 		charaEdittingPanel.addThings();
 
 		
@@ -144,6 +150,16 @@ public class G_Chara {
 			//nextImage[i] = new ImageDownButton()
 			
 		}
+		
+		//Type panel
+		//typePanel = new  GroupFrame(0, charaFeaturePanel.getY()+charaFeaturePanel.getHeight()+5, 200, 30, )
+		ManType = new TypeButton(0, 0, typePanel.getWidth()/2, typePanel.getHeight(),0 );
+		ManType.setText("Man");
+		WomanType = new TypeButton(ManType.getWidth(), 0, typePanel.getWidth()/2, typePanel.getHeight(),1 );
+		WomanType.setText("Woman");
+		typePanel.addToMap(ManType.getDepth(), ManType);
+		typePanel.addToMap(WomanType.getDepth(), WomanType);
+		typePanel.addThings();
 		
 		//decision
 		saveEdit = new CharaYesButton( 0, 0, 100, decisionPanel.getHeight(), 0);
@@ -256,6 +272,19 @@ public class G_Chara {
 		charaPanel.setLayout(null);
 		charaPanel.setVisible(true);		
 	}
+	public void initialTypePanel(int depth){
+		typePanel = new GroupFrame(
+				0,
+				charaFeaturePanel.getY()+charaFeaturePanel.getHeight()+5,
+				200,
+				30,
+				depth
+		);
+		typePanel.setOpaque(true);
+		typePanel.setBackground(new Color(255, 0, 0));
+		typePanel.setVisible(true);	
+		
+	}
 	public static void updateCharaPanel(CustomCharacter chara){
 		
 		charaPanel.removeAll();
@@ -308,7 +337,7 @@ public class G_Chara {
 		}
 		else if(LookUp.MaterialTypeIndex.get(chara.type) == 1){
 			//Woman
-			if(index>=0){
+			if(chara.imageIndex.get(index)>=0 ){
 				chara.imageIndex.set(index, (chara.imageIndex.get(index)+1)% Woman.bodyImage.get(index).materialQueue.size());
 			}
 			else{

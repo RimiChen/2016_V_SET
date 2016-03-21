@@ -47,6 +47,8 @@ public class GlobalV {
 	public static int DisplayEventNumber;
 	public static int DisplayDialogueCount;
 	public static int DisplayDialogueNumber;
+	
+	public static String CurrentEditingType;
 
 
 	
@@ -63,7 +65,7 @@ public class GlobalV {
 		NumberFeatures = 13;
 
 		
-		ClockDelay = 500;
+		ClockDelay = 800;
 		
 		MenuPropotion = 5;
 		NumberOfFunctions = 8;
@@ -74,6 +76,8 @@ public class GlobalV {
 
 		CharaPropotion = 10;
 		CurrentEditingChara = "";
+		
+		CurrentEditingType = "";
 		
 		//initial is 1
 		NumberEventPage = 1;

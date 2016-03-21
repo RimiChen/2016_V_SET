@@ -20,7 +20,7 @@ public class WomanGroup implements ImageGroup{
 		tempList.add(temp);
 		//1
 		//public BodyPartQueue BackHair;
-		temp = new PathNameNumber(".\\CharaMaterials\\Woman\\", "BackHair", 3);
+		temp = new PathNameNumber(".\\CharaMaterials\\Woman\\", "BackHair", 2);
 		tempList.add(temp);
 		//2
 		//public BodyPartQueue MidHairDeco;
@@ -36,15 +36,15 @@ public class WomanGroup implements ImageGroup{
 		tempList.add(temp);
 		//5
 		//public BodyPartQueue Eye;
-		temp = new PathNameNumber(".\\CharaMaterials\\Woman\\", "Eye", 4);
+		temp = new PathNameNumber(".\\CharaMaterials\\Woman\\", "Eye", 3);
 		tempList.add(temp);
 		//6
 		//public BodyPartQueue Eyebow;
-		temp = new PathNameNumber(".\\CharaMaterials\\Woman\\", "Eyebow", 4);
+		temp = new PathNameNumber(".\\CharaMaterials\\Woman\\", "Eyebow", 3);
 		tempList.add(temp);
 		//7
 		//public BodyPartQueue Mouth;
-		temp = new PathNameNumber(".\\CharaMaterials\\Woman\\", "Mouth", 9);
+		temp = new PathNameNumber(".\\CharaMaterials\\Woman\\", "Mouth", 5);
 		tempList.add(temp);
 
 		//8
@@ -54,21 +54,21 @@ public class WomanGroup implements ImageGroup{
 
 		//9
 		//public BodyPartQueue Shoes;
-		temp = new PathNameNumber(".\\CharaMaterials\\Woman\\", "Shoes", 1);
+		temp = new PathNameNumber(".\\CharaMaterials\\Woman\\", "Shoes", 0);
 		tempList.add(temp);
 
 		//10
 		//public BodyPartQueue Pants;
-		temp = new PathNameNumber(".\\CharaMaterials\\Woman\\", "Pants", 2);
+		temp = new PathNameNumber(".\\CharaMaterials\\Woman\\", "Pants", 0);
 		tempList.add(temp);
 		//11
 		//public BodyPartQueue Cloth;
-		temp = new PathNameNumber(".\\CharaMaterials\\Woman\\", "Cloth", 0);
+		temp = new PathNameNumber(".\\CharaMaterials\\Woman\\", "Cloth", 1);
 		tempList.add(temp);
 		
 		//12
 		//public BodyPartQueue FrontHair;	
-		temp = new PathNameNumber(".\\CharaMaterials\\Woman\\", "FrontHair", 3);
+		temp = new PathNameNumber(".\\CharaMaterials\\Woman\\", "FrontHair", 2);
 		tempList.add(temp);
 		
 		return tempList;
