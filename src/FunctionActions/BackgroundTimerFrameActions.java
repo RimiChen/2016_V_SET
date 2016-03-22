@@ -34,6 +34,8 @@ public class BackgroundTimerFrameActions implements ActionListener{
 		}
 		else{
 			G_Display.BackgroundPanel.disableTimer();
+			//GlobalV.DisplayEventNumber = 0;
+			G_Display.DisplayQueue.clear();
 			GlobalV.isEditting = false;
 		}
 	}

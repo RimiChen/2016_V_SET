@@ -26,9 +26,13 @@ public class TypeButtonAction implements ActionListener{
 			nowChara.imageIndex.clear();
 			nowChara.imageIndex.addAll(G_Chara.Man.initCharaImageSet);
 		}
-		else{
+		else if(LookUp.MaterialTypeIndex.get(arg0.getActionCommand()) == 1){
 			nowChara.imageIndex.clear();
 			nowChara.imageIndex.addAll(G_Chara.Woman.initCharaImageSet);
+		}
+		else if(LookUp.MaterialTypeIndex.get(arg0.getActionCommand()) == 2){
+			nowChara.imageIndex.clear();
+			nowChara.imageIndex.addAll(G_Chara.Narrator.initCharaImageSet);
 		}
 		
 		G_Chara.updateCharaPanel(nowChara);

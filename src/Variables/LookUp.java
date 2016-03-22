@@ -89,18 +89,25 @@ public class LookUp {
 	public void addMaterialInfo(){
 		MaterialTypeName.put(0, "Man");
 		MaterialTypeName.put(1, "Woman");
+		MaterialTypeName.put(2, "Narrator");
 		
 		MaterialTypeIndex.put("Man", 0);
 		MaterialTypeIndex.put("Woman", 1);
+		MaterialTypeIndex.put("Narrator", 2);
+
 	}
 	public void addPlaceInfo(){
 		PlaceMap.put(0, "Forest");
 		PlaceMap.put(1, "Street");
 		PlaceMap.put(2, "Room");
+		PlaceMap.put(3, "Farm");
+		PlaceMap.put(4, "Village");
 		
 		PlaceNameMap.put("Forest", 0);
 		PlaceNameMap.put("Street", 1);
 		PlaceNameMap.put("Room", 2);
+		PlaceNameMap.put("Farm", 3);
+		PlaceNameMap.put("Village", 4);
 		
 	}
 }

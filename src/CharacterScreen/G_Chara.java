@@ -15,6 +15,7 @@ import CharaMake.CharaModel;
 import CharaMake.CharaModelList;
 import CharaMake.CustomCharacter;
 import CharaMake.ManGroup;
+import CharaMake.NarratorGroup;
 import ImageMaterial.PathNameNumber;
 import CharaMake.WomanGroup;
 import MainScreen.CharacterButton;
@@ -42,6 +43,9 @@ public class G_Chara {
 	public static CharaModelList Man;
 	public WomanGroup womanPicPath;
 	public static CharaModelList Woman;
+	
+	public NarratorGroup narratorPicPath;
+	public static CharaModelList Narrator;	
 
 	public List<PathNameNumber> imageSet;
 
@@ -71,6 +75,7 @@ public class G_Chara {
 	//Type panel
 	public static TypeButton ManType;
 	public static TypeButton WomanType;
+	public static TypeButton NarratorType;
 	
 	public G_Chara(){
 		CharacterButtonMap = new TreeMap<String, CharacterButton>();
@@ -100,7 +105,11 @@ public class G_Chara {
 
 		womanPicPath = new WomanGroup();
 		imageSet = womanPicPath.getImagePathList();
-		Woman = new CharaModelList(imageSet);	
+		Woman = new CharaModelList(imageSet);
+		
+		narratorPicPath = new NarratorGroup();
+		imageSet = narratorPicPath.getImagePathList();
+		Narrator = new CharaModelList(imageSet);
 		
 		
 		// feature panel
@@ -153,12 +162,18 @@ public class G_Chara {
 		
 		//Type panel
 		//typePanel = new  GroupFrame(0, charaFeaturePanel.getY()+charaFeaturePanel.getHeight()+5, 200, 30, )
-		ManType = new TypeButton(0, 0, typePanel.getWidth()/2, typePanel.getHeight(),0 );
+		ManType = new TypeButton(0, 0, typePanel.getWidth()/3, typePanel.getHeight(),0 );
 		ManType.setText("Man");
-		WomanType = new TypeButton(ManType.getWidth(), 0, typePanel.getWidth()/2, typePanel.getHeight(),1 );
+		WomanType = new TypeButton(ManType.getWidth(), 0, typePanel.getWidth()/3, typePanel.getHeight(),1 );
 		WomanType.setText("Woman");
+		NarratorType = new TypeButton(WomanType.getX() + WomanType.getWidth(), 0, typePanel.getWidth()/3, typePanel.getHeight(),2 );
+		NarratorType.setText("Narrator");
+
+		
 		typePanel.addToMap(ManType.getDepth(), ManType);
 		typePanel.addToMap(WomanType.getDepth(), WomanType);
+		typePanel.addToMap(NarratorType.getDepth(), NarratorType);
+		typePanel.setOpaque(false);
 		typePanel.addThings();
 		
 		//decision
@@ -320,6 +335,22 @@ public class G_Chara {
 			//charaPanel.addThings();
 			//System.out.println("");
 		}
+		else if(LookUp.MaterialTypeIndex.get(chara.type) == 2){
+			//Woman
+			for(int i = 0; i < GlobalV.NumberFeatures; i++){
+				//System.out.print("*  " +chara.imageIndex.get(i));
+				if(chara.imageIndex.get(i)< 0){
+					Chara[i] = new 	CharaPartPanel(null, 0, 0, charaPanel.getWidth(), charaPanel.getHeight(), (-1)*i);		
+				}
+				else{
+					Chara[i] = new 	CharaPartPanel(Narrator.bodyImage.get(i).materialQueue.get(chara.imageIndex.get(i)), 0, 0, charaPanel.getWidth(), charaPanel.getHeight(), (-1)*i);		
+				}
+				charaPanel.addToMap(Chara[i].getDepth(), Chara[i]);
+			}
+			//charaPanel.addThings();
+			//System.out.println("");
+		}
+		
 		charaPanel.addThings();
 		charaPanel.repaint();
 		
@@ -344,6 +375,16 @@ public class G_Chara {
 				//empty queue
 			}
 		}		
+		else if(LookUp.MaterialTypeIndex.get(chara.type) == 2){
+			//Woman
+			if(chara.imageIndex.get(index)>=0 ){
+				chara.imageIndex.set(index, (chara.imageIndex.get(index)+1)% Narrator.bodyImage.get(index).materialQueue.size());
+			}
+			else{
+				//empty queue
+			}
+		}		
+
 		return chara;
 	}
 	public static CustomCharacter getLastPic(int index, CustomCharacter chara){
@@ -360,6 +401,15 @@ public class G_Chara {
 			//Woman
 			if(chara.imageIndex.get(index)>=0){
 				chara.imageIndex.set(index, (chara.imageIndex.get(index)+Woman.bodyImage.get(index).materialQueue.size()-1)% Woman.bodyImage.get(index).materialQueue.size());
+			}
+			else{
+				//empty queue
+			}
+		}	
+		else if(LookUp.MaterialTypeIndex.get(chara.type) == 2){
+			//Woman
+			if(chara.imageIndex.get(index)>=0){
+				chara.imageIndex.set(index, (chara.imageIndex.get(index)+Narrator.bodyImage.get(index).materialQueue.size()-1)% Narrator.bodyImage.get(index).materialQueue.size());
 			}
 			else{
 				//empty queue

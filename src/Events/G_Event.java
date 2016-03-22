@@ -206,6 +206,16 @@ public class G_Event {
 		}		
 		EventPageMap.get(GlobalV.CurrentEdittingPage).addThings();
 		EventPageMap.get(GlobalV.CurrentEdittingPage).repaint();
+
+		for(String stringKey : G_Chara.CharacterButtonMap.keySet()){
+			G_Event.EventPageMap.get(GlobalV.CurrentEdittingPage).addToMap(G_Chara.CharacterButtonMap.get(stringKey).line.getDepth(), G_Chara.CharacterButtonMap.get(stringKey).line);
+
+			//System.out.println(G_Chara.CharacterButtonMap.get(stringKey).line.locationX);
+		}
+		
+		G_Event.EventPageMap.get(GlobalV.CurrentEdittingPage).removeAll();
+		G_Event.EventPageMap.get(GlobalV.CurrentEdittingPage).addThings();
+		G_Event.EventPageMap.get(GlobalV.CurrentEdittingPage).repaint();		
 	}
 	
 	public static void paintEventLabel(){
@@ -221,6 +231,18 @@ public class G_Event {
 		}		
 		EventPageMap.get(GlobalV.CurrentEdittingPage).addThings();
 		EventPageMap.get(GlobalV.CurrentEdittingPage).repaint();
+
+		for(String stringKey : G_Chara.CharacterButtonMap.keySet()){
+			G_Event.EventPageMap.get(GlobalV.CurrentEdittingPage).addToMap(G_Chara.CharacterButtonMap.get(stringKey).line.getDepth(), G_Chara.CharacterButtonMap.get(stringKey).line);
+
+			//System.out.println(G_Chara.CharacterButtonMap.get(stringKey).line.locationX);
+		}
+		
+		G_Event.EventPageMap.get(GlobalV.CurrentEdittingPage).removeAll();
+		G_Event.EventPageMap.get(GlobalV.CurrentEdittingPage).addThings();
+		G_Event.EventPageMap.get(GlobalV.CurrentEdittingPage).repaint();		
+
+		
 	}
 	
 	public static void changeEventName(String name, int index)

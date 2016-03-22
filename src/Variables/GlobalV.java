@@ -56,7 +56,7 @@ public class GlobalV {
 		
 		
 		UsablePropotion = 95;
-		WindowWidth = 800;
+		WindowWidth = 1000;
 		WindowHeight = 600;
 		UsableWidth = WindowWidth *UsablePropotion /100; 
 		UsableHeight = WindowHeight *UsablePropotion /100;	

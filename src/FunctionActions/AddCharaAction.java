@@ -70,6 +70,26 @@ public class AddCharaAction implements ActionListener{
 					0
 			);
 			G_Chara.charaButtonPanel.map.get(key).setSize(G_Chara.charaButtonPanel.getWidth()/ GlobalV.CharaNumber, G_Chara.charaButtonPanel.getHeight()* 90/100);
+			
+			int tempLocationX = G_Chara.charaButtonPanel.getWidth()*(depth-1)/ GlobalV.CharaNumber;
+			int tempSizeX = G_Chara.charaButtonPanel.getWidth()/ GlobalV.CharaNumber;
+			
+			G_Chara.CharacterButtonMap.get(LookUp.CharaMap.get(key).name).locationX = G_Chara.charaButtonPanel.getWidth()*(depth-1)/ GlobalV.CharaNumber;
+			G_Chara.CharacterButtonMap.get(LookUp.CharaMap.get(key).name).locationY = 0;
+			G_Chara.CharacterButtonMap.get(LookUp.CharaMap.get(key).name).sizeX = G_Chara.charaButtonPanel.getWidth()/ GlobalV.CharaNumber;
+			G_Chara.CharacterButtonMap.get(LookUp.CharaMap.get(key).name).sizeY = G_Chara.charaButtonPanel.getHeight()* 90/100;
+			
+			G_Chara.CharacterButtonMap.get(LookUp.CharaMap.get(key).name).line.setLocation(tempLocationX + tempSizeX/2 -2, 0);
+			
+			
+			//System.out.println("---" +G_Chara.CharacterButtonMap.get(LookUp.CharaMap.get(key).name).getX());
+			//G_Event.EventPageMap.get(GlobalV.CurrentEdittingPage).map.get(100+key).setLocation(tempLocationX + tempSizeX/2 -2, 0);
+			G_Event.EventPageMap.get(GlobalV.CurrentEdittingPage).addToMap(G_Chara.CharacterButtonMap.get(LookUp.CharaMap.get(key).name).line.getDepth(), G_Chara.CharacterButtonMap.get(LookUp.CharaMap.get(key).name).line);
+			
+			G_Event.EventPageMap.get(GlobalV.CurrentEdittingPage).removeAll();
+			G_Event.EventPageMap.get(GlobalV.CurrentEdittingPage).addThings();
+			G_Event.EventPageMap.get(GlobalV.CurrentEdittingPage).repaint();
+			
 		}		
 	}
 

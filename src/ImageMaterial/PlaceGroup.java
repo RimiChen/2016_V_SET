@@ -27,6 +27,13 @@ public class PlaceGroup implements ImageGroup{
 		temp = new PathNameNumber(".\\PlaceMaterials\\", "Room", 1);
 		tempList.add(temp);
 		
+		//1 Street
+		temp = new PathNameNumber(".\\PlaceMaterials\\", "Farm", 1);
+		tempList.add(temp);		
+		
+		temp = new PathNameNumber(".\\PlaceMaterials\\", "Village", 1);
+		tempList.add(temp);		
+		
 		return tempList;
 	}
 

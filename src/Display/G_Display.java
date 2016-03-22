@@ -219,6 +219,15 @@ public class G_Display {
 							
 						}
 					}
+					else if(LookUp.MaterialTypeIndex.get(tempChara.type) == 2){
+						if(tempChara.imageIndex.get(j)<0){
+							CharacterBodyParts[i].setIcon(null);
+						}
+						else{
+							CharacterBodyParts[j].setIcon(G_Chara.Narrator.bodyImage.get(j).materialQueue.get(tempChara.imageIndex.get(j)));
+							
+						}
+					}					
 				}
 				CharacterPanel.repaint();
 				
@@ -293,6 +302,15 @@ public class G_Display {
 							
 						}
 					}
+					else if(LookUp.MaterialTypeIndex.get(tempChara.type) == 2){
+						if(tempChara.imageIndex.get(j)<0){
+							CharacterBodyParts[j].setIcon(null);
+						}
+						else{
+							CharacterBodyParts[j].setIcon(G_Chara.Narrator.bodyImage.get(j).materialQueue.get(tempChara.imageIndex.get(j)));
+							
+						}
+					}					
 				}
 				CharacterPanel.repaint();
 			}// if end
