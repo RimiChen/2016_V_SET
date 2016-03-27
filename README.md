@@ -1,4 +1,4 @@
-#V-SET
+#V-SET v 1.0.0
 ------
 
 Do you have a lot of story ideas? And want to make it as a electronic novel or a narrative game, but not familiar with programming language?
