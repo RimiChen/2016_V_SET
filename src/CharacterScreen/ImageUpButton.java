@@ -26,6 +26,8 @@ public class ImageUpButton extends JButton{
 		this.depth = Depth;
 		this.partName = Part;
 		
+		setText("<");
+		
 		act = new ImageUpAction(depth);
 		addActionListener(act);		
 		

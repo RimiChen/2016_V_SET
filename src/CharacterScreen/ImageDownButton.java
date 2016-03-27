@@ -29,6 +29,8 @@ public class ImageDownButton extends JButton{
 		act = new ImageDownAction(depth);
 		addActionListener(act);
 		
+		setText(">");
+		
 		setLocation(locationX, locationY);
 		setSize(sizeX, sizeY);
 		setVisible(true);

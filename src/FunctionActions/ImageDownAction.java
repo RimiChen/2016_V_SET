@@ -15,6 +15,7 @@ public class ImageDownAction implements ActionListener{
 	
 	public ImageDownAction(int Index){
 		this.index = Index;
+
 	}
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
