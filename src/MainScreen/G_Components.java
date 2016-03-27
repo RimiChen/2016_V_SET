@@ -12,6 +12,7 @@ import javax.swing.*;
 import FunctionActions.AddCharaAction;
 import FunctionActions.AddEventAction;
 import FunctionActions.CompileAction;
+import FunctionActions.MoveEventAction;
 import Main.OutFrame;
 import Variables.GlobalV;
 
@@ -34,7 +35,7 @@ public class G_Components {
 	public static FunctionButton addPlace;
 	public static FunctionButton deletePlace;
 	public static FunctionButton addEvent;
-	public static FunctionButton deleteEvent;
+	public static FunctionButton moveEvent;
 	public static FunctionButton save;
 	public static FunctionButton compileStory;
 
@@ -111,10 +112,13 @@ public class G_Components {
 		AddEventAction addEventAct = new AddEventAction();
 		addEvent.addActionListener(addEventAct);
 
-		deleteEvent = 
+		moveEvent = 
 		new FunctionButton(0, 5 * GlobalV.UsableHeight/ GlobalV.NumberOfFunctions, buttonSizeX, buttonSizeY, depth+5);
-		deleteEvent.setText("Delete Event");
-			
+		moveEvent.setText("Move Event");
+		MoveEventAction moveEventAct = new MoveEventAction();
+		moveEvent.addActionListener(moveEventAct);
+		
+		
 		save =
 		new FunctionButton(0, 6 * GlobalV.UsableHeight/ GlobalV.NumberOfFunctions, buttonSizeX, buttonSizeY, depth+6);
 		save.setText("Save");
@@ -130,7 +134,7 @@ public class G_Components {
 		FunctionButtonManager.put("Add Place", addPlace);
 		FunctionButtonManager.put("Delete Place", deletePlace);
 		FunctionButtonManager.put("Add Event", addEvent);
-		FunctionButtonManager.put("Delete Event", deleteEvent);
+		FunctionButtonManager.put("Delete Event", moveEvent);
 		FunctionButtonManager.put("Save", save);
 		FunctionButtonManager.put("Compile Story", compileStory);
 	}

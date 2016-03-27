@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 
 import CharacterScreen.G_Chara;
 import FunctionActions.DragPanelMouseAction;
+import FunctionActions.MovePanelMouseAction;
 import FunctionActions.PlaceMenuAction;
 import ImageMaterial.G_Material;
 import MainScreen.G_Components;
@@ -26,6 +27,10 @@ public class G_Event {
 	public static DragFrame DragPanel;
 	public DragPanelMouseAction dragAction;
 	public static GroupFrame DragFunctionPanel;
+	
+	public static DragFrame MovePanel;
+	public MovePanelMouseAction moveAction;
+	
 	
 	public static DragArea region;
 	
@@ -88,6 +93,23 @@ public class G_Event {
 		//DragPanel.addToMap(region.getDepth(), region);
 		DragPanel.addThings();
 
+		//move panel
+		MovePanel = new DragFrame(
+				0,
+				0,
+				StorylinePanel.getWidth(),
+				StorylinePanel.getHeight(),
+				-150,
+				false
+		);		
+		MovePanel.setBackground(new Color(255, 255,0,125));
+		moveAction = new MovePanelMouseAction();
+		MovePanel.addMouseListener(moveAction);
+		MovePanel.addMouseMotionListener(moveAction);		
+		
+		
+		
+		
 		
 		EventPageMap = new TreeMap<Integer,EventPageFrame>();
 		
