@@ -47,8 +47,10 @@ public class GlobalV {
 	public static int DisplayEventNumber;
 	public static int DisplayDialogueCount;
 	public static int DisplayDialogueNumber;
+	public static int MaxDialogueNumber;
 	
 	public static String CurrentEditingType;
+	
 
 
 	
@@ -68,7 +70,7 @@ public class GlobalV {
 		ClockDelay = 1000;
 		
 		MenuPropotion = 5;
-		NumberOfFunctions = 8;
+		NumberOfFunctions = 7;
 		
 		CurrentFun = 0;
 		
@@ -92,6 +94,7 @@ public class GlobalV {
 		CurrentChosenPlace = LookUp.PlaceMap.get(0);
 		//System.out.println("initial place = " + LookUp.PlaceMap.get(0));
 		
+		MaxDialogueNumber = 5;
 		
 		// parameter for display
 		DisplayEventCount = 0;

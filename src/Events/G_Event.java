@@ -188,11 +188,24 @@ public class G_Event {
 		EventEditingPanel.addThings();
 
 	}
-	public static void createNewEvent(int startX, int startY, int width, int height){
+	public static void createNewEvent(int startX, int startY, int width, int height, String name, String place){
 		GlobalV.NumberEvent++;
 		System.out.println("System: Create Event " + GlobalV.NumberEvent);
 		
 		StoryEvent tempEvent = new StoryEvent(GlobalV.NumberEvent);
+		if(name == ""){
+			
+		}
+		else{
+			tempEvent.eventName = name;
+		}
+		
+		if(place == ""){
+			
+		}
+		else{
+			tempEvent.place = place;
+		}
 		EventButton tempButton;
 		EventLabel tempLabel;
 		

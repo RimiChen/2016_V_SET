@@ -22,7 +22,7 @@ public class DialogueAddAction  implements ActionListener{
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 		
-		numberInAPage = 5;
+		numberInAPage = GlobalV.MaxDialogueNumber;
 		
 		nowEvent = LookUp.EventMap.get(LookUp.EventNameMap.get(GlobalV.CurrentEditingEvent));
 		if(GlobalV.BufferedDialogue.size() == 0){

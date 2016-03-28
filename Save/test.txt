@@ -1,0 +1,17 @@
+CNUM, 4
+C, 1, Narrator, Narrator, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1
+C, 2, Mr.Test, Man, -1, 2, -1, -1, 0, 3, 3, 8, -1, 0, 1, 2, 2
+C, 3, Miss.|Test, Woman, -1, 1, -1, -1, 0, 2, 2, 4, -1, -1, -1, 0, 1
+C, 4, Child|Test, Woman, -1, 0, -1, -1, 0, 0, 0, 0, -1, -1, -1, 0, 0
+
+ENUM, 2
+
+E, 1, 3, TestEvent1, Room, 300, 100, 200, 30
+EC, 1, Narrator, Hi|Hi|!
+EC, 2, Mr.Test, Hi|Test|!
+EC, 3, Miss.|Test, Hi|Test2|!
+
+E, 2, 3, TestEvent2, Street, 100, 50, 200, 30
+EC, 1, Narrator, Hi|Hi3|!
+EC, 2, Mr.Test, Hi|Test4|!
+EC, 3, Miss.|Test, Hi|Test5|!

@@ -60,7 +60,7 @@ public class AddCharaAction implements ActionListener{
 		     System.out.println(key + " : " +LookUp.CharaMap.get(key).name);
 		}
 	}
-	public void updateButtonSize(){
+	public static void updateButtonSize(){
 		int depth;
 		for(int key : G_Chara.charaButtonPanel.map.keySet())
 		{

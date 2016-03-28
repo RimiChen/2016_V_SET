@@ -14,6 +14,7 @@ import FunctionActions.AddEventAction;
 import FunctionActions.CompileAction;
 import FunctionActions.MoveEventAction;
 import Main.OutFrame;
+import SystemActions.LoadAction;
 import Variables.GlobalV;
 
 
@@ -32,11 +33,12 @@ public class G_Components {
 
 	public static FunctionButton addChara;     
 	public static FunctionButton deleteChara;
-	public static FunctionButton addPlace;
-	public static FunctionButton deletePlace;
+	//public static FunctionButton addPlace;
+	//public static FunctionButton deletePlace;
 	public static FunctionButton addEvent;
 	public static FunctionButton moveEvent;
 	public static FunctionButton save;
+	public static FunctionButton load;
 	public static FunctionButton compileStory;
 
 
@@ -98,44 +100,43 @@ public class G_Components {
 		new FunctionButton(0, 1 * GlobalV.UsableHeight/ GlobalV.NumberOfFunctions, buttonSizeX, buttonSizeY, depth+1);
 		deleteChara.setText("Delete Character");
 			
-		addPlace =
-		new FunctionButton(0, 2 * GlobalV.UsableHeight/ GlobalV.NumberOfFunctions, buttonSizeX, buttonSizeY, depth+2);
-		addPlace.setText("Add Place");
-			
-		deletePlace =
-		new FunctionButton(0, 3 * GlobalV.UsableHeight/ GlobalV.NumberOfFunctions, buttonSizeX, buttonSizeY, depth+3);
-		deletePlace.setText("Delete Place");
-			
+		
 		addEvent =
-		new FunctionButton(0, 4 * GlobalV.UsableHeight/ GlobalV.NumberOfFunctions, buttonSizeX, buttonSizeY, depth+4);
+		new FunctionButton(0, 2 * GlobalV.UsableHeight/ GlobalV.NumberOfFunctions, buttonSizeX, buttonSizeY, depth+2);
 		addEvent.setText("Add Event");
 		AddEventAction addEventAct = new AddEventAction();
 		addEvent.addActionListener(addEventAct);
 
 		moveEvent = 
-		new FunctionButton(0, 5 * GlobalV.UsableHeight/ GlobalV.NumberOfFunctions, buttonSizeX, buttonSizeY, depth+5);
+		new FunctionButton(0, 3 * GlobalV.UsableHeight/ GlobalV.NumberOfFunctions, buttonSizeX, buttonSizeY, depth+3);
 		moveEvent.setText("Move Event");
 		MoveEventAction moveEventAct = new MoveEventAction();
 		moveEvent.addActionListener(moveEventAct);
 		
 		
 		save =
-		new FunctionButton(0, 6 * GlobalV.UsableHeight/ GlobalV.NumberOfFunctions, buttonSizeX, buttonSizeY, depth+6);
+		new FunctionButton(0, 4 * GlobalV.UsableHeight/ GlobalV.NumberOfFunctions, buttonSizeX, buttonSizeY, depth+4);
 		save.setText("Save");
 
+		load =
+		new FunctionButton(0, 5 * GlobalV.UsableHeight/ GlobalV.NumberOfFunctions, buttonSizeX, buttonSizeY, depth+5);
+		load.setText("Load");
+		LoadAction loadAct = new LoadAction();
+		load.addActionListener(loadAct);
+		
+		
 		compileStory =
-		new FunctionButton(0, 7 * GlobalV.UsableHeight/ GlobalV.NumberOfFunctions, buttonSizeX, buttonSizeY, depth+7);
+		new FunctionButton(0, 6 * GlobalV.UsableHeight/ GlobalV.NumberOfFunctions, buttonSizeX, buttonSizeY, depth+6);
 		compileStory.setText("Compile Story");		
 		CompileAction compileStoryAct = new CompileAction();
 		compileStory.addActionListener(compileStoryAct);
 		
 		FunctionButtonManager.put("Add Character", addChara);
 		FunctionButtonManager.put("Delete Character", deleteChara);
-		FunctionButtonManager.put("Add Place", addPlace);
-		FunctionButtonManager.put("Delete Place", deletePlace);
 		FunctionButtonManager.put("Add Event", addEvent);
 		FunctionButtonManager.put("Delete Event", moveEvent);
 		FunctionButtonManager.put("Save", save);
+		FunctionButtonManager.put("Load", load);
 		FunctionButtonManager.put("Compile Story", compileStory);
 	}
 
