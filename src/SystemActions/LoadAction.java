@@ -91,6 +91,7 @@ public class LoadAction implements ActionListener{
 								tempChara = new CustomCharacter(GlobalV.CharaNumber, G_Chara.Man.initCharaImageSet);
 								tempChara.name = tempCharaInfoArray[2].replaceAll("\\|"," ");
 								tempChara.type = tempCharaInfoArray[3].replaceAll("\\s*","").replaceAll("\\|", " ");
+								System.out.println("character type:" +tempChara.type);
 								for(int k = 0; k<13; k++){
 									tempChara.imageIndex.set(k, Integer.parseInt(tempCharaInfoArray[4+k].replaceAll("\\s*","")));
 								}
@@ -192,7 +193,7 @@ public class LoadAction implements ActionListener{
 							      			}
 							      			System.out.println("System: Add new dialogue in "+ nowEvent.eventName);							      			
 							      		}
-							      		
+							      		GlobalV.BufferedDialogue.get(j).charaIndex = LookUp.CharaNameMap.get(tempDiaArray[2].replaceAll("\\s*", "").replaceAll("\\|", " "));
 						    			GlobalV.BufferedDialogue.get(j).content = tempDiaArray[3].replaceAll("\\s*", "").replaceAll("\\|", " ");
 							    		
 							    		//nowEvent.dialogueQueue.clear();

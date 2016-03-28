@@ -49,6 +49,7 @@ public class EventButtonAction implements ActionListener{
 		for(int i = 0; i< GlobalV.BufferedDialogue.size(); i++){
 			//System.out.print(GlobalV.BufferedDialogue.get(i).charaIndex);
 			//System.out.println("old " + GlobalV.BufferedDialogue.get(i).content +" Chara: " + LookUp.CharaMap.get(GlobalV.BufferedDialogue.get(i).charaIndex));
+			GlobalV.BufferedDialogue.get(i).charaNameList.updateMenu("Character", LookUp.CharaNameMap);
 			GlobalV.BufferedDialogue.get(i).charaNameList.setSelectedIndex(GlobalV.BufferedDialogue.get(i).charaIndex-1);
 			GlobalV.BufferedDialogue.get(i).charaNameList.repaint();
 			GlobalV.BufferedDialogue.get(i).contentBox.setText(GlobalV.BufferedDialogue.get(i).content);

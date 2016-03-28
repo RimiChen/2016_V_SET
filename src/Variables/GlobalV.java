@@ -59,7 +59,7 @@ public class GlobalV {
 		
 		UsablePropotion = 95;
 		WindowWidth = 1000;
-		WindowHeight = 600;
+		WindowHeight = 800;
 		UsableWidth = WindowWidth *UsablePropotion /100; 
 		UsableHeight = WindowHeight *UsablePropotion /100;	
 		
@@ -94,7 +94,7 @@ public class GlobalV {
 		CurrentChosenPlace = LookUp.PlaceMap.get(0);
 		//System.out.println("initial place = " + LookUp.PlaceMap.get(0));
 		
-		MaxDialogueNumber = 5;
+		MaxDialogueNumber = 4;
 		
 		// parameter for display
 		DisplayEventCount = 0;
