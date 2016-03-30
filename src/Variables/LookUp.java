@@ -1,5 +1,7 @@
 package Variables;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -24,7 +26,7 @@ public class LookUp {
 	public static Map<String, Integer> EventNameMap;
 	public static Map<String, Integer> EventPageMap;
 	public static Map<String, Integer> EventPositionMap;
-	public static Map<Integer, String> EventTimeMap; 
+	public static List<Map<Integer, String>> EventTimeMap; 
 	
 	//Place material
 	public static Map<Integer, String> PlaceMap;
@@ -53,7 +55,11 @@ public class LookUp {
 		EventNameMap = new TreeMap<String, Integer>() ;
 		EventPageMap = new TreeMap<String, Integer>();
 		EventPositionMap = new TreeMap<String, Integer>();
-		EventTimeMap = new TreeMap< Integer, String>();
+		EventTimeMap = new ArrayList<Map< Integer, String>>();
+		Map< Integer, String> tempTime = new TreeMap<Integer, String>();
+		EventTimeMap.add(null);
+		EventTimeMap.add(tempTime);
+		//System.out.println(EventTimeMap.size());
 		
 		
 	}

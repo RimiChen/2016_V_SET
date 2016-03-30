@@ -8,6 +8,10 @@ import java.util.TreeMap;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import FunctionActions.EventPageDownAction;
+import FunctionActions.EventPageUpAction;
+import MainScreen.GroupFrame;
+
 public class EventPageFrame extends JPanel{
 	int locationX;
 	int locationY;
@@ -19,8 +23,12 @@ public class EventPageFrame extends JPanel{
 	
 	public Map<Integer, Component> map;
 	
-	public static Map<String, EventButton> EventButtonMap;
-	public static Map<String, EventLabel> EventLabelMap;
+	public GroupFrame changePagePanel;
+	public EventPageUpButton pageUp;
+	public EventPageDownButton pageDown;
+	
+	public Map<String, EventButton> EventButtonMap;
+	public Map<String, EventLabel> EventLabelMap;
 	
 	public EventPageFrame(int LocationX, int LocationY, int SizeX, int SizeY, int Depth, int index){
 		this.locationX = LocationX;
@@ -46,10 +54,32 @@ public class EventPageFrame extends JPanel{
 		
 		//each event have a event object, and a label, a button for display
 		EventButtonMap = new TreeMap<String, EventButton>();
-		EventLabelMap = new TreeMap<String, EventLabel>();		
+		EventLabelMap = new TreeMap<String, EventLabel>();
+		
+		changePagePanel = new GroupFrame(this.sizeX *8 /10, this.sizeY *9 /10, 100, 30, -2 ); 
+
+		pageDown = new EventPageDownButton(0, 0, changePagePanel.getWidth()/2, changePagePanel.getHeight(), 1);
+		pageDown.setText("<");
+		EventPageDownAction pageDownAct = new EventPageDownAction(); 
+		pageDown.addActionListener(pageDownAct);
+		
+		pageUp = new EventPageUpButton(changePagePanel.getWidth()/2, 0, changePagePanel.getWidth()/2, changePagePanel.getHeight(), 0);
+		pageUp.setText(">");
+		EventPageUpAction pageUpAct = new EventPageUpAction(); 
+		pageUp.addActionListener(pageUpAct);
+		
+		
+		changePagePanel.addToMap(pageUp.getDepth(), pageUp);
+		changePagePanel.addToMap(pageDown.getDepth(), pageDown);
+		changePagePanel.addThings();
+		addChagnePage();
 		
 	}
-	
+	public void addChagnePage(){
+		addToMap(-1, pageLabel);
+		addToMap(changePagePanel.getDepth(),changePagePanel);
+		//addThings();
+	}
 	public void addThings(){
 		Set<Integer> set=map.keySet();
 		for(Object obj:set)

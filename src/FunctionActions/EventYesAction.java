@@ -52,8 +52,8 @@ public class EventYesAction implements ActionListener{
 		LookUp.EventPositionMap.put(newName, index);
 
 		index = LookUp.EventPositionMap.get(newName);
-		LookUp.EventTimeMap.remove(index);
-		LookUp.EventTimeMap.put(index, newName);
+		LookUp.EventTimeMap.get(GlobalV.CurrentEdittingPage).remove(index);
+		LookUp.EventTimeMap.get(GlobalV.CurrentEdittingPage).put(index, newName);
 		
 		//update button and label
 		EventButton tempButton;

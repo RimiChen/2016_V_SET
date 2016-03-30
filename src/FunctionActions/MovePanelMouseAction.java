@@ -68,8 +68,8 @@ public class MovePanelMouseAction extends MouseAdapter{
 	    	LookUp.EventPositionMap.remove(GlobalV.CurrentEditingEvent);
 			LookUp.EventPositionMap.put(GlobalV.CurrentEditingEvent, newY);
 	    	
-			LookUp.EventTimeMap.remove(oldPosition);
-			LookUp.EventTimeMap.put(newY, GlobalV.CurrentEditingEvent);
+			LookUp.EventTimeMap.get(GlobalV.CurrentEdittingPage).remove(oldPosition);
+			LookUp.EventTimeMap.get(GlobalV.CurrentEdittingPage).put(newY, GlobalV.CurrentEditingEvent);
 			
 	    	
 	    	G_Event.paintEventButton();

@@ -9,6 +9,7 @@ import java.util.TreeMap;
 
 import javax.swing.*;
 
+import FunctionActions.AddBranchAction;
 import FunctionActions.AddCharaAction;
 import FunctionActions.AddEventAction;
 import FunctionActions.CompileAction;
@@ -37,9 +38,11 @@ public class G_Components {
 	//public static FunctionButton deletePlace;
 	public static FunctionButton addEvent;
 	public static FunctionButton moveEvent;
+	public static FunctionButton addBranch;
 	public static FunctionButton save;
 	public static FunctionButton load;
 	public static FunctionButton compileStory;
+	public static FunctionButton settings;
 
 
 	
@@ -113,31 +116,44 @@ public class G_Components {
 		MoveEventAction moveEventAct = new MoveEventAction();
 		moveEvent.addActionListener(moveEventAct);
 		
+		addBranch =
+		new FunctionButton(0, 4 * GlobalV.UsableHeight/ GlobalV.NumberOfFunctions, buttonSizeX, buttonSizeY, depth+4);
+		addBranch.setText("Add Branch");
+		AddBranchAction addBranchAct = new AddBranchAction();
+		addBranch.addActionListener(addBranchAct);
 		
 		save =
-		new FunctionButton(0, 4 * GlobalV.UsableHeight/ GlobalV.NumberOfFunctions, buttonSizeX, buttonSizeY, depth+4);
+		new FunctionButton(0, 5 * GlobalV.UsableHeight/ GlobalV.NumberOfFunctions, buttonSizeX, buttonSizeY, depth+5);
 		save.setText("Save");
 
 		load =
-		new FunctionButton(0, 5 * GlobalV.UsableHeight/ GlobalV.NumberOfFunctions, buttonSizeX, buttonSizeY, depth+5);
+		new FunctionButton(0, 6 * GlobalV.UsableHeight/ GlobalV.NumberOfFunctions, buttonSizeX, buttonSizeY, depth+6);
 		load.setText("Load");
 		LoadAction loadAct = new LoadAction();
 		load.addActionListener(loadAct);
 		
 		
 		compileStory =
-		new FunctionButton(0, 6 * GlobalV.UsableHeight/ GlobalV.NumberOfFunctions, buttonSizeX, buttonSizeY, depth+6);
+		new FunctionButton(0, 7 * GlobalV.UsableHeight/ GlobalV.NumberOfFunctions, buttonSizeX, buttonSizeY, depth+7);
 		compileStory.setText("Compile Story");		
 		CompileAction compileStoryAct = new CompileAction();
 		compileStory.addActionListener(compileStoryAct);
+
+		
+		settings =
+		new FunctionButton(0, 8 * GlobalV.UsableHeight/ GlobalV.NumberOfFunctions, buttonSizeX, buttonSizeY, depth+8);
+		settings.setText("Setting");		
+		
 		
 		FunctionButtonManager.put("Add Character", addChara);
 		FunctionButtonManager.put("Delete Character", deleteChara);
 		FunctionButtonManager.put("Add Event", addEvent);
 		FunctionButtonManager.put("Delete Event", moveEvent);
+		FunctionButtonManager.put("Add Branch", addBranch);
 		FunctionButtonManager.put("Save", save);
 		FunctionButtonManager.put("Load", load);
 		FunctionButtonManager.put("Compile Story", compileStory);
+		FunctionButtonManager.put("Setting", settings);		
 	}
 
 }

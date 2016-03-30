@@ -14,8 +14,6 @@ public class ProgressButtonAction implements ActionListener{
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 		GlobalV.DisplayDialogueCount++;
-		System.out.println("Test¡@"+ GlobalV.DisplayDialogueCount);
-	
-		
+		//System.out.println("Test¡@"+ GlobalV.DisplayDialogueCount);
 	}
 }

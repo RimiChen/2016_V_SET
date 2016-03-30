@@ -24,8 +24,14 @@ public class BackgroundTimerFrameActions implements ActionListener{
 			//System.out.println(GlobalV.DisplayEventCount+", "+GlobalV.DisplayEventNumber +" ---"+ GlobalV.DisplayDialogueCount+", "+GlobalV.DisplayDialogueNumber);
 			
 			if(GlobalV.DisplayDialogueCount <GlobalV.DisplayDialogueNumber){
-				G_Display.displayEventInQueueWithButton(GlobalV.DisplayEventCount, GlobalV.DisplayDialogueCount);
-				GlobalV.DisplayDialogueCount++;
+				if(GlobalV.displayButtonMode == 0){
+				
+					G_Display.displayEventInQueueWithTimer(GlobalV.DisplayEventCount, GlobalV.DisplayDialogueCount);
+					GlobalV.DisplayDialogueCount++;
+				}
+				else{
+					G_Display.displayEventInQueueWithButton(GlobalV.DisplayEventCount, GlobalV.DisplayDialogueCount);
+				}
 			}
 			else if(GlobalV.DisplayDialogueCount == GlobalV.DisplayDialogueNumber){
 				GlobalV.DisplayEventCount++;

@@ -190,7 +190,7 @@ public class G_Event {
 	}
 	public static void createNewEvent(int startX, int startY, int width, int height, String name, String place){
 		GlobalV.NumberEvent++;
-		System.out.println("System: Create Event " + GlobalV.NumberEvent);
+		System.out.println("System: Create Event " + GlobalV.NumberEvent +" at page "+ GlobalV.CurrentEdittingPage);
 		
 		StoryEvent tempEvent = new StoryEvent(GlobalV.NumberEvent);
 		if(name == ""){
@@ -213,7 +213,7 @@ public class G_Event {
 		LookUp.EventNameMap.put(tempEvent.eventName, tempEvent.index);
 		LookUp.EventPageMap.put(tempEvent.eventName, GlobalV.CurrentEdittingPage);
 		LookUp.EventPositionMap.put(tempEvent.eventName, startY);
-		LookUp.EventTimeMap.put(startY, tempEvent.eventName);
+		LookUp.EventTimeMap.get(GlobalV.CurrentEdittingPage).put(startY, tempEvent.eventName);
 		
 		tempButton = new EventButton(startX, startY, width, height, tempEvent.index, GlobalV.CurrentEdittingPage, tempEvent.eventName);
 		
@@ -229,11 +229,14 @@ public class G_Event {
 		//printEventTime();
 	}
 	public static void paintEventButton(){
+		//System.out.println("*****"+EventPageMap.get(GlobalV.CurrentEdittingPage).EventButtonMap);
 		EventPageMap.get(GlobalV.CurrentEdittingPage).removeAll();
 		EventPageMap.get(GlobalV.CurrentEdittingPage).map.clear();
+		EventPageMap.get(GlobalV.CurrentEdittingPage).addChagnePage();
+		
 		for(String key : EventPageMap.get(GlobalV.CurrentEdittingPage).EventButtonMap.keySet())
 		{
-		     //System.out.println(key + " : " +EventPageMap.get(GlobalV.CurrentEdittingPage).EventButtonMap.get(key));
+		    //System.out.println(key + " : " +EventPageMap.get(GlobalV.CurrentEdittingPage).EventButtonMap.get(key));
 			EventPageMap.get(GlobalV.CurrentEdittingPage).addToMap(
 					EventPageMap.get(GlobalV.CurrentEdittingPage).EventButtonMap.get(key).getDepth(),
 					EventPageMap.get(GlobalV.CurrentEdittingPage).EventButtonMap.get(key)
@@ -285,9 +288,9 @@ public class G_Event {
 		
 	}
 	public static void printEventTime(){
-		for(int key : LookUp.EventTimeMap.keySet())
+		for(int key : LookUp.EventTimeMap.get(GlobalV.CurrentEdittingPage).keySet())
 		{
-		     System.out.println(key + " : " +LookUp.EventTimeMap.get(key));
+		     System.out.println(key + " : " +LookUp.EventTimeMap.get(GlobalV.CurrentEdittingPage).get(key));
 		}		
 	}
 	public static void printEventMap(){

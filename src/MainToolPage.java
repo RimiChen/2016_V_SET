@@ -145,9 +145,11 @@ public class MainToolPage{
 		//G_Components.menuList.addToMap(G_Components.deletePlace.getDepth(), G_Components.deletePlace);
 		G_Components.menuList.addToMap(G_Components.addEvent.getDepth(), G_Components.addEvent);
 		G_Components.menuList.addToMap(G_Components.moveEvent.getDepth(), G_Components.moveEvent);
+		G_Components.menuList.addToMap(G_Components.addBranch.getDepth(), G_Components.addBranch);
 		G_Components.menuList.addToMap(G_Components.save.getDepth(), G_Components.save);
 		G_Components.menuList.addToMap(G_Components.load.getDepth(), G_Components.load);
 		G_Components.menuList.addToMap(G_Components.compileStory.getDepth(), G_Components.compileStory);
+		G_Components.menuList.addToMap(G_Components.settings.getDepth(), G_Components.settings);
 		G_Components.menuList.addThings();
 
 		/*

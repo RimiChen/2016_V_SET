@@ -14,6 +14,8 @@ public class GlobalV {
 	public static int WindowHeight;
 	public static int UsableWidth;
 	public static int UsableHeight;
+	public static int DisplayWidth;
+	public static int DisplayHeight;
 	
 	public static int UsablePropotion;
 	
@@ -51,6 +53,7 @@ public class GlobalV {
 	
 	public static String CurrentEditingType;
 	
+	public static int displayButtonMode;
 
 
 	
@@ -61,7 +64,11 @@ public class GlobalV {
 		WindowWidth = 1000;
 		WindowHeight = 800;
 		UsableWidth = WindowWidth *UsablePropotion /100; 
-		UsableHeight = WindowHeight *UsablePropotion /100;	
+		UsableHeight = WindowHeight *UsablePropotion /100;
+		
+		DisplayWidth = 800;
+		DisplayHeight = 600;
+		
 		
 		isEditting = false;
 		NumberFeatures = 13;
@@ -70,7 +77,7 @@ public class GlobalV {
 		ClockDelay = 1000;
 		
 		MenuPropotion = 5;
-		NumberOfFunctions = 7;
+		NumberOfFunctions = 9;
 		
 		CurrentFun = 0;
 		
@@ -103,6 +110,8 @@ public class GlobalV {
 		DisplayEventNumber = 0;
 		DisplayDialogueNumber = 0;
 		
+		// 0 timer, 1 button
+		displayButtonMode = 1;
 	}
 	
 
