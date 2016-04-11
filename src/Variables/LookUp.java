@@ -25,7 +25,7 @@ public class LookUp {
 	public static Map<Integer, StoryEvent> EventMap;
 	public static Map<String, Integer> EventNameMap;
 	public static Map<String, Integer> EventPageMap;
-	public static Map<String, Integer> EventPositionMap;
+	public static List<Map<String, Integer>> EventPositionMap;
 	public static List<Map<Integer, String>> EventTimeMap; 
 	
 	//Place material
@@ -54,7 +54,11 @@ public class LookUp {
 		EventMap = new TreeMap<Integer, StoryEvent>() ;
 		EventNameMap = new TreeMap<String, Integer>() ;
 		EventPageMap = new TreeMap<String, Integer>();
-		EventPositionMap = new TreeMap<String, Integer>();
+		EventPositionMap = new ArrayList<Map< String, Integer>>();
+		Map< String, Integer> tempPosition = new TreeMap< String, Integer>();
+		EventPositionMap.add(null);
+		EventPositionMap.add(tempPosition);
+
 		EventTimeMap = new ArrayList<Map< Integer, String>>();
 		Map< Integer, String> tempTime = new TreeMap<Integer, String>();
 		EventTimeMap.add(null);

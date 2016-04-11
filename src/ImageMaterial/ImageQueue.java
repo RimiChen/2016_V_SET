@@ -1,16 +1,10 @@
 package ImageMaterial;
 
-import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import CharaMake.BodyPartQueue;
 import ImageMaterial.PathNameNumber;
-import Variables.GlobalV;
-
-import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class ImageQueue {
@@ -18,7 +12,6 @@ public class ImageQueue {
 	public ImageQueue(List<PathNameNumber> ImageSet, String fileFormat){
 		
 		String tempPath;
-		BufferedImage tempPic;
 		ImageIcon tempImage;
 
 		materialImage = new TreeMap<Integer, ImageIcon>();

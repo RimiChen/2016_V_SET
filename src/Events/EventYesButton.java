@@ -2,9 +2,9 @@ package Events;
 
 import javax.swing.JButton;
 
-import FunctionActions.CharaYesAction;
 import FunctionActions.EventYesAction;
 
+@SuppressWarnings("serial")
 public class EventYesButton extends JButton{
 	int locationX;
 	int locationY;

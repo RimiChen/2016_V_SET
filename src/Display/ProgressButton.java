@@ -2,9 +2,9 @@ package Display;
 
 import javax.swing.JButton;
 
-import FunctionActions.DialogueAddAction;
 import FunctionActions.ProgressButtonAction;
 
+@SuppressWarnings("serial")
 public class ProgressButton extends JButton{
 	int locationX;
 	int locationY;

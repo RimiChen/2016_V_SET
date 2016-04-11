@@ -2,8 +2,8 @@ package FunctionActions;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Map;
 
+import EdittingBuffer.EditingBuffer;
 import Events.EventButton;
 import Events.EventLabel;
 import Events.G_Event;
@@ -19,15 +19,15 @@ public class EventYesAction implements ActionListener{
 		// TODO Auto-generated method stub
 		nowEvent = LookUp.EventMap.get(LookUp.EventNameMap.get(GlobalV.CurrentEditingEvent));
 		//update saved dialogue
-		for(int i = 0; i < GlobalV.BufferedDialogue.size(); i++){
-			GlobalV.BufferedDialogue.get(i).content = GlobalV.BufferedDialogue.get(i).contentBox.getText();
+		for(int i = 0; i < EditingBuffer.BufferedDialogue.size(); i++){
+			EditingBuffer.BufferedDialogue.get(i).content = EditingBuffer.BufferedDialogue.get(i).contentBox.getText();
 		}
 		
 		nowEvent.dialogueQueue.clear();
-		for(int i = 0; i < GlobalV.BufferedDialogue.size(); i++){
-			GlobalV.BufferedDialogue.get(i).charaIndex = GlobalV.BufferedDialogue.get(i).tempCharaIndex;
+		for(int i = 0; i < EditingBuffer.BufferedDialogue.size(); i++){
+			EditingBuffer.BufferedDialogue.get(i).charaIndex = EditingBuffer.BufferedDialogue.get(i).tempCharaIndex;
 		}
-		nowEvent.dialogueQueue.addAll(GlobalV.BufferedDialogue);
+		nowEvent.dialogueQueue.addAll(EditingBuffer.BufferedDialogue);
 		
 		nowEvent.place = nowEvent.tempPlace;
 		
@@ -47,11 +47,11 @@ public class EventYesAction implements ActionListener{
 		LookUp.EventPageMap.remove(oldName);
 		LookUp.EventPageMap.put(newName, index);
 
-		index = LookUp.EventPositionMap.get(oldName);
-		LookUp.EventPositionMap.remove(oldName);
-		LookUp.EventPositionMap.put(newName, index);
+		index = LookUp.EventPositionMap.get(GlobalV.CurrentEdittingPage).get(oldName);
+		LookUp.EventPositionMap.get(GlobalV.CurrentEdittingPage).remove(oldName);
+		LookUp.EventPositionMap.get(GlobalV.CurrentEdittingPage).put(newName, index);
 
-		index = LookUp.EventPositionMap.get(newName);
+		index = LookUp.EventPositionMap.get(GlobalV.CurrentEdittingPage).get(newName);
 		LookUp.EventTimeMap.get(GlobalV.CurrentEdittingPage).remove(index);
 		LookUp.EventTimeMap.get(GlobalV.CurrentEdittingPage).put(index, newName);
 		
@@ -89,7 +89,7 @@ public class EventYesAction implements ActionListener{
 		G_Components.currentContent.repaint();
 		
 		//Clear Buffer
-		GlobalV.BufferedDialogue.clear();
+		EditingBuffer.BufferedDialogue.clear();
 		G_Event.DialoguePanel.map.clear();
 		G_Event.DialoguePanel.removeAll();
 		

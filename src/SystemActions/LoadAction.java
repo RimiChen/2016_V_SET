@@ -12,13 +12,13 @@ import javax.swing.JFileChooser;
 
 import CharaMake.CustomCharacter;
 import CharacterScreen.G_Chara;
+import EdittingBuffer.EditingBuffer;
 import Events.G_Event;
 import Events.StoryDialogue;
 import Events.StoryEvent;
 import FunctionActions.AddCharaAction;
 import FunctionActions.CharaButtonAction;
 import MainScreen.CharacterButton;
-import MainScreen.G_Components;
 import Variables.GlobalV;
 import Variables.LookUp;
 
@@ -161,13 +161,12 @@ public class LoadAction implements ActionListener{
 							      	int tempEventID = Integer.parseInt(tempEventInfoArray[1].replaceAll("\\s*", ""));
 							      	int numberDialogue = Integer.parseInt(tempEventInfoArray[2].replaceAll("\\s*", ""));
 							      	
-							      	GlobalV.BufferedDialogue.clear();
+							      	EditingBuffer.BufferedDialogue.clear();
 							      	for(int j = 0; j < numberDialogue; j++){
 							      		System.out.println("-Sub: Add dialogue "+j +" to event "+ i);
 							      		String tempDia = br.readLine();
 							      		String tempDia2 = tempDia.replaceAll("\\s*", "");
 							      		String[] tempDiaArray = tempDia2.split(",");
-							      		String tempContent;
 						      			StoryEvent nowEvent = null;
 						      			StoryDialogue tempDialogue;
 
@@ -175,32 +174,32 @@ public class LoadAction implements ActionListener{
 							      			// add dialogue and content
 
 							      			nowEvent = LookUp.EventMap.get(tempEventID);
-							      			if(GlobalV.BufferedDialogue.size() == 0){
-							      				tempDialogue = new StoryDialogue(0, 0, G_Event.DialoguePanel.getWidth(), G_Event.DialoguePanel.getHeight()/GlobalV.MaxDialogueNumber, GlobalV.BufferedDialogue.size(),GlobalV.BufferedDialogue.size());
-							      				GlobalV.BufferedDialogue.add(tempDialogue);
+							      			if(EditingBuffer.BufferedDialogue.size() == 0){
+							      				tempDialogue = new StoryDialogue(0, 0, G_Event.DialoguePanel.getWidth(), G_Event.DialoguePanel.getHeight()/GlobalV.MaxDialogueNumber, EditingBuffer.BufferedDialogue.size(),EditingBuffer.BufferedDialogue.size());
+							      				EditingBuffer.BufferedDialogue.add(tempDialogue);
 							      			}
 							      			else{
-							      				int current = GlobalV.BufferedDialogue.size();
+							      				int current = EditingBuffer.BufferedDialogue.size();
 							      				tempDialogue = new StoryDialogue(
 							      						0,
-							      						GlobalV.BufferedDialogue.get(current-1).getY()+GlobalV.BufferedDialogue.get(current-1).getHeight()+5,
+							      						EditingBuffer.BufferedDialogue.get(current-1).getY()+EditingBuffer.BufferedDialogue.get(current-1).getHeight()+5,
 							      						G_Event.DialoguePanel.getWidth(),
 							      						G_Event.DialoguePanel.getHeight()/GlobalV.MaxDialogueNumber,
-							      						GlobalV.BufferedDialogue.size(),
-							      						GlobalV.BufferedDialogue.size()
+							      						EditingBuffer.BufferedDialogue.size(),
+							      						EditingBuffer.BufferedDialogue.size()
 							      				);
-							      				GlobalV.BufferedDialogue.add(tempDialogue);
+							      				EditingBuffer.BufferedDialogue.add(tempDialogue);
 							      			}
 							      			System.out.println("System: Add new dialogue in "+ nowEvent.eventName);							      			
 							      		}
-							      		GlobalV.BufferedDialogue.get(j).charaIndex = LookUp.CharaNameMap.get(tempDiaArray[2].replaceAll("\\s*", "").replaceAll("\\|", " "));
-						    			GlobalV.BufferedDialogue.get(j).content = tempDiaArray[3].replaceAll("\\s*", "").replaceAll("\\|", " ");
+							      		EditingBuffer.BufferedDialogue.get(j).charaIndex = LookUp.CharaNameMap.get(tempDiaArray[2].replaceAll("\\s*", "").replaceAll("\\|", " "));
+							      		EditingBuffer.BufferedDialogue.get(j).content = tempDiaArray[3].replaceAll("\\s*", "").replaceAll("\\|", " ");
 							    		
 							    		//nowEvent.dialogueQueue.clear();
 							    		//for(int i = 0; i < GlobalV.BufferedDialogue.size(); i++){
-							    		GlobalV.BufferedDialogue.get(j).charaIndex = LookUp.CharaNameMap.get(tempDiaArray[2].replaceAll("\\s*", "").replaceAll("\\|", " "));
+							      		EditingBuffer.BufferedDialogue.get(j).charaIndex = LookUp.CharaNameMap.get(tempDiaArray[2].replaceAll("\\s*", "").replaceAll("\\|", " "));
 							    		//}
-							    		nowEvent.dialogueQueue.add(GlobalV.BufferedDialogue.get(j));
+							    		nowEvent.dialogueQueue.add(EditingBuffer.BufferedDialogue.get(j));
 							      	}
 							      	
 								}

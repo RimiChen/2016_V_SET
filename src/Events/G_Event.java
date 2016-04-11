@@ -2,7 +2,6 @@ package Events;
 
 import java.awt.Color;
 import java.awt.Image;
-import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -212,7 +211,7 @@ public class G_Event {
 		LookUp.EventMap.put(tempEvent.index, tempEvent);
 		LookUp.EventNameMap.put(tempEvent.eventName, tempEvent.index);
 		LookUp.EventPageMap.put(tempEvent.eventName, GlobalV.CurrentEdittingPage);
-		LookUp.EventPositionMap.put(tempEvent.eventName, startY);
+		LookUp.EventPositionMap.get(GlobalV.CurrentEdittingPage).put(tempEvent.eventName, startY);
 		LookUp.EventTimeMap.get(GlobalV.CurrentEdittingPage).put(startY, tempEvent.eventName);
 		
 		tempButton = new EventButton(startX, startY, width, height, tempEvent.index, GlobalV.CurrentEdittingPage, tempEvent.eventName);
@@ -226,7 +225,7 @@ public class G_Event {
 		paintEventButton();
 		
 		//printEventMap();
-		//printEventTime();
+		printEventTime();
 	}
 	public static void paintEventButton(){
 		//System.out.println("*****"+EventPageMap.get(GlobalV.CurrentEdittingPage).EventButtonMap);

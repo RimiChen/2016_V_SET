@@ -3,8 +3,8 @@ package Events;
 import javax.swing.JButton;
 
 import FunctionActions.DialogueAddAction;
-import FunctionActions.EventButtonAction;
 
+@SuppressWarnings("serial")
 public class DialogueAddButton extends JButton{
 	int locationX;
 	int locationY;

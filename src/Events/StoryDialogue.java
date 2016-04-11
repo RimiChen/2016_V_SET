@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import FunctionActions.DialogueCharaAction;
 import Variables.LookUp;
 
+@SuppressWarnings("serial")
 public class StoryDialogue extends JPanel{
 	int locationX;
 	int locationY;

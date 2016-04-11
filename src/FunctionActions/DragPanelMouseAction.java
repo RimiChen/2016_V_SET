@@ -1,13 +1,12 @@
 package FunctionActions;
 
-import java.awt.Point;
-import java.awt.Rectangle;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import Events.DragArea;
+
 import Events.G_Event;
-import MainScreen.G_Components;
+
 import Variables.GlobalV;
 
 public class DragPanelMouseAction extends MouseAdapter{

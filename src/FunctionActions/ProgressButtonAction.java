@@ -3,10 +3,7 @@ package FunctionActions;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import CharaMake.CustomCharacter;
-import CharacterScreen.G_Chara;
 import Variables.GlobalV;
-import Variables.LookUp;
 
 public class ProgressButtonAction implements ActionListener{
 

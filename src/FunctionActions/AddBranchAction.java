@@ -28,6 +28,8 @@ public class AddBranchAction implements ActionListener{
 			System.out.println("System: create a new Story Page "+GlobalV.NumberEventPage);
 			EventPageFrame tempEventPage = new EventPageFrame(0, 0, G_Event.StorylinePanel.getWidth(), G_Event.StorylinePanel.getHeight(), GlobalV.NumberEventPage, GlobalV.NumberEventPage);
 			G_Event.EventPageMap.put(GlobalV.NumberEventPage, tempEventPage);
+			Map< String, Integer> tempPosition = new TreeMap< String, Integer>();
+			LookUp.EventPositionMap.add(tempPosition);
 			Map< Integer, String> tempTime = new TreeMap<Integer, String>();
 			LookUp.EventTimeMap.add(tempTime);
 		}

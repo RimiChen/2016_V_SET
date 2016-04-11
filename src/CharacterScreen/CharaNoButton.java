@@ -3,8 +3,8 @@ package CharacterScreen;
 import javax.swing.JButton;
 
 import FunctionActions.CharaNoAction;
-import FunctionActions.CharaYesAction;
 
+@SuppressWarnings("serial")
 public class CharaNoButton extends JButton{
 	int locationX;
 	int locationY;

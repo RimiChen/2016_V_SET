@@ -4,6 +4,7 @@ import javax.swing.JButton;
 
 import FunctionActions.CharaYesAction;
 
+@SuppressWarnings("serial")
 public class CharaYesButton extends JButton{
 	int locationX;
 	int locationY;

@@ -4,6 +4,7 @@ import javax.swing.JLabel;
 
 import FunctionActions.CharaNoAction;
 
+@SuppressWarnings("serial")
 public class BodyNameLabel extends JLabel{
 	int locationX;
 	int locationY;

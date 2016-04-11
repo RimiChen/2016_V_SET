@@ -8,10 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import javax.swing.JLabel;
-
-import CharaMake.BodyPartQueue;
-import CharaMake.CharaModel;
 import CharaMake.CharaModelList;
 import CharaMake.CustomCharacter;
 import CharaMake.ManGroup;

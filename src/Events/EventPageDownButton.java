@@ -2,6 +2,7 @@ package Events;
 
 import javax.swing.JButton;
 
+@SuppressWarnings("serial")
 public class EventPageDownButton extends JButton{
 	int locationX;
 	int locationY;

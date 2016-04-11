@@ -8,7 +8,11 @@ import Events.G_Event;
 import Events.SubLabel;
 import Variables.GlobalV;
 
+@SuppressWarnings("serial")
 public class CharacterButton extends JButton{
+	/**
+	 * 
+	 */
 	public int locationX;
 	public int locationY;
 	public int sizeX;

@@ -3,7 +3,6 @@ package CharaMake;
 import java.util.ArrayList;
 import java.util.List;
 
-import CharacterScreen.CharaPartPanel;
 import CharacterScreen.G_Chara;
 
 public class CustomCharacter {

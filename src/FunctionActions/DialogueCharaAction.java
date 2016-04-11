@@ -2,10 +2,9 @@ package FunctionActions;
 
 import javax.swing.event.ListSelectionEvent;
 
+import EdittingBuffer.EditingBuffer;
 import Events.DialogueMenu;
-import Events.G_Event;
-import Events.GivenMenu;
-import Variables.GlobalV;
+
 import Variables.LookUp;
 
 public class DialogueCharaAction extends GivanMenuAction{
@@ -23,7 +22,7 @@ public class DialogueCharaAction extends GivanMenuAction{
         if(arg0.getValueIsAdjusting()){  
     		//System.out.println("New From list "+targetList.getSelectedValue());
         	int temp = LookUp.CharaNameMap.get(targetList.getSelectedValue());
-        	GlobalV.BufferedDialogue.get(dialogueIndex).tempCharaIndex = temp;
+        	EditingBuffer.BufferedDialogue.get(dialogueIndex).tempCharaIndex = temp;
            	
         }  		
 	}	

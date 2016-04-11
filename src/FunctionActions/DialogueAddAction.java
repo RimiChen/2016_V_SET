@@ -3,11 +3,11 @@ package FunctionActions;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import CharaMake.CustomCharacter;
+import EdittingBuffer.EditingBuffer;
 import Events.G_Event;
 import Events.StoryDialogue;
 import Events.StoryEvent;
-import MainScreen.G_Components;
+
 import Variables.GlobalV;
 import Variables.LookUp;
 
@@ -25,29 +25,29 @@ public class DialogueAddAction  implements ActionListener{
 		numberInAPage = GlobalV.MaxDialogueNumber;
 		
 		nowEvent = LookUp.EventMap.get(LookUp.EventNameMap.get(GlobalV.CurrentEditingEvent));
-		if(GlobalV.BufferedDialogue.size() == 0){
-			tempDialogue = new StoryDialogue(0, 0, G_Event.DialoguePanel.getWidth(), G_Event.DialoguePanel.getHeight()/numberInAPage, GlobalV.BufferedDialogue.size(),GlobalV.BufferedDialogue.size());
-			GlobalV.BufferedDialogue.add(tempDialogue);
-			int current = GlobalV.BufferedDialogue.size();
+		if(EditingBuffer.BufferedDialogue.size() == 0){
+			tempDialogue = new StoryDialogue(0, 0, G_Event.DialoguePanel.getWidth(), G_Event.DialoguePanel.getHeight()/numberInAPage, EditingBuffer.BufferedDialogue.size(),EditingBuffer.BufferedDialogue.size());
+			EditingBuffer.BufferedDialogue.add(tempDialogue);
+			int current = EditingBuffer.BufferedDialogue.size();
 			G_Event.DialoguePanel.removeAll();
-			G_Event.DialoguePanel.addToMap(GlobalV.BufferedDialogue.get(current-1).getDepth(), GlobalV.BufferedDialogue.get(current-1));
+			G_Event.DialoguePanel.addToMap(EditingBuffer.BufferedDialogue.get(current-1).getDepth(), EditingBuffer.BufferedDialogue.get(current-1));
 			G_Event.DialoguePanel.addThings();
 			G_Event.DialoguePanel.repaint();
 		}
 		else{
-			int current = GlobalV.BufferedDialogue.size();
+			int current = EditingBuffer.BufferedDialogue.size();
 			tempDialogue = new StoryDialogue(
 					0,
-					GlobalV.BufferedDialogue.get(current-1).getY()+GlobalV.BufferedDialogue.get(current-1).getHeight()+5,
+					EditingBuffer.BufferedDialogue.get(current-1).getY()+EditingBuffer.BufferedDialogue.get(current-1).getHeight()+5,
 					G_Event.DialoguePanel.getWidth(),
 					G_Event.DialoguePanel.getHeight()/numberInAPage,
-					GlobalV.BufferedDialogue.size(),
-					GlobalV.BufferedDialogue.size()
+					EditingBuffer.BufferedDialogue.size(),
+					EditingBuffer.BufferedDialogue.size()
 			);
-			GlobalV.BufferedDialogue.add(tempDialogue);
-			current = GlobalV.BufferedDialogue.size();
+			EditingBuffer.BufferedDialogue.add(tempDialogue);
+			current = EditingBuffer.BufferedDialogue.size();
 			G_Event.DialoguePanel.removeAll();
-			G_Event.DialoguePanel.addToMap(GlobalV.BufferedDialogue.get(current-1).getDepth(), GlobalV.BufferedDialogue.get(current-1));
+			G_Event.DialoguePanel.addToMap(EditingBuffer.BufferedDialogue.get(current-1).getDepth(), EditingBuffer.BufferedDialogue.get(current-1));
 			G_Event.DialoguePanel.addThings();
 			G_Event.DialoguePanel.repaint();
 		}

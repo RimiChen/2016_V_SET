@@ -5,11 +5,10 @@ import java.awt.event.ActionListener;
 
 import CharaMake.CustomCharacter;
 import MainScreen.CharacterButton;
-import MainScreen.FunctionButton;
+
 import CharacterScreen.G_Chara;
 import Events.G_Event;
-import MainScreen.G_Components;
-import MainScreen.MainFrame;
+
 import Variables.GlobalV;
 import Variables.LookUp;
 

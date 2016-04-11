@@ -1,17 +1,14 @@
 package Events;
 
-import java.awt.Dimension;
 import java.util.Map;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
-import javax.swing.JMenuBar;
-import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 
 import FunctionActions.GivanMenuAction;
-import Variables.LookUp;
 
+@SuppressWarnings({ "serial", "rawtypes" })
 public class GivenMenu extends JList{
 	int locationX;
 	int locationY;
@@ -59,6 +56,7 @@ public class GivenMenu extends JList{
 		this.act = act;
 		addListSelectionListener(act);
 	}
+	@SuppressWarnings("unchecked")
 	public void updateMenu(String MenuName, Map<String, Integer> NewMap){
 		defaultListModel.clear();
 		for(String key : NewMap.keySet())

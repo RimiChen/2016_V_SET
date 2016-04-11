@@ -9,9 +9,9 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import FunctionActions.BackgroundTimerFrameActions;
-import MainScreen.MainFrame;
 import Variables.GlobalV;
 
+@SuppressWarnings("serial")
 public class BackgoundTimerFrame extends JPanel{
 	int locationX;
 	int locationY;

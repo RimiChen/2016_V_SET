@@ -8,6 +8,7 @@ import java.util.TreeMap;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+@SuppressWarnings("serial")
 public class CharaPartPanel extends JLabel{
 	int locationX;
 	int locationY;

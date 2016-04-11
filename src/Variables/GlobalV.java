@@ -1,13 +1,6 @@
 package Variables;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
-import CharaMake.CustomCharacter;
-import Events.StoryDialogue;
-import Main.*;
 
 public class GlobalV {
 	public static int WindowWidth;
@@ -41,8 +34,7 @@ public class GlobalV {
 	
 	public static int NumberEvent;
 	public static String CurrentEditingEvent;
-	public static List<StoryDialogue> BufferedDialogue;
-	
+
 	public static String CurrentChosenPlace;
 	
 	public static int DisplayEventCount;
@@ -95,7 +87,7 @@ public class GlobalV {
 		// initial is 0
 		NumberEvent = 0;
 		CurrentEditingEvent = "";
-		BufferedDialogue = new ArrayList<StoryDialogue>();
+
 		
 		//initial place
 		CurrentChosenPlace = LookUp.PlaceMap.get(0);

@@ -5,6 +5,7 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+@SuppressWarnings("serial")
 public class SubLabel extends JLabel{
 	int locationX;
 	int locationY;

@@ -3,8 +3,8 @@ package CharacterScreen;
 import javax.swing.JButton;
 
 import FunctionActions.ImageDownAction;
-import Variables.GlobalV;
 
+@SuppressWarnings("serial")
 public class ImageDownButton extends JButton{
 	int locationX;
 	int locationY;

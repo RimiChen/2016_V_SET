@@ -7,7 +7,6 @@ import java.util.List;
 import javax.swing.ImageIcon;
 
 import ImageMaterial.PathNameNumber;
-import Variables.LookUp;
 
 public class G_Material {
 	public List<PathNameNumber> imageSet;

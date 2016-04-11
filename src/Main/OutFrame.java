@@ -1,13 +1,9 @@
 package Main;
 
-import java.awt.event.*;
-
-import javax.swing.*;
-
 import FunctionActions.BackgroundTimerFrameActions;
 import MainScreen.*;
-import Variables.GlobalV;
 
+@SuppressWarnings("serial")
 public class OutFrame extends MainFrame{
 
 	public BackgroundTimerFrameActions mainAct;

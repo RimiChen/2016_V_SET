@@ -2,10 +2,9 @@ package CharacterScreen;
 
 import javax.swing.JButton;
 
-import FunctionActions.ImageDownAction;
 import FunctionActions.ImageUpAction;
-import Variables.GlobalV;
 
+@SuppressWarnings("serial")
 public class ImageUpButton extends JButton{
 	int locationX;
 	int locationY;

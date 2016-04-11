@@ -8,6 +8,7 @@ import javax.swing.ListSelectionModel;
 
 import FunctionActions.GivanMenuAction;
 
+@SuppressWarnings("serial")
 public class DialogueMenu extends GivenMenu{
 	int locationX;
 	int locationY;
@@ -22,6 +23,7 @@ public class DialogueMenu extends GivenMenu{
 	
 	GivanMenuAction act;
 
+	@SuppressWarnings("rawtypes")
 	DefaultListModel defaultListModel = new DefaultListModel();  
 	
 	public  DialogueMenu(int LocationX, int LocationY, int SizeX, int SizeY, int Depth, String MenuName, int DialogueID, Map<String, Integer> Map){
@@ -58,6 +60,7 @@ public class DialogueMenu extends GivenMenu{
 		this.act = act;
 		addListSelectionListener(act);
 	}
+	@SuppressWarnings("unchecked")
 	public void updateMenu(String MenuName, Map<String, Integer> NewMap){
 		defaultListModel.clear();
 		for(String key : NewMap.keySet())

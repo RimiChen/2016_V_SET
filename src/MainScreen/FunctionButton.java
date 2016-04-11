@@ -2,6 +2,7 @@ package MainScreen;
 
 import javax.swing.*;
 
+@SuppressWarnings("serial")
 public class FunctionButton extends JButton{
 	int locationX;
 	int locationY;

@@ -7,6 +7,7 @@ import java.util.TreeMap;
 
 import javax.swing.*;
 
+@SuppressWarnings("serial")
 public class GroupFrame extends JPanel{
 	int locationX;
 	int locationY;

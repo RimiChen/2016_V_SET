@@ -3,7 +3,6 @@ package FunctionActions;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import Variables.GlobalV;
 
 public class EventPageAction implements ActionListener{
 

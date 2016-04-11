@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 
 import CharaMake.CustomCharacter;
 import CharacterScreen.G_Chara;
-import MainScreen.G_Components;
 import Variables.GlobalV;
 import Variables.LookUp;
 

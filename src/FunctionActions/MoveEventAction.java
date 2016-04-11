@@ -7,7 +7,7 @@ import CharaMake.CustomCharacter;
 import Events.G_Event;
 import MainScreen.G_Components;
 import Variables.GlobalV;
-import Variables.LookUp;
+
 
 public class MoveEventAction implements ActionListener{
 	CustomCharacter nowChara;

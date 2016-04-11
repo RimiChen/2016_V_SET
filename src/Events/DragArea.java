@@ -1,13 +1,9 @@
 package Events;
 
-import java.awt.Canvas;
 import java.awt.Color;
-import java.awt.Graphics;
-
 import javax.swing.JLabel;
 
-import FunctionActions.CharaNoAction;
-
+@SuppressWarnings("serial")
 public class DragArea extends JLabel{
 	int locationX;
 	int locationY;

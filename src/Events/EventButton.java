@@ -4,6 +4,7 @@ import javax.swing.JButton;
 
 import FunctionActions.EventButtonAction;
 
+@SuppressWarnings("serial")
 public class EventButton  extends JButton{
 	int locationX;
 	int locationY;

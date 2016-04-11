@@ -3,11 +3,11 @@ package FunctionActions;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import CharaMake.CustomCharacter;
+import EdittingBuffer.EditingBuffer;
 import Events.G_Event;
 import MainScreen.G_Components;
 import Variables.GlobalV;
-import Variables.LookUp;
+
 
 public class EventNoAction implements ActionListener{
 	
@@ -23,7 +23,7 @@ public class EventNoAction implements ActionListener{
 		G_Components.currentContent.repaint();
 		
 		//Clear Buffer
-		GlobalV.BufferedDialogue.clear();
+		EditingBuffer.BufferedDialogue.clear();
 		G_Event.DialoguePanel.map.clear();
 		G_Event.DialoguePanel.removeAll();
 		

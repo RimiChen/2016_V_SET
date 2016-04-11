@@ -1,10 +1,7 @@
 package CharaMake;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.util.*;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class BodyPartQueue {
@@ -16,7 +13,6 @@ public class BodyPartQueue {
 	
 	public BodyPartQueue(String FilePath, String NameString, int NumberOfImages){
 		String tempPath;
-		BufferedImage tempPic;
 		ImageIcon tempImage;
 		currentImage = 0;
 		materialQueue = new ArrayList<ImageIcon>();

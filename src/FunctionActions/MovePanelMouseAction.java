@@ -57,16 +57,14 @@ public class MovePanelMouseAction extends MouseAdapter{
 	    	GlobalV.isEditting = false;
 	    	isTarget = false;
 	    	
-	    	int eventIndex = LookUp.EventNameMap.get(GlobalV.CurrentEditingEvent);
-	    	int newX = e.getPoint().x-diffX;
 	    	int newY =e.getPoint().y-diffY;
 	    	
 	    	int oldPosition;
 	    	
 	    	
-	    	oldPosition = LookUp.EventPositionMap.get(GlobalV.CurrentEditingEvent);
-	    	LookUp.EventPositionMap.remove(GlobalV.CurrentEditingEvent);
-			LookUp.EventPositionMap.put(GlobalV.CurrentEditingEvent, newY);
+	    	oldPosition = LookUp.EventPositionMap.get(GlobalV.CurrentEdittingPage).get(GlobalV.CurrentEditingEvent);
+	    	LookUp.EventPositionMap.get(GlobalV.CurrentEdittingPage).remove(GlobalV.CurrentEditingEvent);
+			LookUp.EventPositionMap.get(GlobalV.CurrentEdittingPage).put(GlobalV.CurrentEditingEvent, newY);
 	    	
 			LookUp.EventTimeMap.get(GlobalV.CurrentEdittingPage).remove(oldPosition);
 			LookUp.EventTimeMap.get(GlobalV.CurrentEdittingPage).put(newY, GlobalV.CurrentEditingEvent);

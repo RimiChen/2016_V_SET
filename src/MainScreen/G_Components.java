@@ -3,11 +3,8 @@
  */
 package MainScreen;
 
-import java.awt.Color;
 import java.util.Map;
 import java.util.TreeMap;
-
-import javax.swing.*;
 
 import FunctionActions.AddBranchAction;
 import FunctionActions.AddCharaAction;

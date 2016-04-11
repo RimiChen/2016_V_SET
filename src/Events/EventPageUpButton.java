@@ -2,8 +2,7 @@ package Events;
 
 import javax.swing.JButton;
 
-import FunctionActions.EventNoAction;
-
+@SuppressWarnings("serial")
 public class EventPageUpButton  extends JButton{
 	int locationX;
 	int locationY;

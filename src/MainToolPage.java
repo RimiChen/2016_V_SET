@@ -7,7 +7,7 @@
  * Name: CSC 582, Mid Project
  * 
  * Topic:
- * This pr1ogram is created for 2016 spring, CSC 582 Project
+ * This program is created for 2016 spring, CSC 582 Project
  * V-Set is a visual story editing tool.
  *
  *  
@@ -48,21 +48,16 @@
  * Import Library
  * ==============
  */
-import java.awt.Component;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.Map;
-import java.util.TreeMap;
+
 
 import javax.swing.*;
 
-import FunctionActions.AddCharaAction;
 import FunctionActions.BackgroundTimerFrameActions;
 import ImageMaterial.G_Material;
-import Main.OutFrame;
 import MainScreen.*;
 import CharacterScreen.*;
 import Display.G_Display;
+import EdittingBuffer.EditingBuffer;
 import Events.G_Event;
 import Variables.G_Fun;
 import Variables.GlobalV;
@@ -80,6 +75,7 @@ public class MainToolPage{
 	public static G_Event globalEvent;
 	public static G_Material globalMaterial;
 	public static G_Display globalDisplay;
+	public static EditingBuffer globalBuffer;
 	
 	public static BackgroundTimerFrameActions test = new BackgroundTimerFrameActions();
 	
@@ -90,6 +86,7 @@ public class MainToolPage{
 		globalLook = new LookUp();
 		globalFun = new G_Fun();
 		global = new GlobalV();
+		globalBuffer = new EditingBuffer();
 		globalC = new G_Components();
 		globalMaterial = new G_Material();
 		globalChara = new G_Chara();
@@ -98,7 +95,7 @@ public class MainToolPage{
 
 	}
 	//This is the start point of the tool
-	@SuppressWarnings("deprecation")
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 

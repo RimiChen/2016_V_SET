@@ -1,14 +1,12 @@
 package Events;
 
-import java.awt.Point;
-import java.awt.Rectangle;
-
 import javax.swing.Timer;
 
 import FunctionActions.BackgroundTimerFrameActions;
 import MainScreen.MainFrame;
 import Variables.GlobalV;
 
+@SuppressWarnings("serial")
 public class DragFrame extends MainFrame{
 
 	public BackgroundTimerFrameActions mainAct;

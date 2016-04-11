@@ -2,9 +2,9 @@ package CharacterScreen;
 
 import javax.swing.JButton;
 
-import FunctionActions.CharaNoAction;
 import FunctionActions.TypeButtonAction;
 
+@SuppressWarnings("serial")
 public class TypeButton extends JButton{
 	int locationX;
 	int locationY;

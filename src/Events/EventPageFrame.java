@@ -12,6 +12,7 @@ import FunctionActions.EventPageDownAction;
 import FunctionActions.EventPageUpAction;
 import MainScreen.GroupFrame;
 
+@SuppressWarnings("serial")
 public class EventPageFrame extends JPanel{
 	int locationX;
 	int locationY;

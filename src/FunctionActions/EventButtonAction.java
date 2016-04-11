@@ -3,6 +3,7 @@ package FunctionActions;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import EdittingBuffer.EditingBuffer;
 import Events.G_Event;
 import Events.StoryEvent;
 import MainScreen.G_Components;
@@ -38,22 +39,22 @@ public class EventButtonAction implements ActionListener{
 		
 		//prepare to edit dialogue content
 		//clear buffer
-		GlobalV.BufferedDialogue.clear();
-		GlobalV.BufferedDialogue.addAll(nowEvent.dialogueQueue);
+		EditingBuffer.BufferedDialogue.clear();
+		EditingBuffer.BufferedDialogue.addAll(nowEvent.dialogueQueue);
 		
 		//diaplay previous dialogue
 		displayPrevious();
 
 	}
 	public void displayPrevious(){
-		for(int i = 0; i< GlobalV.BufferedDialogue.size(); i++){
+		for(int i = 0; i< EditingBuffer.BufferedDialogue.size(); i++){
 			//System.out.print(GlobalV.BufferedDialogue.get(i).charaIndex);
 			//System.out.println("old " + GlobalV.BufferedDialogue.get(i).content +" Chara: " + LookUp.CharaMap.get(GlobalV.BufferedDialogue.get(i).charaIndex));
-			GlobalV.BufferedDialogue.get(i).charaNameList.updateMenu("Character", LookUp.CharaNameMap);
-			GlobalV.BufferedDialogue.get(i).charaNameList.setSelectedIndex(GlobalV.BufferedDialogue.get(i).charaIndex-1);
-			GlobalV.BufferedDialogue.get(i).charaNameList.repaint();
-			GlobalV.BufferedDialogue.get(i).contentBox.setText(GlobalV.BufferedDialogue.get(i).content);
-			G_Event.DialoguePanel.addToMap(GlobalV.BufferedDialogue.get(i).getDepth(), GlobalV.BufferedDialogue.get(i));
+			EditingBuffer.BufferedDialogue.get(i).charaNameList.updateMenu("Character", LookUp.CharaNameMap);
+			EditingBuffer.BufferedDialogue.get(i).charaNameList.setSelectedIndex(EditingBuffer.BufferedDialogue.get(i).charaIndex-1);
+			EditingBuffer.BufferedDialogue.get(i).charaNameList.repaint();
+			EditingBuffer.BufferedDialogue.get(i).contentBox.setText(EditingBuffer.BufferedDialogue.get(i).content);
+			G_Event.DialoguePanel.addToMap(EditingBuffer.BufferedDialogue.get(i).getDepth(), EditingBuffer.BufferedDialogue.get(i));
 		}
 		//System.out.println("In place: " + nowEvent.place +", " +LookUp.PlaceNameMap.get(nowEvent.place));
 		G_Event.PlaceMenu.setSelectedIndex(LookUp.PlaceNameMap.get(nowEvent.place));

@@ -2,6 +2,7 @@ package CharacterScreen;
 
 import javax.swing.JTextField;
 
+@SuppressWarnings("serial")
 public class CharaName extends JTextField{
 	int locationX;
 	int locationY;

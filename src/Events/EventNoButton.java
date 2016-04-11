@@ -2,9 +2,9 @@ package Events;
 
 import javax.swing.JButton;
 
-import FunctionActions.CharaNoAction;
 import FunctionActions.EventNoAction;
 
+@SuppressWarnings("serial")
 public class EventNoButton extends JButton{
 	int locationX;
 	int locationY;

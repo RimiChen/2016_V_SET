@@ -4,8 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import Display.G_Display;
-import Events.G_Event;
-import MainScreen.G_Components;
 import Variables.GlobalV;
 
 public class BackgroundTimerFrameActions implements ActionListener{

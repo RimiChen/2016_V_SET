@@ -11,11 +11,10 @@ import javax.swing.JFrame;
 
 import CharaMake.CustomCharacter;
 import CharacterScreen.G_Chara;
-import Events.G_Event;
 import Events.StoryEvent;
 import Events.SubLabel;
+import FunctionActions.CloseStoryAction;
 import ImageMaterial.G_Material;
-import MainScreen.G_Components;
 import MainScreen.GroupFrame;
 import Variables.GlobalV;
 import Variables.LookUp;
@@ -57,7 +56,9 @@ public class G_Display {
 		StoryFrame.setLocation(300, 300);
 		StoryFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		StoryFrame.setLayout(null);
-
+		CloseStoryAction closeAct;
+		closeAct = new CloseStoryAction();
+		StoryFrame.addWindowListener(closeAct);
 		
 		// depth is smaller, is more front
 		
@@ -163,14 +164,18 @@ public class G_Display {
 		String currentEventName; 
 		int currentEventIndex;
 		StoryEvent tempEvent;
-		for(int key : LookUp.EventTimeMap.get(GlobalV.CurrentEdittingPage).keySet())
-		{
-			currentEventName = LookUp.EventTimeMap.get(GlobalV.CurrentEdittingPage).get(key);
-			currentEventIndex = LookUp.EventNameMap.get(currentEventName);
-			tempEvent = LookUp.EventMap.get(currentEventIndex);
-			DisplayQueue.add(tempEvent);
-			DisplayTimeMap.put(key, tempEvent);
-		}		
+		//for(int i = 1; i <= GlobalV.NumberEventPage; i++){
+			//int currentPage = i;
+			int currentPage = GlobalV.CurrentEdittingPage;
+			for(int key : LookUp.EventTimeMap.get(currentPage).keySet())
+			{
+				currentEventName = LookUp.EventTimeMap.get(currentPage).get(key);
+				currentEventIndex = LookUp.EventNameMap.get(currentEventName);
+				tempEvent = LookUp.EventMap.get(currentEventIndex);
+				DisplayQueue.add(tempEvent);
+				DisplayTimeMap.put(key, tempEvent);
+			}
+		//}
 	}
 	public static void displayEventInQueue(){
 		int iconIndex;
@@ -198,8 +203,6 @@ public class G_Display {
 				String charaName;
 				int charaID;
 				CustomCharacter tempChara;
-				String charaType;
-				
 				for(int j = 0; j < GlobalV.NumberFeatures; j++){
 					charaName = LookUp.CharaMap.get(DisplayTimeMap.get(key).dialogueQueue.get(i).charaIndex).name;
 					charaID = LookUp.CharaNameMap.get(charaName);
@@ -259,7 +262,7 @@ public class G_Display {
 		//int k =GlobalV.DisplayEventCount;
 		if(k <DisplayQueue.size()){
 		//for(int k = 0; k <DisplayQueue.size(); k++ ){
-			System.out.println("System: In time "+LookUp.EventPositionMap.get(DisplayQueue.get(k).eventName)
+			System.out.println("System: In time "+LookUp.EventPositionMap.get(GlobalV.CurrentEdittingPage).get(DisplayQueue.get(k).eventName)
 					+" Display "+DisplayQueue.get(k).eventName
 					+" Happen in " + DisplayQueue.get(k).place);	
 			iconString = DisplayQueue.get(k).place;
@@ -277,8 +280,6 @@ public class G_Display {
 				String charaName;
 				int charaID;
 				CustomCharacter tempChara;
-				String charaType;
-				
 				//print character parts
 				for(int j = 0; j < GlobalV.NumberFeatures; j++){
 					charaName = LookUp.CharaMap.get(DisplayQueue.get(k).dialogueQueue.get(i).charaIndex).name;
@@ -368,8 +369,6 @@ public class G_Display {
 				String charaName;
 				int charaID;
 				CustomCharacter tempChara;
-				String charaType;
-				
 				//print character parts
 				for(int j = 0; j < GlobalV.NumberFeatures; j++){
 					charaName = LookUp.CharaMap.get(DisplayQueue.get(k).dialogueQueue.get(i).charaIndex).name;
@@ -423,6 +422,14 @@ public class G_Display {
 			
 
 		
+	}
+	public static void clearDisplay(){
+		// parameter for display
+		GlobalV.DisplayEventCount = 0;
+		GlobalV.DisplayDialogueCount = 0;
+		
+		GlobalV.DisplayEventNumber = 0;
+		GlobalV.DisplayDialogueNumber = 0;
 	}
 
 }

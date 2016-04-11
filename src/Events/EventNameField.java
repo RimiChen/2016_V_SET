@@ -2,6 +2,7 @@ package Events;
 
 import javax.swing.JTextField;
 
+@SuppressWarnings("serial")
 public class EventNameField extends JTextField{
 	int locationX;
 	int locationY;
