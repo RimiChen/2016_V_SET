@@ -43,6 +43,8 @@ public class GlobalV {
 	public static int DisplayDialogueNumber;
 	public static int MaxDialogueNumber;
 	
+	public static int MaxConditionNumber;
+	
 	public static String CurrentEditingType;
 	
 	public static int displayButtonMode;
@@ -94,6 +96,7 @@ public class GlobalV {
 		//System.out.println("initial place = " + LookUp.PlaceMap.get(0));
 		
 		MaxDialogueNumber = 4;
+		MaxConditionNumber =3;
 		
 		// parameter for display
 		DisplayEventCount = 0;

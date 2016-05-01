@@ -62,6 +62,7 @@ import Events.G_Event;
 import Variables.G_Fun;
 import Variables.GlobalV;
 import Variables.LookUp;
+import Variables.SystemControl;
 
 public class MainToolPage{
 /*
@@ -76,6 +77,7 @@ public class MainToolPage{
 	public static G_Material globalMaterial;
 	public static G_Display globalDisplay;
 	public static EditingBuffer globalBuffer;
+	public static SystemControl Sys;
 	
 	public static BackgroundTimerFrameActions test = new BackgroundTimerFrameActions();
 	
@@ -83,6 +85,7 @@ public class MainToolPage{
 	
 	public static void initialSetting(){
 		//initialize
+		Sys = new SystemControl();
 		globalLook = new LookUp();
 		globalFun = new G_Fun();
 		global = new GlobalV();

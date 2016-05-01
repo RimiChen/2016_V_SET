@@ -29,6 +29,11 @@ public class EventYesAction implements ActionListener{
 		}
 		nowEvent.dialogueQueue.addAll(EditingBuffer.BufferedDialogue);
 		
+		nowEvent.conditionQueue.clear();
+		nowEvent.conditionQueue.addAll(EditingBuffer.BufferedCondition);
+		//System.out.println("Now Event" +nowEvent.index +" has "+nowEvent.conditionQueue.size()+" conditions");
+
+		
 		nowEvent.place = nowEvent.tempPlace;
 		
 		//check name update
@@ -92,6 +97,10 @@ public class EventYesAction implements ActionListener{
 		EditingBuffer.BufferedDialogue.clear();
 		G_Event.DialoguePanel.map.clear();
 		G_Event.DialoguePanel.removeAll();
+
+		EditingBuffer.BufferedCondition.clear();
+		G_Event.EventConditionListPanel.map.clear();
+		G_Event.EventConditionListPanel.removeAll();
 		
 		
 		GlobalV.isEditting = false;

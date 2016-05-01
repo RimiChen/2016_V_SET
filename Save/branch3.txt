@@ -1,0 +1,11 @@
+ENUM, 3
+
+E, 9, 4, Start3, Forest, 650, 30, 100, 30
+EC, 1, Narrator, P3|  | E1.
+
+E, 12, 4, Boy| and| Girl3, Forest, 50, 100, 250, 30
+EC, 1, Hansel,  P3|  | E2.
+
+E, 13, 3, House3, Village, 650, 170, 100, 30
+EC, 1, Narrator, P3|  | E3.
+

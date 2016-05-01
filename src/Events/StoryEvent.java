@@ -3,6 +3,7 @@ package Events;
 import java.util.ArrayList;
 import java.util.List;
 
+import Conditions.StoryCondition;
 import Variables.GlobalV;
 import Variables.LookUp;
 
@@ -15,11 +16,22 @@ public class StoryEvent {
 	public String place;
 	//dialogue
 	public List<StoryDialogue> dialogueQueue;
-	
+
 	public int nextPage;
 	public String nextEvent;
 	
+	public String influencedVariable;
+	public String operator; // + or - or =
+	public String value;
+	
+	public List<StoryCondition> conditionQueue;
+	
+	
 	public StoryEvent( int index){
+		//default will go to next event
+		nextPage = -1;
+		nextEvent = "";
+		
 		System.out.println("System: Event "+ index +" was created");
 		this.index = index;
 		this.eventName = "event" +index;
@@ -28,6 +40,7 @@ public class StoryEvent {
 		this.place = LookUp.PlaceMap.get(0);
 		this.tempPlace = LookUp.PlaceMap.get(0);
 		dialogueQueue = new ArrayList<StoryDialogue>();
+		conditionQueue = new ArrayList<StoryCondition>();
 		nextPage = GlobalV.CurrentEdittingPage;
 		nextEvent = "";
 		

@@ -36,7 +36,7 @@ public class DragPanelMouseAction extends MouseAdapter{
       	//G_Event.DragPanel.addToMap(G_Event.region.getDepth(), G_Event.region);
       	
     	//Create a new event
-      	G_Event.createNewEvent(G_Event.region.getX(), G_Event.region.getY(), G_Event.region.getWidth(), G_Event.region.getHeight(), "", "");
+      	G_Event.createNewEvent(G_Event.region.getX(), G_Event.region.getY(), G_Event.region.getWidth(), G_Event.region.getHeight(), "", "", GlobalV.NumberEvent+1);
       	
       	//update event transfer
       	

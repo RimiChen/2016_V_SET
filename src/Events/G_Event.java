@@ -8,6 +8,7 @@ import java.util.TreeMap;
 import javax.swing.ImageIcon;
 
 import CharacterScreen.G_Chara;
+import Conditions.StoryCondition;
 import FunctionActions.DragPanelMouseAction;
 import FunctionActions.MovePanelMouseAction;
 import FunctionActions.PlaceMenuAction;
@@ -40,6 +41,39 @@ public class G_Event {
 	// event name
 	public static GroupFrame EventNamePanel;
 	public static EventNameField EventName;
+	
+	// jump from event to event
+	public static GroupFrame EventJumpField;
+	public static SubLabel EventJumpTitle;
+	
+	public static SubLabel EventJumpPage0;
+	public static SubTextField EventJumpPage;
+	public static SubLabel EventJump0;
+	public static SubTextField EventJump;
+
+	//influence variables
+	public static GroupFrame EventVariableField;
+	public static SubLabel EventVariableTitle;
+	public static SubLabel EventVariableName0;
+	public static SubTextField EventVariableName;
+	public static SubLabel EventVariableOperator0;
+	public static SubTextField EventVariableOperator;
+	public static SubLabel EventVariableValue0;
+	public static SubTextField EventVariableValue;
+	
+	
+	//checked conditions
+	public static GroupFrame EventConditionPanel;
+	public static SubLabel EventConditionTitle;
+	public static EventConditionAddButton EventAddCondition;
+	public static GroupFrame EventConditionListPanel;
+	
+	public static GroupFrame EventConditionEdittingPanel;
+	
+	
+	
+	
+	
 	// function button
 	public static GroupFrame EventFunPanel;
 	public EventYesButton EventYes;
@@ -137,7 +171,7 @@ public class G_Event {
 		EventEditingPanel.addToMap(EventNamePanel.getDepth(), EventNamePanel);
 		
 		// function button
-		EventFunPanel = new GroupFrame(0, EventNamePanel.getHeight()+5, 200, 30, 1);
+		EventFunPanel = new GroupFrame(EventNamePanel.getWidth()+10, 0, 200, 30, 1);
 		EventFunPanel.setBackground(new Color(255, 0, 0));
 		EventYes = new EventYesButton(0, 0, 100, EventFunPanel.getHeight(), 0);
 		EventYes.setText("Save");
@@ -169,6 +203,8 @@ public class G_Event {
 		
 		EventEditingPanel.addToMap(EventPlacePanel.getDepth(), EventPlacePanel);
 		
+		
+
 		//Dialogue panel
 		DialoguePanel = new GroupFrame(0, EventEditingPanel.getHeight()/4+30 , EventEditingPanel.getWidth(), EventEditingPanel.getHeight()*3/4 - 30, 3);
 		DialoguePanel.setBackground(new Color(255, 0, 0));
@@ -183,15 +219,92 @@ public class G_Event {
 		DialogueFunctionPanel.addThings();
 		
 		EventEditingPanel.addToMap(DialogueFunctionPanel.getDepth(), DialogueFunctionPanel);
+
+		// jump from event to event
+		EventJumpField = new GroupFrame(0, EventNamePanel.getHeight()+10, EventPlacePanel.getX()-150, (DialogueFunctionPanel.getY()- EventNamePanel.getY())/4, 5);
+		EventJumpField.setBackground(new Color(255,255 ,255, 125));
+		EventJumpField.setOpaque(true);
+		EventEditingPanel.addToMap(EventJumpField.getDepth(), EventJumpField);
+
+		EventJumpTitle = new SubLabel(0, 0, 200, EventJumpField.getHeight()/2-3, 0, "Default Jump To:", new Color(0, 255, 255,255), true);
+
+		EventJumpPage0 = new SubLabel(0, EventJumpTitle.getHeight()+3, 50, EventJumpField.getHeight()/2-3, 1, "Page:", new Color(0, 255, 255, 125), false);
+		EventJumpPage = new SubTextField(EventJumpPage0.getWidth(), EventJumpTitle.getHeight()+3, 50, EventJumpField.getHeight()/2-3, 2) ;
+
+		EventJump0 = new SubLabel(EventJumpPage.getWidth()*2, EventJumpTitle.getHeight()+3, 50, EventJumpField.getHeight()/2-3, 3, "Event:", new Color(0, 255, 255, 125), false);
+		EventJump = new SubTextField(EventJump0.getX()+EventJump0.getWidth(), EventJumpTitle.getHeight()+3, 80, EventJumpField.getHeight()/2-3, 4) ;
 		
+		EventJumpField.addToMap(EventJumpTitle.getDepth(), EventJumpTitle);
+		
+		EventJumpField.addToMap(EventJumpPage0.getDepth(), EventJumpPage0);
+		EventJumpField.addToMap(EventJumpPage.getDepth(), EventJumpPage);
+
+		EventJumpField.addToMap(EventJump0.getDepth(), EventJump0);
+		EventJumpField.addToMap(EventJump.getDepth(), EventJump);
+		EventJumpField.addThings();
+		
+
+		//influence variables
+		EventVariableField = new GroupFrame(0, EventJumpField.getY()+EventJumpField.getHeight()+10,EventPlacePanel.getX()-150, ((DialogueFunctionPanel.getY()- EventNamePanel.getY())/2)-10, 6 ) ;
+		EventVariableField.setBackground(new Color(255,255 ,255, 125));
+		EventVariableField.setOpaque(true);
+		
+		EventVariableTitle = new SubLabel(0,0, 100, EventVariableField.getHeight()/3-3, 0,"Influence:",  new Color(0, 255, 255, 125), true);
+		EventVariableName0 = new SubLabel(0,EventVariableTitle.getHeight()+3, 80, EventVariableField.getHeight()/3-5, 1, "Variable", new Color(0, 255, 255, 125), false);
+		EventVariableName = new SubTextField(EventVariableName0.getX(), (EventVariableName0.getY()+EventVariableName0.getHeight())+3, 80, EventVariableField.getHeight()/3-5, 2) ;
+		EventVariableOperator0 =new SubLabel(EventVariableName0.getWidth()+3,EventVariableTitle.getHeight()+3, 100, EventVariableField.getHeight()/3-5, 3, "Operator", new Color(0, 255, 255, 125), false);
+		EventVariableOperator = new SubTextField(EventVariableOperator0.getX()+30, EventVariableOperator0.getY()+EventVariableOperator0.getHeight()+3, 30, EventVariableField.getHeight()/3-5, 4) ;
+
+		EventVariableValue0 =new SubLabel(EventVariableOperator0.getX()+EventVariableOperator0.getWidth()+3,EventVariableOperator0.getHeight()+3, 60, EventVariableField.getHeight()/3-5, 5, "Value", new Color(0, 255, 255, 125), false);
+		EventVariableValue = new SubTextField(EventVariableValue0.getX(), EventVariableValue0.getY()+EventVariableValue0.getHeight()+3, 60, EventVariableField.getHeight()/3-5, 6) ;
+
+		//public static SubTextField EventVariableValue;
+		
+		EventVariableField.addToMap(EventVariableTitle.getDepth(), EventVariableTitle);
+		EventVariableField.addToMap(EventVariableName0.getDepth(), EventVariableName0);
+		EventVariableField.addToMap(EventVariableName.getDepth(), EventVariableName);
+		EventVariableField.addToMap(EventVariableOperator0.getDepth(), EventVariableOperator0);
+		EventVariableField.addToMap(EventVariableOperator.getDepth(), EventVariableOperator);
+		EventVariableField.addToMap(EventVariableValue0.getDepth(), EventVariableValue0);
+		EventVariableField.addToMap(EventVariableValue.getDepth(), EventVariableValue);
+		EventVariableField.addThings();
+		
+		EventEditingPanel.addToMap(EventVariableField.getDepth(), EventVariableField);
+		
+		
+	
+
+		//checked conditions
+		EventConditionPanel = new GroupFrame(EventJumpField.getX()+EventJumpField.getWidth()+5, EventJumpField.getY(), 140,EventJumpField.getHeight()*2+30, 7 );
+		EventConditionPanel.setBackground(new Color(0,0 ,255, 125));
+		EventConditionPanel.setOpaque(true);
+
+		EventConditionTitle = new SubLabel(0, 0, EventConditionPanel.getWidth(),  EventConditionPanel.getHeight()/6, 2, "Conditions",  new Color(0, 255, 255, 125), true) ;
+		EventAddCondition = new EventConditionAddButton(0, EventConditionTitle.getHeight()+3, EventConditionPanel.getWidth(), EventConditionPanel.getHeight()/6, 1, GlobalV.CurrentEdittingPage) ;
+		EventAddCondition.setText("Add Condition");
+		EventConditionListPanel = new GroupFrame(0, EventAddCondition.getY()+EventAddCondition.getHeight()+2, EventConditionPanel.getWidth(),EventConditionPanel.getHeight()*4/6, 0) ;
+		EventConditionListPanel.setBackground(new Color(255, 255, 255, 255));
+		EventConditionListPanel.setOpaque(true);
+		//StoryCondition test = new StoryCondition(0, 0, EventConditionListPanel.getWidth(), EventConditionListPanel.getHeight()/GlobalV.MaxConditionNumber, 0, 0);
+		//EventConditionListPanel.addToMap(test.getDepth(), test);
+		//EventConditionListPanel.addThings();
+		
+		
+		EventConditionPanel.addToMap(EventConditionTitle.getDepth(), EventConditionTitle);
+		EventConditionPanel.addToMap(EventAddCondition.getDepth(), EventAddCondition);
+		EventConditionPanel.addToMap(EventConditionListPanel.getDepth(), EventConditionListPanel);
+		EventConditionPanel.addThings();
+		
+		EventEditingPanel.addToMap(EventConditionPanel.getDepth(), EventConditionPanel);
+				
 		EventEditingPanel.addThings();
 
 	}
-	public static void createNewEvent(int startX, int startY, int width, int height, String name, String place){
+	public static void createNewEvent(int startX, int startY, int width, int height, String name, String place, int eventIndex){
 		GlobalV.NumberEvent++;
-		System.out.println("System: Create Event " + GlobalV.NumberEvent +" at page "+ GlobalV.CurrentEdittingPage);
+		System.out.println("System: Create Event " + eventIndex +" at page "+ GlobalV.CurrentEdittingPage);
 		
-		StoryEvent tempEvent = new StoryEvent(GlobalV.NumberEvent);
+		StoryEvent tempEvent = new StoryEvent(eventIndex);
 		if(name == ""){
 			
 		}

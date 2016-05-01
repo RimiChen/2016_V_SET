@@ -41,6 +41,11 @@ public class EventButtonAction implements ActionListener{
 		//clear buffer
 		EditingBuffer.BufferedDialogue.clear();
 		EditingBuffer.BufferedDialogue.addAll(nowEvent.dialogueQueue);
+
+		EditingBuffer.BufferedCondition.clear();
+		EditingBuffer.BufferedCondition.addAll(nowEvent.conditionQueue);
+
+
 		
 		//diaplay previous dialogue
 		displayPrevious();
@@ -56,6 +61,14 @@ public class EventButtonAction implements ActionListener{
 			EditingBuffer.BufferedDialogue.get(i).contentBox.setText(EditingBuffer.BufferedDialogue.get(i).content);
 			G_Event.DialoguePanel.addToMap(EditingBuffer.BufferedDialogue.get(i).getDepth(), EditingBuffer.BufferedDialogue.get(i));
 		}
+		for(int i = 0; i< EditingBuffer.BufferedCondition.size(); i++){
+			//System.out.print(GlobalV.BufferedDialogue.get(i).charaIndex);
+			//System.out.println("old " + GlobalV.BufferedDialogue.get(i).content +" Chara: " + LookUp.CharaMap.get(GlobalV.BufferedDialogue.get(i).charaIndex));
+			G_Event.EventConditionListPanel.addToMap(EditingBuffer.BufferedCondition.get(i).getDepth(), EditingBuffer.BufferedCondition.get(i));
+		}
+		System.out.println("Now Event" +nowEvent.index +" has "+nowEvent.conditionQueue.size()+" conditions");
+		G_Event.EventConditionListPanel.addThings();
+		G_Event.EventConditionListPanel.repaint();
 		//System.out.println("In place: " + nowEvent.place +", " +LookUp.PlaceNameMap.get(nowEvent.place));
 		G_Event.PlaceMenu.setSelectedIndex(LookUp.PlaceNameMap.get(nowEvent.place));
 		G_Event.PlaceMenu.repaint();
