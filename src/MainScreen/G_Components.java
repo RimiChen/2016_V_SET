@@ -82,7 +82,7 @@ public class G_Components {
 	}
 	public void initialCurrentContent(int depth){
 		currentContent = new GroupFrame(menuList.getWidth(), 0, GlobalV.WindowWidth - menuList.getWidth(), menuList.getHeight(), depth);
-		System.out.println("----"+menuList.getX());
+		//System.out.println("----"+menuList.getX());
 		currentContent.setLayout(null);
 		currentContent.setVisible(true);	
 	}

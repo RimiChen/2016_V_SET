@@ -101,6 +101,12 @@ public class MainToolPage{
 
 		initialSetting();
 		
+		System.out.println("This is V-SET 2.0.0/r/n");
+
+		System.out.println("Welcome to V-SET! ");
+		System.out.println("==============================");
+		System.out.println("System Logs");
+		System.out.println("==============================");
 		/*
 		 * Load Files
 		 */

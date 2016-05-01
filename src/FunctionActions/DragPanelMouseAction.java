@@ -38,6 +38,9 @@ public class DragPanelMouseAction extends MouseAdapter{
     	//Create a new event
       	G_Event.createNewEvent(G_Event.region.getX(), G_Event.region.getY(), G_Event.region.getWidth(), G_Event.region.getHeight(), "", "");
       	
+      	//update event transfer
+      	
+      	
     	GlobalV.isEditting = false;
     	G_Event.region.updateStartPos(0, 0);
       	G_Event.region.updateSize(0, 0);
