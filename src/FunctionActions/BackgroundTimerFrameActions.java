@@ -13,10 +13,11 @@ public class BackgroundTimerFrameActions implements ActionListener{
 		// TODO Auto-generated method stub
 		//GlobalV.CurrentFun ++;
 		//System.out.println(GlobalV.CurrentFun);
-		
 		G_Display.BasicFrame.setVisible(true);
 		G_Display.StoryFrame.repaint();
 		if(GlobalV.DisplayEventCount <GlobalV.DisplayEventNumber){
+			//System.out.println("System: event "+G_Display.DisplayQueue.get(GlobalV.DisplayEventCount).eventName+" end. Next is Event "+G_Display.DisplayQueue.get(GlobalV.DisplayEventCount).nextEvent+" in page "+ G_Display.DisplayQueue.get(GlobalV.DisplayEventCount).nextPage );
+
 			GlobalV.DisplayDialogueNumber = G_Display.DisplayQueue.get(GlobalV.DisplayEventCount).dialogueQueue.size();
 
 			//System.out.println(GlobalV.DisplayEventCount+", "+GlobalV.DisplayEventNumber +" ---"+ GlobalV.DisplayDialogueCount+", "+GlobalV.DisplayDialogueNumber);
@@ -32,6 +33,7 @@ public class BackgroundTimerFrameActions implements ActionListener{
 				}
 			}
 			else if(GlobalV.DisplayDialogueCount == GlobalV.DisplayDialogueNumber){
+
 				GlobalV.DisplayEventCount++;
 				GlobalV.DisplayDialogueCount = 0;
 			}

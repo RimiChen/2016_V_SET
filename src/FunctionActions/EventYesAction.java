@@ -3,6 +3,7 @@ package FunctionActions;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import Choices.G_Variables;
 import EdittingBuffer.EditingBuffer;
 import Events.EventButton;
 import Events.EventLabel;
@@ -35,6 +36,9 @@ public class EventYesAction implements ActionListener{
 		for(int i = 0; i < EditingBuffer.BufferedChoice.size(); i++){
 			EditingBuffer.BufferedChoice.get(i).content = EditingBuffer.BufferedChoice.get(i).ChoiceContent.getText();
 			EditingBuffer.BufferedChoice.get(i).variable = EditingBuffer.BufferedChoice.get(i).ChoiceVariable.getText();
+			if(G_Variables.checkVariableExist(EditingBuffer.BufferedChoice.get(i).variable)==false){
+				G_Variables.addNewVariable(EditingBuffer.BufferedChoice.get(i).variable);
+			}
 			EditingBuffer.BufferedChoice.get(i).operator = EditingBuffer.BufferedChoice.get(i).ChoiceOper.getText();
 			EditingBuffer.BufferedChoice.get(i).value = EditingBuffer.BufferedChoice.get(i).ChoiceValue.getText();
 
@@ -134,7 +138,7 @@ public class EventYesAction implements ActionListener{
 		GlobalV.isEditting = false;
 		System.out.println("System: "+ nowEvent.eventName + " was saved.");
 		
-		G_Event.updateEventLinks();
+		G_Event.updateEventLinks2();
 	}
 
 }

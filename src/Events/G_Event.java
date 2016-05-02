@@ -438,7 +438,7 @@ public class G_Event {
 		
 		//printEventMap();
 		//printEventTime();
-		updateEventLinks();
+		updateEventLinks2();
 	}
 	public static void paintEventButton(){
 		//System.out.println("*****"+EventPageMap.get(GlobalV.CurrentEdittingPage).EventButtonMap);
@@ -521,7 +521,7 @@ public class G_Event {
     	PlaceImageLabel.setIcon(img);
     	
 	}
-	public static void updateEventLinks2(int newPosition){
+	public static void updateEventLinks2(){
 		if(LookUp.EventTimeMap.get(GlobalV.CurrentEdittingPage).size()>0){
 			for(int key: LookUp.EventTimeMap.get(GlobalV.CurrentEdittingPage).keySet()){
 				String targetEvent = LookUp.EventTimeMap.get(GlobalV.CurrentEdittingPage).get(key);
@@ -550,7 +550,8 @@ public class G_Event {
 			}
 		}
 
-	}	
+	}
+/*	
 	public static void updateEventLinks(){
 		if(LookUp.EventTimeMap.get(GlobalV.CurrentEdittingPage).size()>0){
 			for(int key: LookUp.EventTimeMap.get(GlobalV.CurrentEdittingPage).keySet()){
@@ -558,7 +559,7 @@ public class G_Event {
 				int currentIndex = LookUp.EventNameMap.get(targetEvent);
 				StoryEvent currentUseEvent = LookUp.EventMap.get(currentIndex);
 				int nextIndex = getNextEvent(key);				
-				if(currentUseEvent.nextEvent == "" || currentUseEvent.nextEventIndex <0){
+				if(currentUseEvent.nextEvent == "" || currentUseEvent.nextEventIndex <0 ||currentUseEvent.nextPage == GlobalV.CurrentEdittingPage){
 					if(nextIndex>=0){
 						System.out.println("System: Event "+targetEvent+" has no next, update next to "+LookUp.EventMap.get(nextIndex).eventName);
 						LookUp.EventMap.get(currentIndex).nextPage = GlobalV.CurrentEdittingPage;
@@ -580,6 +581,7 @@ public class G_Event {
 		}
 
 	}
+*/
 	public static int getNextEvent(int position){
 		int nextIndex = -1;
 		int count =0;

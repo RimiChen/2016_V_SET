@@ -3,6 +3,7 @@ package Conditions;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import Choices.G_Variables;
 import EdittingBuffer.EditingBuffer;
 import Events.G_Event;
 import MainScreen.G_Components;
@@ -17,6 +18,10 @@ public class ConditionYesAction  implements ActionListener{
 		//GlobalV.isEditting = false;
 		
 		EditingBuffer.BufferedCondition.get(GlobalV.currentEdittingButton).variable = G_Event.ConditionVariable.getText();
+		
+		if(G_Variables.checkVariableExist(EditingBuffer.BufferedCondition.get(GlobalV.currentEdittingButton).variable)==false){
+			G_Variables.addNewVariable(EditingBuffer.BufferedCondition.get(GlobalV.currentEdittingButton).variable);
+		}
 		
 		EditingBuffer.BufferedCondition.get(GlobalV.currentEdittingButton).operator = G_Event.ConditionOper.getText();
 		EditingBuffer.BufferedCondition.get(GlobalV.currentEdittingButton).value =G_Event.ConditionValue.getText();

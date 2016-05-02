@@ -24,9 +24,10 @@ public class StoryVariables {
 			currentValue = currentValue + target;
 		}
 		else if(operator.equals("-")){
-			if(currentValue > target){
-				currentValue = currentValue - target;
-			}
+			currentValue = currentValue - target;
+		}
+		else if(operator.equals("=")){
+			setCurrentValue(target);
 		}
 	}
 	public boolean checkMatch(String operator, String value){

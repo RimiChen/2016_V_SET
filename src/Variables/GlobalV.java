@@ -51,6 +51,8 @@ public class GlobalV {
 	public static int currentVariableNumber;
 	
 	public static int currentEdittingButton;
+	
+	public static int currentDisplayEvent;
 
 
 	
@@ -114,6 +116,8 @@ public class GlobalV {
 		
 		// 0 timer, 1 button
 		displayButtonMode = 1;
+		
+		currentDisplayEvent = -1;
 	}
 	
 

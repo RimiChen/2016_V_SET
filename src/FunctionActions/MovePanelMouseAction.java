@@ -72,7 +72,7 @@ public class MovePanelMouseAction extends MouseAdapter{
 	    	
 	    	G_Event.paintEventButton();
 	
-	    	G_Event.updateEventLinks2(newY);
+	    	G_Event.updateEventLinks2();
 	      	
 	      	
 	      	G_Event.MovePanel.removeAll();

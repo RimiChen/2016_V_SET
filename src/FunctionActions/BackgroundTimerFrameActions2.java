@@ -22,6 +22,7 @@ public class BackgroundTimerFrameActions2 implements ActionListener{
 			if(G_Display.DisplayQueue.get(0).choiceQueue.size()==0){
 				//dialogue
 				GlobalV.DisplayDialogueNumber = G_Display.DisplayQueue.get(0).dialogueQueue.size();
+				GlobalV.currentDisplayEvent = G_Display.DisplayQueue.get(0).index;
 				if(GlobalV.DisplayDialogueCount <GlobalV.DisplayDialogueNumber){
 					if(GlobalV.displayButtonMode == 0){
 					
@@ -56,6 +57,34 @@ public class BackgroundTimerFrameActions2 implements ActionListener{
 			}
 			else{
 				//choice
+				//GlobalV.DisplayEventCount = G_Display.DisplayQueue.get(0).index;
+				GlobalV.DisplayDialogueNumber = G_Display.DisplayQueue.get(0).choiceQueue.size();
+				GlobalV.currentDisplayEvent = G_Display.DisplayQueue.get(0).index;
+				if(GlobalV.DisplayDialogueCount <GlobalV.DisplayDialogueNumber){
+
+						G_Display.displayChoiceInQueueWithButton(GlobalV.DisplayEventCount, GlobalV.DisplayDialogueCount);
+
+				}
+				else{
+					//GlobalV.DisplayEventCount++;
+					//apply change
+					//check condition
+					
+					if(G_Display.DisplayQueue.get(0).nextEventIndex<0 ){
+						//System.out.println("Going to end");
+						G_Display.DisplayQueue.remove(0);
+
+					}
+					else{
+						System.out.println("System: event "+G_Display.DisplayQueue.get(0).eventName+" end. Next is Event "+G_Display.DisplayQueue.get(0).nextEvent+" in page "+ G_Display.DisplayQueue.get(0).nextPage );
+						//int next = LookUp.EventNameMap.get(G_Display.DisplayQueue.get(0).nextEvent);
+						//G_Display.DisplayQueue.clear();
+						//G_Display.DisplayQueue.add(LookUp.EventMap.get(next));
+					}
+					GlobalV.DisplayDialogueCount = 0;
+					
+					//jump to next event
+				}				
 			}
 			
 		}

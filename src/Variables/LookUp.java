@@ -70,7 +70,7 @@ public class LookUp {
 		VariableMap = new TreeMap<Integer, String>() ;
 		VariableNameMap = new TreeMap<String, Integer>() ;		
 		
-		VariableNameMap.put("Test", 1);
+		//VariableNameMap.put("Test", 1);
 		//System.out.println(EventTimeMap.size());
 		
 		

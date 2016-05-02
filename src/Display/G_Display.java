@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 
 import CharaMake.CustomCharacter;
 import CharacterScreen.G_Chara;
+import Choices.ChoiceButton;
 import Events.StoryEvent;
 import Events.SubLabel;
 import FunctionActions.CloseStoryAction;
@@ -45,6 +46,12 @@ public class G_Display {
 	public static SubLabel DialogueLabelImage;
 	public static SubLabel DialogueLabelText;
 
+	public static GroupFrame ChoicePanel;
+	public static ChoiceButton ChoiceButton0;
+	public static ChoiceButton ChoiceButton1;
+	public static ChoiceButton ChoiceButton2;
+	
+	
 	public static ProgressButton DialogueProgress;
 	
 	public G_Display(){
@@ -88,6 +95,8 @@ public class G_Display {
 
 		//Dialogue
 		DialoguePanel = new GroupFrame(100, CharacterNamePanel.getY() +  CharacterNamePanel.getHeight() +5, BasicFrame.getWidth()-200, 150, 1);
+		ChoicePanel = new GroupFrame(100, CharacterNamePanel.getY() +  CharacterNamePanel.getHeight() +5, BasicFrame.getWidth()-200, 150, -1);
+
 		
 		DialogueLabelImage = new SubLabel(0, 0, DialoguePanel.getWidth(), DialoguePanel.getHeight(), 1, "", new Color(0, 0, 0), false);
 		DialogueLabelImage.setIcon(G_Material.resizeImage(G_Material.Dialogue.materialImage.get(0), DialogueLabelImage.getWidth(), DialogueLabelImage.getHeight()));
@@ -98,6 +107,16 @@ public class G_Display {
 		
 		DialogueProgress = new ProgressButton(450, 100, 100, 30, -1);
 		DialogueProgress.setText("Progress");
+
+		ChoiceButton0 = new ChoiceButton(ChoicePanel.getWidth()/4, ChoicePanel.getHeight()/5, ChoicePanel.getWidth()*2/4, ChoicePanel.getHeight()/5, 0, 0);
+		ChoiceButton1 = new ChoiceButton(ChoicePanel.getWidth()/4, ChoicePanel.getHeight()*2/5, ChoicePanel.getWidth()*2/4, ChoicePanel.getHeight()/5, 1, 1);
+		ChoiceButton2 = new ChoiceButton(ChoicePanel.getWidth()/4, ChoicePanel.getHeight()*3/5, ChoicePanel.getWidth()*2/4, ChoicePanel.getHeight()/5, 2, 2);
+		
+		ChoicePanel.addToMap(ChoiceButton0.getDepth(), ChoiceButton0);
+		ChoicePanel.addToMap(ChoiceButton1.getDepth(), ChoiceButton1);
+		ChoicePanel.addToMap(ChoiceButton2.getDepth(), ChoiceButton2);
+		
+		ChoicePanel.addThings();
 		
 		
 		if(GlobalV.displayButtonMode == 0){
@@ -170,6 +189,7 @@ public class G_Display {
 			for(int key : LookUp.EventTimeMap.get(currentPage).keySet())
 			{
 				currentEventName = LookUp.EventTimeMap.get(currentPage).get(key);
+				System.out.println("Add "+ currentEventName);
 				currentEventIndex = LookUp.EventNameMap.get(currentEventName);
 				tempEvent = LookUp.EventMap.get(currentEventIndex);
 				DisplayQueue.add(tempEvent);
@@ -334,6 +354,124 @@ public class G_Display {
 
 		
 	}
+	public static void displayChoiceInQueueWithButton(int eventCount, int dialogueCount){
+		int iconIndex;
+		String iconString;
+		
+		int i = dialogueCount;
+		int k = eventCount;
+		
+		if(DisplayTimeMap.size() == 0){
+			System.out.println("System: Story Queue is empty");
+		}
+		
+		//int k =GlobalV.DisplayEventCount;
+		if(k <DisplayQueue.size()){
+		//for(int k = 0; k <DisplayQueue.size(); k++ ){
+/*
+			System.out.println("System: In time "+LookUp.EventPositionMap.get(DisplayQueue.get(k).eventName)
+					+" Display "+DisplayQueue.get(k).eventName
+					+" Happen in " + DisplayQueue.get(k).place);	
+*/
+			iconString = DisplayQueue.get(k).place;
+			iconIndex = LookUp.PlaceNameMap.get(iconString);
+			
+			//for(int i = 0; i <DisplayQueue.get(k).dialogueQueue.size(); i++){
+			//int i = GlobalV.DisplayDialogueCount;
+			if(i <DisplayQueue.get(k).dialogueQueue.size()){
+/*
+				System.out.println("--Sub: Dialogue " + DisplayQueue.get(k).dialogueQueue.get(i).dialogueIndex
+						+ " Character: "+LookUp.CharaMap.get(DisplayQueue.get(k).dialogueQueue.get(i).charaIndex).name
+						+ " Content: "+DisplayQueue.get(k).dialogueQueue.get(i).content
+				);	
+*/				
+				String charaName;
+				int charaID;
+				CustomCharacter tempChara;
+				//print character parts
+				for(int j = 0; j < GlobalV.NumberFeatures; j++){
+					charaName = LookUp.CharaMap.get(DisplayQueue.get(k).dialogueQueue.get(i).charaIndex).name;
+					charaID = LookUp.CharaNameMap.get(charaName);
+					tempChara = LookUp.CharaMap.get(charaID);
+					
+					if(LookUp.MaterialTypeIndex.get(tempChara.type) == 0){
+						if(tempChara.imageIndex.get(j)<0){
+							CharacterBodyParts[j].setIcon(null);
+						}
+						else{
+							CharacterBodyParts[j].setIcon(G_Chara.Man.bodyImage.get(j).materialQueue.get(tempChara.imageIndex.get(j)));
+							
+						}
+						//System.out.println(tempChara.imageIndex.get(j));
+
+					}
+					else if(LookUp.MaterialTypeIndex.get(tempChara.type) == 1){
+						if(tempChara.imageIndex.get(j)<0){
+							CharacterBodyParts[j].setIcon(null);
+						}
+						else{
+							CharacterBodyParts[j].setIcon(G_Chara.Woman.bodyImage.get(j).materialQueue.get(tempChara.imageIndex.get(j)));
+							
+						}
+					}
+					else if(LookUp.MaterialTypeIndex.get(tempChara.type) == 2){
+						if(tempChara.imageIndex.get(j)<0){
+							CharacterBodyParts[j].setIcon(null);
+						}
+						else{
+							CharacterBodyParts[j].setIcon(G_Chara.Narrator.bodyImage.get(j).materialQueue.get(tempChara.imageIndex.get(j)));
+							
+						}
+					}					
+				}
+				CharacterPanel.repaint();
+			}// if end
+						
+			
+			BackgroundImageLabel.setIcon(G_Material.resizeImage(G_Material.Place.materialImage.get(iconIndex), BackgroundImageLabel.getWidth(), BackgroundImageLabel.getHeight()));
+			BackgroundPanel.repaint();
+
+			
+			//CharacterNameLabelText.setText(LookUp.CharaMap.get(DisplayQueue.get(k).dialogueQueue.get(i).charaIndex).name);
+			CharacterNamePanel.repaint();
+			//DialogueLabelText.setText(DisplayQueue.get(k).dialogueQueue.get(i).content);
+			DialoguePanel.repaint();
+			
+			ChoicePanel.map.clear();
+			ChoicePanel.removeAll();
+
+			for(int iter = 0; iter < DisplayQueue.get(k).choiceQueue.size();iter++){
+				if(iter == 0){
+					ChoiceButton0.setText(DisplayQueue.get(k).choiceQueue.get(0).content);
+					ChoicePanel.addToMap(ChoiceButton0.getDepth(), ChoiceButton0);
+				}
+				else if(iter ==1){
+					ChoiceButton1.setText(DisplayQueue.get(k).choiceQueue.get(1).content);
+					ChoicePanel.addToMap(ChoiceButton1.getDepth(), ChoiceButton1);				
+				}
+				else if(iter ==2){
+					ChoiceButton2.setText(DisplayQueue.get(k).choiceQueue.get(2).content);
+					ChoicePanel.addToMap(ChoiceButton2.getDepth(), ChoiceButton2);		
+				}
+			}
+			
+			ChoicePanel.addThings();
+			DialoguePanel.removeAll();
+			DialoguePanel.map.remove(DialogueProgress.getDepth());
+			DialoguePanel.addThings();
+			DialogueLabelText.setText("");
+			DialoguePanel.repaint();
+			BasicFrame.removeAll();
+			//BasicFrame.map.remove(DialoguePanel.getDepth());
+			BasicFrame.addToMap(ChoicePanel.getDepth(), ChoicePanel);
+			BasicFrame.addThings();
+			BasicFrame.repaint();
+		}
+			
+
+		
+	}
+	
 	public static void displayEventInQueueWithButton(int eventCount, int dialogueCount){
 		int iconIndex;
 		String iconString;
@@ -430,6 +568,7 @@ public class G_Display {
 		
 		GlobalV.DisplayEventNumber = 0;
 		GlobalV.DisplayDialogueNumber = 0;
+		GlobalV.isEditting = false;
 	}
 
 }

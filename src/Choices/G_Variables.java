@@ -45,4 +45,9 @@ public class G_Variables {
 			System.out.println("System: This variable "+ name+" is already exist");
 		}
 	}
+	public static void initAll(){
+		for(int key: variableMap.keySet()){
+			variableMap.get(key).setCurrentValue(0);
+		}
+	}
 }
