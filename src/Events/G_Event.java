@@ -8,7 +8,6 @@ import java.util.TreeMap;
 import javax.swing.ImageIcon;
 
 import CharacterScreen.G_Chara;
-import Conditions.StoryCondition;
 import FunctionActions.DragPanelMouseAction;
 import FunctionActions.MovePanelMouseAction;
 import FunctionActions.PlaceMenuAction;
@@ -88,9 +87,14 @@ public class G_Event {
 	//Dialogue function panel
 	public static GroupFrame DialogueFunctionPanel;
 	public static DialogueAddButton DialogueAdd;
+	public static ChoiceAddButton ChoiceAdd;
 	
 	//Dialogue panel
+	public static GroupFrame ContentOutPanel;
 	public static GroupFrame DialoguePanel;
+	public static GroupFrame ChoiceOutPanel;
+	public static GroupFrame ChoicePanel;
+	public static GroupFrame ChoiceNamePanel;
 	
 	
 	
@@ -173,6 +177,7 @@ public class G_Event {
 		// function button
 		EventFunPanel = new GroupFrame(EventNamePanel.getWidth()+10, 0, 200, 30, 1);
 		EventFunPanel.setBackground(new Color(255, 0, 0));
+		EventFunPanel.setOpaque(true);
 		EventYes = new EventYesButton(0, 0, 100, EventFunPanel.getHeight(), 0);
 		EventYes.setText("Save");
 		EventFunPanel.addToMap(EventYes.getDepth(), EventYes);
@@ -206,15 +211,41 @@ public class G_Event {
 		
 
 		//Dialogue panel
-		DialoguePanel = new GroupFrame(0, EventEditingPanel.getHeight()/4+30 , EventEditingPanel.getWidth(), EventEditingPanel.getHeight()*3/4 - 30, 3);
+		ContentOutPanel = new GroupFrame(0, EventEditingPanel.getHeight()/4+30 , EventEditingPanel.getWidth(), EventEditingPanel.getHeight()*3/4 - 30, 3);
+		DialoguePanel = new GroupFrame(0, 0 , ContentOutPanel.getWidth(), ContentOutPanel.getHeight(), 0);
 		DialoguePanel.setBackground(new Color(255, 0, 0));
-		EventEditingPanel.addToMap(DialoguePanel.getDepth(), DialoguePanel);
+		DialoguePanel.setOpaque(true);
+		ChoiceOutPanel = new GroupFrame(0, 0 , ContentOutPanel.getWidth(), ContentOutPanel.getHeight(), -1);
+		ChoiceOutPanel.setBackground(new Color(0,0, 255, 255));
+		ChoiceOutPanel.setOpaque(true);
+		
+		ChoicePanel = new GroupFrame(0, 0 , ContentOutPanel.getWidth()*4/5, ContentOutPanel.getHeight(), 0);
+		//ChoicePanel.setBackground(new Color(0,0, 255, 100));
+		//ChoicePanel.setOpaque(true);
+		
+		ChoiceNamePanel = new GroupFrame(ChoicePanel.getWidth(), 0 , ChoiceOutPanel.getWidth()/4, ChoiceOutPanel.getHeight(), 1);
+		//ChoicePanel.setBackground(new Color(0,255, 255, 100));
+		//ChoicePanel.setOpaque(true);
+
+		ChoiceOutPanel.addToMap(ChoicePanel.getDepth(), ChoicePanel);
+		ChoiceOutPanel.addToMap(ChoiceNamePanel.getDepth(), ChoiceNamePanel);
+		ChoiceOutPanel.addThings();
+		
+		ContentOutPanel.addToMap(DialoguePanel.getDepth(), DialoguePanel);
+		ContentOutPanel.addThings();
+		
+		//DialoguePanel.setOpaque(true);
+		EventEditingPanel.addToMap(ContentOutPanel.getDepth(), ContentOutPanel);
 
 		//Dialogue function panel
-		DialogueFunctionPanel = new GroupFrame(0, EventEditingPanel.getHeight()/4+30-30 , 100, 30, 4);
+		DialogueFunctionPanel = new GroupFrame(0, EventEditingPanel.getHeight()/4+30-30 , 200, 30, 4);
 		DialogueFunctionPanel.setBackground(new Color(255, 0, 0));
-		DialogueAdd = new DialogueAddButton(0, 0, DialogueFunctionPanel.getWidth(), DialogueFunctionPanel.getHeight(), 0, GlobalV.CurrentEdittingPage); 
+		DialogueAdd = new DialogueAddButton(0, 0, DialogueFunctionPanel.getWidth()/2, DialogueFunctionPanel.getHeight(), 0, GlobalV.CurrentEdittingPage); 
 		DialogueAdd.setText("Add Dialogue");
+		ChoiceAdd = new ChoiceAddButton(DialogueAdd.getWidth(), 0, DialogueFunctionPanel.getWidth()/2, DialogueFunctionPanel.getHeight(), 1, GlobalV.CurrentEdittingPage); 
+		ChoiceAdd.setText("Add Choice");
+
+		DialogueFunctionPanel.addToMap(ChoiceAdd.getDepth(), ChoiceAdd);
 		DialogueFunctionPanel.addToMap(DialogueAdd.getDepth(), DialogueAdd);
 		DialogueFunctionPanel.addThings();
 		
@@ -304,7 +335,7 @@ public class G_Event {
 		GlobalV.NumberEvent++;
 		System.out.println("System: Create Event " + eventIndex +" at page "+ GlobalV.CurrentEdittingPage);
 		
-		StoryEvent tempEvent = new StoryEvent(eventIndex);
+		StoryEvent tempEvent = new StoryEvent(eventIndex, startY);
 		if(name == ""){
 			
 		}
@@ -320,11 +351,11 @@ public class G_Event {
 		}
 		EventButton tempButton;
 		EventLabel tempLabel;
-		
+
+		LookUp.EventPositionMap.get(GlobalV.CurrentEdittingPage).put(tempEvent.eventName, startY);
 		LookUp.EventMap.put(tempEvent.index, tempEvent);
 		LookUp.EventNameMap.put(tempEvent.eventName, tempEvent.index);
 		LookUp.EventPageMap.put(tempEvent.eventName, GlobalV.CurrentEdittingPage);
-		LookUp.EventPositionMap.get(GlobalV.CurrentEdittingPage).put(tempEvent.eventName, startY);
 		LookUp.EventTimeMap.get(GlobalV.CurrentEdittingPage).put(startY, tempEvent.eventName);
 		
 		tempButton = new EventButton(startX, startY, width, height, tempEvent.index, GlobalV.CurrentEdittingPage, tempEvent.eventName);
@@ -338,7 +369,8 @@ public class G_Event {
 		paintEventButton();
 		
 		//printEventMap();
-		printEventTime();
+		//printEventTime();
+		updateEventLinks();
 	}
 	public static void paintEventButton(){
 		//System.out.println("*****"+EventPageMap.get(GlobalV.CurrentEdittingPage).EventButtonMap);
@@ -391,8 +423,6 @@ public class G_Event {
 		G_Event.EventPageMap.get(GlobalV.CurrentEdittingPage).removeAll();
 		G_Event.EventPageMap.get(GlobalV.CurrentEdittingPage).addThings();
 		G_Event.EventPageMap.get(GlobalV.CurrentEdittingPage).repaint();		
-
-		
 	}
 	
 	public static void changeEventName(String name, int index)
@@ -423,6 +453,94 @@ public class G_Event {
     	PlaceImageLabel.setIcon(img);
     	
 	}
+	public static void updateEventLinks2(int newPosition){
+		if(LookUp.EventTimeMap.get(GlobalV.CurrentEdittingPage).size()>0){
+			for(int key: LookUp.EventTimeMap.get(GlobalV.CurrentEdittingPage).keySet()){
+				String targetEvent = LookUp.EventTimeMap.get(GlobalV.CurrentEdittingPage).get(key);
+				int currentIndex = LookUp.EventNameMap.get(targetEvent);
+				StoryEvent currentUseEvent = LookUp.EventMap.get(currentIndex);
+				int nextIndex = getNextEvent(key);				
+				//if(currentUseEvent.nextEvent == "" || currentUseEvent.nextEventIndex <0 ){
+				if(currentUseEvent.nextPage == GlobalV.CurrentEdittingPage){
+					if(nextIndex>=0){
+						System.out.println("System: Event "+targetEvent+" has no next, update next to "+LookUp.EventMap.get(nextIndex).eventName);
+						LookUp.EventMap.get(currentIndex).nextPage = GlobalV.CurrentEdittingPage;
+						LookUp.EventMap.get(currentIndex).nextEvent = LookUp.EventMap.get(nextIndex).eventName;
+						LookUp.EventMap.get(currentIndex).nextEventIndex = nextIndex;
+					}
+					else{
+						System.out.println("System: Event "+targetEvent+" has no next, update next to null");
+						LookUp.EventMap.get(currentIndex).nextPage = GlobalV.CurrentEdittingPage;
+						LookUp.EventMap.get(currentIndex).nextEvent = "";
+						LookUp.EventMap.get(currentIndex).nextEventIndex = -1;
+					}
+				}
+				else{
+					
+				}
+				
+			}
+		}
+
+	}	
+	public static void updateEventLinks(){
+		if(LookUp.EventTimeMap.get(GlobalV.CurrentEdittingPage).size()>0){
+			for(int key: LookUp.EventTimeMap.get(GlobalV.CurrentEdittingPage).keySet()){
+				String targetEvent = LookUp.EventTimeMap.get(GlobalV.CurrentEdittingPage).get(key);
+				int currentIndex = LookUp.EventNameMap.get(targetEvent);
+				StoryEvent currentUseEvent = LookUp.EventMap.get(currentIndex);
+				int nextIndex = getNextEvent(key);				
+				if(currentUseEvent.nextEvent == "" || currentUseEvent.nextEventIndex <0){
+					if(nextIndex>=0){
+						System.out.println("System: Event "+targetEvent+" has no next, update next to "+LookUp.EventMap.get(nextIndex).eventName);
+						LookUp.EventMap.get(currentIndex).nextPage = GlobalV.CurrentEdittingPage;
+						LookUp.EventMap.get(currentIndex).nextEvent = LookUp.EventMap.get(nextIndex).eventName;
+						LookUp.EventMap.get(currentIndex).nextEventIndex = nextIndex;
+					}
+					else{
+						System.out.println("System: Event "+targetEvent+" has no next, update next to null");
+						LookUp.EventMap.get(currentIndex).nextPage = GlobalV.CurrentEdittingPage;
+						LookUp.EventMap.get(currentIndex).nextEvent = "";
+						LookUp.EventMap.get(currentIndex).nextEventIndex = -1;
+					}
+				}
+				else{
+					
+				}
+				
+			}
+		}
+
+	}
+	public static int getNextEvent(int position){
+		int nextIndex = -1;
+		int count =0;
+		int currentHeight =	position;
+		if(LookUp.EventPositionMap.get(GlobalV.CurrentEdittingPage).size()>0){
+			for(int key : LookUp.EventTimeMap.get(GlobalV.CurrentEdittingPage).keySet()){
+				//System.out.println("key = " +key +" current"+position);
+				if(count == 0){
+					if(key > currentHeight){
+						String targetEvent = LookUp.EventTimeMap.get(GlobalV.CurrentEdittingPage).get(key);
+						nextIndex = LookUp.EventNameMap.get(targetEvent);
+						count++;
+					}
+					else{
+						nextIndex = -1;
+					}
+				}
+			}
+			
+			if(count == 0){
+				//no key is found
+				nextIndex = -1;
+			}
+		}
+		else{
+			nextIndex = -1;
+		}
+		return nextIndex;
+	}	
 	
 	
 }

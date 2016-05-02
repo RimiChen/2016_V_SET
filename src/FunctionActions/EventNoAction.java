@@ -25,12 +25,16 @@ public class EventNoAction implements ActionListener{
 		//Clear Buffer
 		EditingBuffer.BufferedDialogue.clear();
 		EditingBuffer.BufferedCondition.clear();
+		EditingBuffer.BufferedChoice.clear();
+		
 		G_Event.EventConditionListPanel.map.clear();
 		G_Event.EventConditionListPanel.removeAll();
 
 		G_Event.DialoguePanel.map.clear();
 		G_Event.DialoguePanel.removeAll();
 		
+		G_Event.ChoicePanel.map.clear();
+		G_Event.ChoicePanel.removeAll();
 		
 		
 		GlobalV.isEditting = false;		

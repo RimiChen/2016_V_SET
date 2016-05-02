@@ -19,6 +19,8 @@ public class EventYesAction implements ActionListener{
 		// TODO Auto-generated method stub
 		nowEvent = LookUp.EventMap.get(LookUp.EventNameMap.get(GlobalV.CurrentEditingEvent));
 		//update saved dialogue
+
+		
 		for(int i = 0; i < EditingBuffer.BufferedDialogue.size(); i++){
 			EditingBuffer.BufferedDialogue.get(i).content = EditingBuffer.BufferedDialogue.get(i).contentBox.getText();
 		}
@@ -28,6 +30,16 @@ public class EventYesAction implements ActionListener{
 			EditingBuffer.BufferedDialogue.get(i).charaIndex = EditingBuffer.BufferedDialogue.get(i).tempCharaIndex;
 		}
 		nowEvent.dialogueQueue.addAll(EditingBuffer.BufferedDialogue);
+
+		nowEvent.choiceQueue.clear();
+		for(int i = 0; i < EditingBuffer.BufferedChoice.size(); i++){
+			EditingBuffer.BufferedChoice.get(i).content = EditingBuffer.BufferedChoice.get(i).ChoiceContent.getText();
+			EditingBuffer.BufferedChoice.get(i).variable = EditingBuffer.BufferedChoice.get(i).ChoiceVariable.getText();
+			EditingBuffer.BufferedChoice.get(i).operator = EditingBuffer.BufferedChoice.get(i).ChoiceOper.getText();
+			EditingBuffer.BufferedChoice.get(i).value = EditingBuffer.BufferedChoice.get(i).ChoiceValue.getText();
+
+		}
+		nowEvent.choiceQueue.addAll(EditingBuffer.BufferedChoice);		
 		
 		nowEvent.conditionQueue.clear();
 		nowEvent.conditionQueue.addAll(EditingBuffer.BufferedCondition);
@@ -40,7 +52,19 @@ public class EventYesAction implements ActionListener{
 		
 		String oldName = nowEvent.eventName;
 		String newName = G_Event.EventName.getText();
-	
+
+		nowEvent.nextPage = Integer.parseInt(G_Event.EventJumpPage.getText());
+		nowEvent.nextEvent = G_Event.EventJump.getText();
+		System.out.println("System: for event "+nowEvent.eventName+" set next event: in page"+nowEvent.nextPage+" event " +nowEvent.nextEvent);
+		String tempString = nowEvent.nextEvent.replaceAll("\\s+", "");
+		if(tempString.equals("")){
+			nowEvent.nextEventIndex = -1;
+			nowEvent.nextPage = GlobalV.CurrentEdittingPage;
+		}
+		else{
+			nowEvent.nextEventIndex = LookUp.EventNameMap.get(nowEvent.nextEvent);
+		}
+		
 		
 		nowEvent.eventName = newName;
 		
@@ -102,9 +126,15 @@ public class EventYesAction implements ActionListener{
 		G_Event.EventConditionListPanel.map.clear();
 		G_Event.EventConditionListPanel.removeAll();
 		
+		EditingBuffer.BufferedChoice.clear();
+		G_Event.ChoicePanel.map.clear();
+		G_Event.ChoicePanel.removeAll();
+
 		
 		GlobalV.isEditting = false;
 		System.out.println("System: "+ nowEvent.eventName + " was saved.");
+		
+		G_Event.updateEventLinks();
 	}
 
 }

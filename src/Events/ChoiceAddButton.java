@@ -1,13 +1,12 @@
-package Conditions;
-
-import java.awt.Color;
+package Events;
 
 import javax.swing.JButton;
 
+import FunctionActions.ChoiceAddAction;
 
 
 @SuppressWarnings("serial")
-public class StoryCondition  extends JButton{
+public class ChoiceAddButton  extends JButton{
 	int locationX;
 	int locationY;
 	int sizeX;
@@ -17,25 +16,27 @@ public class StoryCondition  extends JButton{
 	int index;
 	
 	int page;
-	String name;
+	//String name;
 	
-	//StoryConditionAction act;
+	ChoiceAddAction act;
 	
-	public  StoryCondition(int LocationX, int LocationY, int SizeX, int SizeY, int Depth, int ConditionIndex){
+	public  ChoiceAddButton(int LocationX, int LocationY, int SizeX, int SizeY, int Depth, int page){
 		this.locationX = LocationX;
 		this.locationY = LocationY;
 		this.sizeX = SizeX;
 		this.sizeY = SizeY;
 		this.depth = Depth;
 		this.index = Depth;
-		this.name = "Condition"+ConditionIndex;
-
-		setBackground(new Color(148, 249, 255,255));
-		//act = new EventButtonAction();
+		//this.name = name;
 		
-		//addActionListener(act);
 		
-		setText(name);
+		this.page = page;
+		
+		act = new ChoiceAddAction();
+		
+		addActionListener(act);
+		
+		//setText(name);
 		setLocation(locationX, locationY);
 		setSize(sizeX, sizeY);		
 	}
@@ -45,8 +46,9 @@ public class StoryCondition  extends JButton{
 	public int getDepth(){
 		return depth;
 	}
+/*	
 	public void updateName(String name){
 		this.name = name;
 	}
-	
+*/
 }
