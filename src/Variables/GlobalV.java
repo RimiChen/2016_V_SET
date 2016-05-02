@@ -48,6 +48,9 @@ public class GlobalV {
 	public static String CurrentEditingType;
 	
 	public static int displayButtonMode;
+	public static int currentVariableNumber;
+	
+	public static int currentEdittingButton;
 
 
 	
@@ -104,6 +107,10 @@ public class GlobalV {
 		
 		DisplayEventNumber = 0;
 		DisplayDialogueNumber = 0;
+		
+		currentVariableNumber = 0;
+		
+		currentEdittingButton = -1;
 		
 		// 0 timer, 1 button
 		displayButtonMode = 1;

@@ -4,6 +4,8 @@ import java.awt.Color;
 
 import javax.swing.JButton;
 
+import Variables.GlobalV;
+
 
 
 @SuppressWarnings("serial")
@@ -16,10 +18,17 @@ public class StoryCondition  extends JButton{
 	int depth;
 	int index;
 	
-	int page;
+	public String variable;
+	public String operator;
+	public String value;	
+	
+	public int nextPage;
+	public int nextEventIndex;
+	public String eventName;
+	
 	String name;
 	
-	//StoryConditionAction act;
+	StoryConditionAction act;
 	
 	public  StoryCondition(int LocationX, int LocationY, int SizeX, int SizeY, int Depth, int ConditionIndex){
 		this.locationX = LocationX;
@@ -31,13 +40,22 @@ public class StoryCondition  extends JButton{
 		this.name = "Condition"+ConditionIndex;
 
 		setBackground(new Color(148, 249, 255,255));
-		//act = new EventButtonAction();
+		act = new StoryConditionAction();
 		
-		//addActionListener(act);
+		addActionListener(act);
 		
 		setText(name);
 		setLocation(locationX, locationY);
-		setSize(sizeX, sizeY);		
+		setSize(sizeX, sizeY);
+		
+		variable = "Test";
+		operator = ">";
+		value =""+ConditionIndex;	
+		
+		nextPage = GlobalV.CurrentEdittingPage;
+		nextEventIndex =1;
+		
+		
 	}
 	public void setDepth(int Depth){
 		this.depth = Depth;

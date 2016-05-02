@@ -56,6 +56,7 @@ import FunctionActions.BackgroundTimerFrameActions;
 import ImageMaterial.G_Material;
 import MainScreen.*;
 import CharacterScreen.*;
+import Choices.G_Variables;
 import Display.G_Display;
 import EdittingBuffer.EditingBuffer;
 import Events.G_Event;
@@ -78,6 +79,7 @@ public class MainToolPage{
 	public static G_Display globalDisplay;
 	public static EditingBuffer globalBuffer;
 	public static SystemControl Sys;
+	public static G_Variables globalConditionVars;
 	
 	public static BackgroundTimerFrameActions test = new BackgroundTimerFrameActions();
 	
@@ -95,12 +97,14 @@ public class MainToolPage{
 		globalChara = new G_Chara();
 		globalEvent = new G_Event();
 		globalDisplay = new G_Display();
+		globalConditionVars = new G_Variables();
 
 	}
 	//This is the start point of the tool
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+
 
 		initialSetting();
 		

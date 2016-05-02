@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import FunctionActions.BackgroundTimerFrameActions;
+import FunctionActions.BackgroundTimerFrameActions2;
 import Variables.GlobalV;
 
 @SuppressWarnings("serial")
@@ -20,7 +21,7 @@ public class BackgoundTimerFrame extends JPanel{
 	int depth;
 	public Map<Integer, Component> map;
 
-	public BackgroundTimerFrameActions mainAct;
+	public BackgroundTimerFrameActions2 mainAct;
 	public  Timer clock;
 	
 	public boolean isTimer;
@@ -33,7 +34,7 @@ public class BackgoundTimerFrame extends JPanel{
 		this.depth = Depth;
 		map = new TreeMap<Integer, Component>();
 
-		mainAct = new BackgroundTimerFrameActions();
+		mainAct = new BackgroundTimerFrameActions2();
 		clock = new Timer(GlobalV.ClockDelay, mainAct);
 		
 		this.isTimer = isTimer;

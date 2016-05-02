@@ -31,6 +31,9 @@ public class LookUp {
 	//Place material
 	public static Map<Integer, String> PlaceMap;
 	public static Map<String, Integer> PlaceNameMap;
+	
+	public static Map<Integer, String> VariableMap;
+	public static Map<String, Integer> VariableNameMap;
 
 	
 	public LookUp(){
@@ -63,6 +66,11 @@ public class LookUp {
 		Map< Integer, String> tempTime = new TreeMap<Integer, String>();
 		EventTimeMap.add(null);
 		EventTimeMap.add(tempTime);
+		
+		VariableMap = new TreeMap<Integer, String>() ;
+		VariableNameMap = new TreeMap<String, Integer>() ;		
+		
+		VariableNameMap.put("Test", 1);
 		//System.out.println(EventTimeMap.size());
 		
 		

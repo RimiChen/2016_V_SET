@@ -8,6 +8,8 @@ import java.util.TreeMap;
 import javax.swing.ImageIcon;
 
 import CharacterScreen.G_Chara;
+import Conditions.ConditionNoButton;
+import Conditions.ConditionYesButton;
 import FunctionActions.DragPanelMouseAction;
 import FunctionActions.MovePanelMouseAction;
 import FunctionActions.PlaceMenuAction;
@@ -95,6 +97,26 @@ public class G_Event {
 	public static GroupFrame ChoiceOutPanel;
 	public static GroupFrame ChoicePanel;
 	public static GroupFrame ChoiceNamePanel;
+	
+	//public static Condition panel
+	public static GroupFrame ConditionPanel;
+	public static GroupFrame ConditionContentPanel;
+	public static GroupFrame ConditionFunctionPanel;
+	public static ConditionNoButton ConditionNo;
+	public static ConditionYesButton ConditionYes;
+	
+	
+	public static SubLabel ConditionVariable0;
+	public static SubTextField ConditionVariable;
+	public static SubLabel ConditionOper0;
+	public static SubTextField  ConditionOper;
+	public static SubLabel ConditionValue0;
+	public static SubTextField ConditionValue;
+	public static SubLabel ConditionPage0;
+	public static SubTextField ConditionPage;
+	public static SubLabel ConditionEvent0;
+	public static SubTextField ConditionEvent;
+	
 	
 	
 	
@@ -213,8 +235,8 @@ public class G_Event {
 		//Dialogue panel
 		ContentOutPanel = new GroupFrame(0, EventEditingPanel.getHeight()/4+30 , EventEditingPanel.getWidth(), EventEditingPanel.getHeight()*3/4 - 30, 3);
 		DialoguePanel = new GroupFrame(0, 0 , ContentOutPanel.getWidth(), ContentOutPanel.getHeight(), 0);
-		DialoguePanel.setBackground(new Color(255, 0, 0));
-		DialoguePanel.setOpaque(true);
+		//DialoguePanel.setBackground(new Color(255, 0, 0));
+		//DialoguePanel.setOpaque(true);
 		ChoiceOutPanel = new GroupFrame(0, 0 , ContentOutPanel.getWidth(), ContentOutPanel.getHeight(), -1);
 		ChoiceOutPanel.setBackground(new Color(0,0, 255, 255));
 		ChoiceOutPanel.setOpaque(true);
@@ -319,6 +341,52 @@ public class G_Event {
 		//StoryCondition test = new StoryCondition(0, 0, EventConditionListPanel.getWidth(), EventConditionListPanel.getHeight()/GlobalV.MaxConditionNumber, 0, 0);
 		//EventConditionListPanel.addToMap(test.getDepth(), test);
 		//EventConditionListPanel.addThings();
+		
+		ConditionPanel = new GroupFrame(EventPlacePanel.getX(), EventPlacePanel.getY(),EventPlacePanel.getWidth()-20, EventPlacePanel.getHeight()-10, -20);
+		ConditionFunctionPanel = new GroupFrame(0, ConditionPanel.getHeight()-70,ConditionPanel.getWidth(),50, 0 );
+		
+		ConditionContentPanel = new GroupFrame(0, 0,ConditionPanel.getWidth(),ConditionFunctionPanel.getY(), 1 );
+		//ConditionContentPanel.setBackground(new Color(255, 255, 0, 200));
+		//ConditionContentPanel.setOpaque(true);
+		
+		ConditionPanel.addToMap(ConditionFunctionPanel.getDepth(), ConditionFunctionPanel);
+		ConditionPanel.addToMap(ConditionContentPanel.getDepth(), ConditionContentPanel);
+		ConditionPanel.addThings();
+		
+		ConditionYes = new ConditionYesButton(0, 0, ConditionFunctionPanel.getWidth()/2, ConditionFunctionPanel.getHeight(), 0);	
+		ConditionYes.setText("Save");
+		ConditionNo = new ConditionNoButton(ConditionYes.getWidth(), 0, ConditionFunctionPanel.getWidth()/2, ConditionFunctionPanel.getHeight(), 1);
+		ConditionNo.setText("Cancel");
+		ConditionFunctionPanel.addToMap(ConditionYes.getDepth(), ConditionYes);
+		ConditionFunctionPanel.addToMap(ConditionNo.getDepth(), ConditionNo);
+		ConditionFunctionPanel.addThings();
+
+		//EventVariableName0 = new SubLabel(0,EventVariableTitle.getHeight()+3, 80, EventVariableField.getHeight()/3-5, 1, "Variable", new Color(0, 255, 255, 125), false);
+		//EventVariableName = new SubTextField(EventVariableName0.getX(), (EventVariableName0.getY()+EventVariableName0.getHeight())+3, 80, EventVariableField.getHeight()/3-5, 2) ;		
+		ConditionVariable0  = new SubLabel(0,0, ConditionContentPanel.getWidth()/3, ConditionContentPanel.getHeight()/6, 0, "Variable", new Color(0, 255, 255, 125), true);
+		ConditionVariable= new SubTextField(0, ConditionContentPanel.getHeight()/6, ConditionContentPanel.getWidth()/3, ConditionContentPanel.getHeight()/6, 1) ;
+		ConditionOper0 = new SubLabel(ConditionVariable0.getX()+ConditionVariable0.getWidth(),0, ConditionContentPanel.getWidth()/3, ConditionContentPanel.getHeight()/6, 2, "Operator", new Color(0, 255, 255, 125), true);
+		ConditionOper= new SubTextField(ConditionVariable0.getX()+ConditionVariable0.getWidth(), ConditionContentPanel.getHeight()/6, ConditionContentPanel.getWidth()/3, ConditionContentPanel.getHeight()/6, 3) ;
+		ConditionValue0 = new SubLabel(ConditionOper0.getX()+ConditionOper0.getWidth(),0, ConditionContentPanel.getWidth()/3, ConditionContentPanel.getHeight()/6, 4, "Value", new Color(0, 255, 255, 125), true);
+		ConditionValue= new SubTextField(ConditionOper0.getX()+ConditionOper0.getWidth(), ConditionContentPanel.getHeight()/6, ConditionContentPanel.getWidth()/3, ConditionContentPanel.getHeight()/6, 5) ;
+
+		ConditionPage0 = new SubLabel(0,ConditionContentPanel.getHeight()*3/6, ConditionContentPanel.getWidth()/4, ConditionContentPanel.getHeight()/6, 6, "Page", new Color(0, 255, 255, 125), true);
+		ConditionPage= new SubTextField(ConditionContentPanel.getWidth()*1/4,ConditionContentPanel.getHeight()*3/6, ConditionContentPanel.getWidth()/4, ConditionContentPanel.getHeight()/6, 7) ;
+		ConditionEvent0 =new SubLabel(ConditionContentPanel.getWidth()*2/4,ConditionContentPanel.getHeight()*3/6, ConditionContentPanel.getWidth()/4, ConditionContentPanel.getHeight()/6, 8, "Event", new Color(0, 255, 255, 125), true);
+		ConditionEvent= new SubTextField(ConditionContentPanel.getWidth()*3/4,ConditionContentPanel.getHeight()*3/6, ConditionContentPanel.getWidth()/4, ConditionContentPanel.getHeight()/6, 9) ;
+	
+		
+		ConditionContentPanel.addToMap(ConditionVariable0.getDepth(), ConditionVariable0);
+		ConditionContentPanel.addToMap(ConditionVariable.getDepth(), ConditionVariable);
+		ConditionContentPanel.addToMap(ConditionOper0.getDepth(), ConditionOper0);
+		ConditionContentPanel.addToMap(ConditionOper.getDepth(), ConditionOper);
+		ConditionContentPanel.addToMap(ConditionValue0.getDepth(), ConditionValue0);
+		ConditionContentPanel.addToMap(ConditionValue.getDepth(), ConditionValue);
+		ConditionContentPanel.addToMap(ConditionPage0.getDepth(), ConditionPage0);
+		ConditionContentPanel.addToMap(ConditionPage.getDepth(), ConditionPage);
+		ConditionContentPanel.addToMap(ConditionEvent0.getDepth(), ConditionEvent0);
+		ConditionContentPanel.addToMap(ConditionEvent.getDepth(), ConditionEvent);
+		ConditionContentPanel.addThings();
 		
 		
 		EventConditionPanel.addToMap(EventConditionTitle.getDepth(), EventConditionTitle);
