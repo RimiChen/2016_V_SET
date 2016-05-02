@@ -26,12 +26,15 @@ public class ChoiceAddAction  implements ActionListener{
 		
 		nowEvent = LookUp.EventMap.get(LookUp.EventNameMap.get(GlobalV.CurrentEditingEvent));
 		 
-		if(nowEvent.dialogueQueue.size()==0){
-			G_Event.ContentOutPanel.remove(G_Event.DialoguePanel.getDepth());
+		//if(EditingBuffer.BufferedChoice.size()==0 && EditingBuffer.BufferedDialogue.size()==0){
+			//G_Event.ContentOutPanel.remove(G_Event.ChoicePanel.getDepth());
+			G_Event.ContentOutPanel.map.remove(G_Event.DialoguePanel.getDepth());
 			G_Event.ContentOutPanel.addToMap(G_Event.ChoiceOutPanel.getDepth(), G_Event.ChoiceOutPanel);
 			G_Event.ContentOutPanel.removeAll();
 			G_Event.ContentOutPanel.addThings();
 			G_Event.ContentOutPanel.repaint();
+	
+		if(nowEvent.dialogueQueue.size()==0){
 			
 			if(EditingBuffer.BufferedChoice.size() <GlobalV.MaxDialogueNumber-1){
 				if(EditingBuffer.BufferedChoice.size() == 0){

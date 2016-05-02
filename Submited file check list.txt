@@ -1,0 +1,6 @@
+Required Files (According to Syllabus):
+
+1. Presentation Slide:  V-SET_v2 Presentation.pptx
+2. System Dscription:  V-SET_v2 Write Up_Final Project.docx
+3. Design Document:  DesignDocument_Class Diagram.pdf
+4. Demo Vedio: (youtube links) Demo video link.txt

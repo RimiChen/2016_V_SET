@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import CharaMake.CustomCharacter;
 import CharacterScreen.G_Chara;
 import Choices.ChoiceButton;
+import Choices.G_Variables;
 import Events.StoryEvent;
 import Events.SubLabel;
 import FunctionActions.CloseStoryAction;
@@ -162,6 +163,7 @@ public class G_Display {
 	}
 	public static void compileStory(){
 
+		G_Variables.initAll();
 		GlobalV.isEditting = true;
 		BasicFrame.setVisible(false);
 		StoryFrame.setVisible(true);

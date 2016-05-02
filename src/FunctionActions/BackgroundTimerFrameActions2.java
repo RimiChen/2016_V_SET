@@ -72,7 +72,7 @@ public class BackgroundTimerFrameActions2 implements ActionListener{
 					
 					if(G_Display.DisplayQueue.get(0).nextEventIndex<0 ){
 						//System.out.println("Going to end");
-						G_Display.DisplayQueue.remove(0);
+						//G_Display.DisplayQueue.remove(0);
 
 					}
 					else{
@@ -82,6 +82,7 @@ public class BackgroundTimerFrameActions2 implements ActionListener{
 						//G_Display.DisplayQueue.add(LookUp.EventMap.get(next));
 					}
 					GlobalV.DisplayDialogueCount = 0;
+					G_Display.DisplayQueue.remove(0);
 					
 					//jump to next event
 				}				

@@ -238,8 +238,8 @@ public class G_Event {
 		//DialoguePanel.setBackground(new Color(255, 0, 0));
 		//DialoguePanel.setOpaque(true);
 		ChoiceOutPanel = new GroupFrame(0, 0 , ContentOutPanel.getWidth(), ContentOutPanel.getHeight(), -1);
-		ChoiceOutPanel.setBackground(new Color(0,0, 255, 255));
-		ChoiceOutPanel.setOpaque(true);
+		//ChoiceOutPanel.setBackground(new Color(0,0, 255, 255));
+		//ChoiceOutPanel.setOpaque(true);
 		
 		ChoicePanel = new GroupFrame(0, 0 , ContentOutPanel.getWidth()*4/5, ContentOutPanel.getHeight(), 0);
 		//ChoicePanel.setBackground(new Color(0,0, 255, 100));

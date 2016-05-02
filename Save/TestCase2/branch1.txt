@@ -1,0 +1,18 @@
+ENUM, 3
+
+E, 1, 4, Start, Forest, 650, 30, 100, 30
+EC, 1, Narrator, It| is| a| warm| spring| day.
+EC, 2, Narrator, Two| children| play| at| the| edge| of| the| woods. 
+EC, 3, Narrator, They| play| near| their| home.
+EC, 4, Narrator, Their| names| are| Hansel| and| Gretel. 
+
+E, 2, 4, Boy| and| Girl, Forest, 50, 100, 250, 30
+EC, 1, Hansel,  Look| what| I| found!| Do| you| see?
+EC, 2, Hansel,  They| are| white| pebbles.| They| are| so| small. 
+EC, 3, Gretel, How| pretty!| Look| how| they| shine| in| the| sun. 
+EC, 4, Hansel, I| will| fill| my| pockets.| I| will| take| them| all! 
+
+E, 3, 3, House, Village, 650, 170, 100, 30
+EC, 1, Narrator, The| children| hear| yelling.
+EC, 2, Narrator, It| comes| from| inside| the| house.
+EC, 3, Narrator, They| know| it| is| their| stepmother.| She| is| angry. 

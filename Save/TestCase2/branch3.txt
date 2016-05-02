@@ -1,0 +1,9 @@
+ENUM, 2
+
+E, 7, 2, Forest, Forest, 650, 30, 100, 30
+EC, 1, Narrator, The| two| children| ignore| the | yell.
+EC, 2, Narrator, They| run| into| the| woods. 
+
+E, 8, 2, Boy| and| Girl2, Forest, 50, 100, 250, 30
+EC, 1, Hansel,  Look| there| is| a| House
+EC, 2, Gretel, How| pretty!| It| is| a| candy| house. 

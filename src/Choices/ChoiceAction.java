@@ -49,6 +49,8 @@ public class ChoiceAction  implements ActionListener{
 						//int next = LookUp.EventNameMap.get(LookUp.EventMap.get(GlobalV.currentDisplayEvent).conditionQueue.get(i));
 						G_Display.DisplayQueue.clear();
 						G_Display.DisplayQueue.add(LookUp.EventMap.get(LookUp.EventMap.get(GlobalV.currentDisplayEvent).conditionQueue.get(i).nextEventIndex));
+						GlobalV.DisplayDialogueCount = 0;
+						//G_Display.DisplayQueue.remove(0);						
 					}
 				}
 			}

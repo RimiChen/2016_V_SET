@@ -25,7 +25,16 @@ public class DialogueAddAction  implements ActionListener{
 		numberInAPage = GlobalV.MaxDialogueNumber;
 		
 		nowEvent = LookUp.EventMap.get(LookUp.EventNameMap.get(GlobalV.CurrentEditingEvent));
-		if(nowEvent.choiceQueue.size()==0){
+		//if(EditingBuffer.BufferedChoice.size()==0 && EditingBuffer.BufferedDialogue.size()==0){
+			//G_Event.ContentOutPanel.remove(G_Event.ChoicePanel.getDepth());
+			G_Event.ContentOutPanel.map.remove(G_Event.ChoicePanel.getDepth());
+			G_Event.ContentOutPanel.addToMap(G_Event.DialoguePanel.getDepth(), G_Event.DialoguePanel);
+			G_Event.ContentOutPanel.removeAll();
+			G_Event.ContentOutPanel.addThings();
+			G_Event.ContentOutPanel.repaint();
+		//}
+			
+		if(nowEvent.choiceQueue.size()==0){	
 			if(EditingBuffer.BufferedDialogue.size() == 0){
 				tempDialogue = new StoryDialogue(0, 0, G_Event.DialoguePanel.getWidth(), G_Event.DialoguePanel.getHeight()/numberInAPage, EditingBuffer.BufferedDialogue.size(),EditingBuffer.BufferedDialogue.size());
 				EditingBuffer.BufferedDialogue.add(tempDialogue);
