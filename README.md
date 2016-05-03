@@ -1,4 +1,4 @@
-#V-SET v 1.0.0
+#V-SET v 2.0.0
 ------
 
 Do you have a lot of story ideas? And want to make it as a electronic novel or a narrative game, but not familiar with programming language?
@@ -13,8 +13,11 @@ It allow authors to...
 - <B>Create own characters</B>, and design character's image
 - <B>Generate story events</B>, and edit it through graphical interface
 - <B>Edit story dialogue</B>, and combine the content with characters
+- <B>Create story branches</B>, to have different storylines.
+- <B>Set multiple choices</B>, to let readers decide the storyline.
+- <B>Jump between storyline</B>, to edit the whole story more flexiblely.
 
-Once the story content are created, V-SET will help authors automatically compile the story to be a drama (versino 1.0.0).
+Once the story content are created, V-SET will help authors automatically compile the story to be a interactive narrative game (versino 2.0.0).
 
 Let's try V-SET, enjoy and share your story! 
 
@@ -31,7 +34,7 @@ V-SET is a project which developed as a topic for the Interactive narrative cour
 In the very first version, it provide functions that allow authors edit characters, story events, and arrange storyline. And it will display the story in chronological order.
 
 - version 2.0.0
-(under develop)
+(under develop, now working on error handling)
 This version extands all the function of the previous version. But, the system become able to display authors' story as small playable system like narrative advanture game. Authors can add variables and conditions to jump between story events.
 
 
