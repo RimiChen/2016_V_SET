@@ -3,10 +3,9 @@ package Conditions;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import EdittingBuffer.EditingBuffer;
+
 import Events.G_Event;
-import MainScreen.G_Components;
-import Variables.GlobalV;
+
 
 public class ConditionNoAction  implements ActionListener{
 	

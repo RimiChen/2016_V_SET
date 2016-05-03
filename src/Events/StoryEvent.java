@@ -31,6 +31,9 @@ public class StoryEvent {
 	
 	public int choiceChara;
 	
+	public boolean isDialogue = true;
+	public boolean isChoice = true;
+	
 	
 	public StoryEvent( int index, int startY){
 		//default will go to next event

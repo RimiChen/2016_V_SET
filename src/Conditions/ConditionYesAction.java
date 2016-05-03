@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import Choices.G_Variables;
 import EdittingBuffer.EditingBuffer;
 import Events.G_Event;
-import MainScreen.G_Components;
+
 import Variables.GlobalV;
 import Variables.LookUp;
 

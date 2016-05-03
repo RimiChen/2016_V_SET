@@ -1,0 +1,5 @@
+Execution Note:
+
+In Windows command line, execute
+
+java -jar V-SET2.0.jar

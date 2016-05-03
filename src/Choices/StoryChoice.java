@@ -8,13 +8,12 @@ import java.util.TreeMap;
 
 import javax.swing.JPanel;
 
-import Events.DialogueContentField;
-import Events.DialogueMenu;
+
 import Events.SubLabel;
 import Events.SubTextField;
-import FunctionActions.DialogueCharaAction;
-import Variables.LookUp;
 
+
+@SuppressWarnings("serial")
 public class StoryChoice extends JPanel{
 	int locationX;
 	int locationY;

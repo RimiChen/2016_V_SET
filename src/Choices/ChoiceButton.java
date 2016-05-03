@@ -2,8 +2,8 @@ package Choices;
 
 import javax.swing.JButton;
 
-import Conditions.ConditionNoAction;
 
+@SuppressWarnings("serial")
 public class ChoiceButton  extends JButton{
 	int locationX;
 	int locationY;

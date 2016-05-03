@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import Conditions.StoryCondition;
 import EdittingBuffer.EditingBuffer;
 import Events.G_Event;
-import Events.StoryDialogue;
 import Events.StoryEvent;
 import Variables.GlobalV;
 import Variables.LookUp;

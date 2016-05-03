@@ -5,8 +5,6 @@ import java.awt.event.ActionListener;
 
 import EdittingBuffer.EditingBuffer;
 import Events.G_Event;
-import Events.StoryEvent;
-import MainScreen.G_Components;
 import Variables.GlobalV;
 import Variables.LookUp;
 
@@ -19,6 +17,7 @@ public class StoryConditionAction implements ActionListener{
 		G_Event.EventEditingPanel.removeAll();
 		//System.out.println("In event "+GlobalV.CurrentEditingEvent+" condition "+ arg0.getActionCommand()+ " is choosen ");
 		String eventName = GlobalV.CurrentEditingEvent;
+		@SuppressWarnings("unused")
 		int eventIndex = LookUp.EventNameMap.get(eventName);
 		int buttonID = Integer.parseInt(arg0.getActionCommand().substring(9, arg0.getActionCommand().length()));
 		GlobalV.currentEdittingButton = buttonID;

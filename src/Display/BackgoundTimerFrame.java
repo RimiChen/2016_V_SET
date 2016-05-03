@@ -8,7 +8,6 @@ import java.util.TreeMap;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import FunctionActions.BackgroundTimerFrameActions;
 import FunctionActions.BackgroundTimerFrameActions2;
 import Variables.GlobalV;
 

@@ -1,6 +1,5 @@
 package Choices;
 
-import Variables.GlobalV;
 
 public class StoryVariables {
 	public int index;

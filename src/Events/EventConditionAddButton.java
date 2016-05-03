@@ -2,7 +2,6 @@ package Events;
 
 import javax.swing.JButton;
 
-import FunctionActions.DialogueAddAction;
 import FunctionActions.EventConditionAddAction;
 
 

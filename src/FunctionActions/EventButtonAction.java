@@ -57,8 +57,14 @@ public class EventButtonAction implements ActionListener{
 
 	}
 	public void displayPrevious(){
-		if(nowEvent.choiceQueue.size() ==0){
+		if(nowEvent.dialogueQueue.size() !=0){
 			// no choice
+			G_Event.ContentOutPanel.map.clear();
+			G_Event.ContentOutPanel.addToMap(G_Event.DialoguePanel.getDepth(), G_Event.DialoguePanel);
+			G_Event.ContentOutPanel.removeAll();
+			G_Event.ContentOutPanel.addThings();
+			G_Event.ContentOutPanel.repaint();
+			
 			for(int i = 0; i< EditingBuffer.BufferedDialogue.size(); i++){
 				//System.out.print(GlobalV.BufferedDialogue.get(i).charaIndex);
 				//System.out.println("old " + GlobalV.BufferedDialogue.get(i).content +" Chara: " + LookUp.CharaMap.get(GlobalV.BufferedDialogue.get(i).charaIndex));
@@ -72,7 +78,14 @@ public class EventButtonAction implements ActionListener{
 			G_Event.DialoguePanel.repaint();
 
 		}
-		else{
+		
+		if(nowEvent.choiceQueue.size() !=0){
+			G_Event.ContentOutPanel.map.clear();
+			G_Event.ContentOutPanel.addToMap(G_Event.ChoiceOutPanel.getDepth(), G_Event.ChoiceOutPanel);
+			G_Event.ContentOutPanel.removeAll();
+			G_Event.ContentOutPanel.addThings();
+			G_Event.ContentOutPanel.repaint();
+	
 			for(int i = 0; i< EditingBuffer.BufferedChoice.size(); i++){
 				//System.out.print(GlobalV.BufferedDialogue.get(i).charaIndex);
 				//System.out.println("old " + GlobalV.BufferedDialogue.get(i).content +" Chara: " + LookUp.CharaMap.get(GlobalV.BufferedDialogue.get(i).charaIndex));

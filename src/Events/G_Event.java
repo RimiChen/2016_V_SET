@@ -551,37 +551,7 @@ public class G_Event {
 		}
 
 	}
-/*	
-	public static void updateEventLinks(){
-		if(LookUp.EventTimeMap.get(GlobalV.CurrentEdittingPage).size()>0){
-			for(int key: LookUp.EventTimeMap.get(GlobalV.CurrentEdittingPage).keySet()){
-				String targetEvent = LookUp.EventTimeMap.get(GlobalV.CurrentEdittingPage).get(key);
-				int currentIndex = LookUp.EventNameMap.get(targetEvent);
-				StoryEvent currentUseEvent = LookUp.EventMap.get(currentIndex);
-				int nextIndex = getNextEvent(key);				
-				if(currentUseEvent.nextEvent == "" || currentUseEvent.nextEventIndex <0 ||currentUseEvent.nextPage == GlobalV.CurrentEdittingPage){
-					if(nextIndex>=0){
-						System.out.println("System: Event "+targetEvent+" has no next, update next to "+LookUp.EventMap.get(nextIndex).eventName);
-						LookUp.EventMap.get(currentIndex).nextPage = GlobalV.CurrentEdittingPage;
-						LookUp.EventMap.get(currentIndex).nextEvent = LookUp.EventMap.get(nextIndex).eventName;
-						LookUp.EventMap.get(currentIndex).nextEventIndex = nextIndex;
-					}
-					else{
-						System.out.println("System: Event "+targetEvent+" has no next, update next to null");
-						LookUp.EventMap.get(currentIndex).nextPage = GlobalV.CurrentEdittingPage;
-						LookUp.EventMap.get(currentIndex).nextEvent = "";
-						LookUp.EventMap.get(currentIndex).nextEventIndex = -1;
-					}
-				}
-				else{
-					
-				}
-				
-			}
-		}
 
-	}
-*/
 	public static int getNextEvent(int position){
 		int nextIndex = -1;
 		int count =0;

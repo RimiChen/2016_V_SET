@@ -2,8 +2,8 @@ package Conditions;
 
 import javax.swing.JButton;
 
-import FunctionActions.EventNoAction;
 
+@SuppressWarnings("serial")
 public class ConditionYesButton extends JButton{
 	int locationX;
 	int locationY;

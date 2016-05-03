@@ -11,10 +11,14 @@ public class EditingBuffer {
 	public static List<StoryDialogue> BufferedDialogue;
 	public static List<StoryCondition> BufferedCondition;
 	public static List<StoryChoice> BufferedChoice;
+	public static boolean isDialogue;
+	public static boolean isChoice;
 	
 	public EditingBuffer(){
 		BufferedDialogue = new ArrayList<StoryDialogue>();
 		BufferedCondition = new ArrayList<StoryCondition>();
-		BufferedChoice = new ArrayList<StoryChoice>();		
+		BufferedChoice = new ArrayList<StoryChoice>();
+		isDialogue = true;
+		isChoice = true;
 	}
 }
