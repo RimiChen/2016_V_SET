@@ -23,8 +23,11 @@ Let's try V-SET, enjoy and share your story!
 
 Demo Video
 ---
-https://www.youtube.com/watch?v=DfeFzWGYJYs&feature=youtu.be
+version 1.0.0
+https://youtu.be/DfeFzWGYJYs
 
+version 2.0.0
+https://youtu.be/lMltTl59548
 ---------
 
 History
